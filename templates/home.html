@@ -1,6 +1,44 @@
-
 {% extends "base.html" %}
+{% block title %}Home - BookClub{% endblock %}
 {% block content %}
-<h3>Home – Book list (seed data)</h3>
-<p>Dự án mẫu BookClub</p>
+<h3 class="mb-3">Danh sách sách</h3>
+
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-6">
+    <input class="form-control" name="q" value="{{ q }}" placeholder="Tìm theo tên sách / tác giả">
+  </div>
+  <div class="col-md-4">
+    <select class="form-select" name="category">
+      <option value="">-- Tất cả danh mục --</option>
+      {% for c in categories %}
+        <option value="{{ c.id }}" {% if category_id|add:"" == c.id|add:"" %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2 d-grid">
+    <button class="btn btn-primary">Tìm</button>
+  </div>
+</form>
+
+<div class="row g-3">
+  {% for b in books %}
+    <div class="col-md-4">
+      <div class="card h-100">
+        {% if b.cover_image %}
+          <img src="{{ b.cover_image.url }}" class="card-img-top" style="height:220px;object-fit:cover">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ b.title }}</h5>
+          <div class="text-muted">{{ b.author }}</div>
+          <div class="mt-2">
+            <span class="badge bg-secondary">{{ b.category.name }}</span>
+            <span class="badge bg-info text-dark">Còn: {{ b.available_copies }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>Chưa có sách nào.</p>
+  {% endfor %}
+</div>
 {% endblock %}
