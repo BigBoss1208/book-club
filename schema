@@ -1,0 +1,194 @@
+-- ======================================
+-- 0) Create DB
+-- ======================================
+CREATE DATABASE IF NOT EXISTS library_system
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE library_system;
+
+-- ======================================
+-- 1) auth_user
+-- ======================================
+CREATE TABLE IF NOT EXISTS auth_user (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  password VARCHAR(128) NOT NULL,
+  last_login DATETIME(6) NULL,
+  is_superuser TINYINT(1) NOT NULL DEFAULT 0,
+  username VARCHAR(150) NOT NULL,
+  first_name VARCHAR(150) NOT NULL DEFAULT '',
+  last_name VARCHAR(150) NOT NULL DEFAULT '',
+  email VARCHAR(254) NOT NULL DEFAULT '',
+  is_staff TINYINT(1) NOT NULL DEFAULT 0,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  date_joined DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_auth_user_username (username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ======================================
+-- 2) student_profiles
+-- ======================================
+CREATE TABLE IF NOT EXISTS student_profiles (
+  user_id BIGINT UNSIGNED NOT NULL,
+  student_code VARCHAR(50) NOT NULL,
+  full_name VARCHAR(255) NOT NULL,
+  phone VARCHAR(30) NULL,
+  faculty VARCHAR(120) NULL,
+  class_name VARCHAR(120) NULL,
+  created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+
+  PRIMARY KEY (user_id),
+  UNIQUE KEY uk_student_profiles_student_code (student_code),
+
+  CONSTRAINT fk_student_profiles_user
+    FOREIGN KEY (user_id) REFERENCES auth_user(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ======================================
+-- 3) categories
+-- ======================================
+CREATE TABLE IF NOT EXISTS categories (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  description TEXT NULL,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_categories_name (name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ======================================
+-- 4) books
+-- ======================================
+CREATE TABLE IF NOT EXISTS books (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NULL,
+  publisher VARCHAR(255) NULL,
+  publish_year INT NULL,
+  isbn VARCHAR(50) NULL,
+  description TEXT NULL,
+  cover_image VARCHAR(255) NULL,
+
+  total_copies INT UNSIGNED NOT NULL DEFAULT 1,
+  available_copies INT UNSIGNED NOT NULL DEFAULT 1,
+
+  category_id BIGINT UNSIGNED NOT NULL,
+  created_by_id BIGINT UNSIGNED NULL,
+
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  updated_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_books_isbn (isbn),
+  KEY idx_books_category_id (category_id),
+  KEY idx_books_created_by_id (created_by_id),
+
+  CONSTRAINT fk_books_category
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+
+  CONSTRAINT fk_books_created_by
+    FOREIGN KEY (created_by_id) REFERENCES auth_user(id)
+    ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ======================================
+-- 5) borrow_requests
+-- ======================================
+CREATE TABLE IF NOT EXISTS borrow_requests (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id BIGINT UNSIGNED NOT NULL,
+  book_id BIGINT UNSIGNED NOT NULL,
+  request_date DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  expected_return_date DATE NOT NULL,
+  status ENUM('PENDING','APPROVED','REJECTED','CANCELLED') NOT NULL DEFAULT 'PENDING',
+  note TEXT NULL,
+  handled_by_id BIGINT UNSIGNED NULL,
+  handled_at DATETIME(6) NULL,
+
+  PRIMARY KEY (id),
+  KEY idx_borrow_requests_user_id (user_id),
+  KEY idx_borrow_requests_book_id (book_id),
+  KEY idx_borrow_requests_status (status),
+  KEY idx_borrow_requests_handled_by_id (handled_by_id),
+
+  CONSTRAINT fk_borrow_requests_user
+    FOREIGN KEY (user_id) REFERENCES auth_user(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+
+  CONSTRAINT fk_borrow_requests_book
+    FOREIGN KEY (book_id) REFERENCES books(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+
+  CONSTRAINT fk_borrow_requests_handled_by
+    FOREIGN KEY (handled_by_id) REFERENCES auth_user(id)
+    ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ======================================
+-- 6) borrow_transactions
+-- ======================================
+CREATE TABLE IF NOT EXISTS borrow_transactions (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  borrow_request_id BIGINT UNSIGNED NOT NULL,
+  borrowed_at DATETIME(6) NOT NULL,
+  due_at DATETIME(6) NOT NULL,
+  returned_at DATETIME(6) NULL,
+  status ENUM('BORROWING','RETURN_PENDING','RETURNED','OVERDUE') NOT NULL DEFAULT 'BORROWING',
+  fine_amount DECIMAL(10,2) NULL,
+
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_borrow_transactions_borrow_request_id (borrow_request_id),
+  KEY idx_borrow_transactions_status (status),
+
+  CONSTRAINT fk_borrow_transactions_request
+    FOREIGN KEY (borrow_request_id) REFERENCES borrow_requests(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ======================================
+-- 7) reviews
+-- ======================================
+CREATE TABLE IF NOT EXISTS reviews (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id BIGINT UNSIGNED NOT NULL,
+  book_id BIGINT UNSIGNED NOT NULL,
+  borrow_transaction_id BIGINT UNSIGNED NULL,
+  rating TINYINT UNSIGNED NOT NULL,
+  content TEXT NOT NULL,
+  status ENUM('PENDING','APPROVED','REJECTED') NOT NULL DEFAULT 'PENDING',
+  moderated_by_id BIGINT UNSIGNED NULL,
+  moderated_at DATETIME(6) NULL,
+  created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+
+  PRIMARY KEY (id),
+  KEY idx_reviews_user_id (user_id),
+  KEY idx_reviews_book_id (book_id),
+  KEY idx_reviews_status (status),
+  KEY idx_reviews_moderated_by_id (moderated_by_id),
+  UNIQUE KEY uk_reviews_borrow_transaction_id (borrow_transaction_id),
+
+  CONSTRAINT ck_reviews_rating_range CHECK (rating BETWEEN 1 AND 5),
+
+  CONSTRAINT fk_reviews_user
+    FOREIGN KEY (user_id) REFERENCES auth_user(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+
+  CONSTRAINT fk_reviews_book
+    FOREIGN KEY (book_id) REFERENCES books(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+
+  CONSTRAINT fk_reviews_borrow_transaction
+    FOREIGN KEY (borrow_transaction_id) REFERENCES borrow_transactions(id)
+    ON DELETE SET NULL ON UPDATE CASCADE,
+
+  CONSTRAINT fk_reviews_moderated_by
+    FOREIGN KEY (moderated_by_id) REFERENCES auth_user(id)
+    ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

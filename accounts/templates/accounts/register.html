@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Đăng ký{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Đăng ký</h4>
+      </div>
+
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label class="form-label">Tên đăng nhập</label>
+            <input type="text" name="username" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mật khẩu</label>
+            <input type="password" name="password1" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nhập lại mật khẩu</label>
+            <input type="password" name="password2" class="form-control" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+        </form>
+      </div>
+
+      <div class="card-footer text-center">
+        Đã có tài khoản? <a href="{% url 'accounts:login' %}">Đăng nhập</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
