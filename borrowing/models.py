@@ -41,7 +41,6 @@ class BorrowTransaction(models.Model):
     returned_at = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default='BORROWING')
     fine_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    late_return_days = models.IntegerField(default=0)
 
     class Meta:
         db_table = 'borrow_transactions'
@@ -53,6 +52,5 @@ class BorrowTransaction(models.Model):
     def calculate_fine(self):
         if self.returned_at and self.returned_at > self.due_at:
             days_late = (self.returned_at - self.due_at).days
-            self.late_return_days = days_late
             self.fine_amount = days_late * 5000  # 5000 VND/day
             self.save()

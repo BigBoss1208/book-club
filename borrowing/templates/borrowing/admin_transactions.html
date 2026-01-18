@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Quản lý trả sách{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Quản lý trả sách (Borrowing/Overdue)</h2>
+  <a class="btn btn-outline-secondary" href="{% url 'dashboard:dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+</div>
+
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-5">
+    <input class="form-control" name="search" placeholder="Tìm user/email hoặc tên sách..." value="{{ search }}">
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" name="status">
+      <option value="">-- Tất cả trạng thái --</option>
+      <option value="BORROWING" {% if status == 'BORROWING' %}selected{% endif %}>BORROWING</option>
+      <option value="OVERDUE" {% if status == 'OVERDUE' %}selected{% endif %}>OVERDUE</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <select class="form-select" name="sort">
+      <option value="due_at" {% if sort == 'due_at' %}selected{% endif %}>Due sớm</option>
+      <option value="-due_at" {% if sort == '-due_at' %}selected{% endif %}>Due muộn</option>
+      <option value="borrowed_at" {% if sort == 'borrowed_at' %}selected{% endif %}>Mượn sớm</option>
+      <option value="-borrowed_at" {% if sort == '-borrowed_at' %}selected{% endif %}>Mượn muộn</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-outline-primary w-100"><i class="bi bi-search"></i> Lọc</button>
+  </div>
+</form>
+
+<table class="table table-hover align-middle">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Sách</th>
+      <th class="text-center">Borrowed</th>
+      <th class="text-center">Due</th>
+      <th class="text-center">Status</th>
+      <th class="text-end">Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in transactions %}
+      <tr>
+        <td>
+          <b>{{ t.borrow_request.user.username }}</b>
+          <div class="small text-muted">{{ t.borrow_request.user.email|default:"-" }}</div>
+        </td>
+        <td>
+          <a href="{% url 'library:book_detail' t.borrow_request.book.pk %}"><b>{{ t.borrow_request.book.title }}</b></a>
+          <div class="small text-muted">{{ t.borrow_request.book.author }}</div>
+        </td>
+        <td class="text-center">{{ t.borrowed_at|date:"d/m/Y H:i" }}</td>
+        <td class="text-center">{{ t.due_at|date:"d/m/Y H:i" }}</td>
+        <td class="text-center">
+          {% if t.status == 'BORROWING' %}<span class="badge bg-info text-dark">BORROWING</span>{% endif %}
+          {% if t.status == 'OVERDUE' %}<span class="badge bg-danger">OVERDUE</span>{% endif %}
+        </td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-success" href="{% url 'borrowing:return_book' t.pk %}"><i class="bi bi-box-arrow-in-left"></i> Xác nhận trả</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="6" class="text-center text-muted">Không có giao dịch nào.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

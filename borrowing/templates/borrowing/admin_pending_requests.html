@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Duyệt mượn sách{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Duyệt yêu cầu mượn sách (Pending)</h2>
+  <a class="btn btn-outline-secondary" href="{% url 'dashboard:dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+</div>
+
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-6">
+    <input class="form-control" name="search" placeholder="Tìm user/email hoặc tên sách..." value="{{ search }}">
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" name="sort">
+      <option value="-created_at" {% if sort == '-created_at' %}selected{% endif %}>Mới nhất</option>
+      <option value="created_at" {% if sort == 'created_at' %}selected{% endif %}>Cũ nhất</option>
+      <option value="expected_return_date" {% if sort == 'expected_return_date' %}selected{% endif %}>Ngày trả (sớm)</option>
+      <option value="-expected_return_date" {% if sort == '-expected_return_date' %}selected{% endif %}>Ngày trả (muộn)</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <button class="btn btn-outline-primary w-100"><i class="bi bi-search"></i> Tìm/Lọc</button>
+  </div>
+</form>
+
+<table class="table table-hover align-middle">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Sách</th>
+      <th class="text-center">Ngày tạo</th>
+      <th class="text-center">Ngày trả dự kiến</th>
+      <th class="text-end">Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in requests %}
+      <tr>
+        <td>
+          <b>{{ r.user.username }}</b>
+          <div class="small text-muted">{{ r.user.email|default:"-" }}</div>
+        </td>
+        <td>
+          <a href="{% url 'library:book_detail' r.book.pk %}"><b>{{ r.book.title }}</b></a>
+          <div class="small text-muted">{{ r.book.author }}</div>
+        </td>
+        <td class="text-center">{{ r.created_at|date:"d/m/Y H:i" }}</td>
+        <td class="text-center">{{ r.expected_return_date|date:"d/m/Y" }}</td>
+        <td class="text-end">
+          <div class="btn-group">
+            <a class="btn btn-sm btn-outline-success" href="{% url 'borrowing:approve_request' r.pk %}"><i class="bi bi-check-circle"></i> Duyệt</a>
+            <a class="btn btn-sm btn-outline-danger" href="{% url 'borrowing:reject_request' r.pk %}"><i class="bi bi-x-circle"></i> Từ chối</a>
+          </div>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5" class="text-center text-muted">Không có yêu cầu pending.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

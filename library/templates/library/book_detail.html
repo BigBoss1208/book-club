@@ -14,6 +14,14 @@
     </div>
     <div class="col-md-8">
         <h1 class="mb-3">{{ book.title }}</h1>
+        {% if user.is_staff %}
+            <div class="mb-3">
+                <div class="btn-group">
+                    <a class="btn btn-outline-primary" href="{% url 'library:book_update' book.pk %}"><i class="bi bi-pencil"></i> Sửa</a>
+                    <a class="btn btn-outline-danger" href="{% url 'library:book_delete' book.pk %}"><i class="bi bi-eye-slash"></i> Ẩn</a>
+                </div>
+            </div>
+        {% endif %}
         <div class="mb-3">
             <span class="badge bg-primary fs-6">{{ book.category.name }}</span>
             {% if book.available_copies > 0 %}
@@ -61,7 +69,7 @@
 
 <!-- Reviews Section -->
 <div class="mt-5">
-    <h3>Đánh giá <span class="badge bg-secondary">{{ reviews.count }}</span></h3>
+    <h3>Đánh giá <span class="badge bg-secondary">{{ reviews_count }}</span></h3>
 
     {% if user.is_authenticated %}
         <a href="{% url 'reviews:create_review' book.pk %}" class="btn btn-sm btn-outline-primary mb-3">

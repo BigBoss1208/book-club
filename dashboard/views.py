@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Count, Q
+from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import timedelta
 from library.models import Book, Category

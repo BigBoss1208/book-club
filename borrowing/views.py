@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.utils import timezone
 from datetime import timedelta
+from django.db.models import Q
 from .models import BorrowRequest, BorrowTransaction
 from .forms import BorrowRequestForm
 from library.models import Book
@@ -72,8 +73,28 @@ def is_admin(user):
 @login_required
 @user_passes_test(is_admin)
 def admin_pending_requests_view(request):
-    requests = BorrowRequest.objects.filter(status='PENDING').select_related('user', 'book')
-    return render(request, 'borrowing/admin_pending_requests.html', {'requests': requests})
+    qs = BorrowRequest.objects.filter(status='PENDING').select_related('user', 'book')
+
+    # search theo username / title
+    search = request.GET.get('search', '').strip()
+    if search:
+        qs = qs.filter(
+            Q(user__username__icontains=search) |
+            Q(book__title__icontains=search)
+        )
+
+    # sort
+    sort = request.GET.get('sort', '-request_date')
+    allowed_sorts = ['-request_date', 'request_date', 'expected_return_date', '-expected_return_date']
+    if sort not in allowed_sorts:
+        sort = '-request_date'
+    qs = qs.order_by(sort)
+
+    return render(request, 'borrowing/admin_pending_requests.html', {
+        'requests': qs,
+        'search': search,
+        'sort': sort,
+    })
 
 
 @login_required
@@ -129,10 +150,38 @@ def reject_borrow_request_view(request, pk):
 @login_required
 @user_passes_test(is_admin)
 def admin_active_transactions_view(request):
-    transactions = BorrowTransaction.objects.filter(
+    """Admin: active transactions (borrowing/overdue) with search/filter/sort."""
+    qs = BorrowTransaction.objects.filter(
         status__in=['BORROWING', 'OVERDUE']
     ).select_related('borrow_request__user', 'borrow_request__book')
-    return render(request, 'borrowing/admin_transactions.html', {'transactions': transactions})
+
+    # Search
+    search = request.GET.get('search', '')
+    if search:
+        qs = qs.filter(
+            Q(borrow_request__user__username__icontains=search) |
+            Q(borrow_request__user__email__icontains=search) |
+            Q(borrow_request__book__title__icontains=search)
+        )
+
+    # Filter by status
+    status = request.GET.get('status', '')
+    if status in ['BORROWING', 'OVERDUE']:
+        qs = qs.filter(status=status)
+
+    # Sort
+    sort = request.GET.get('sort', 'due_at')
+    if sort in ['due_at', '-due_at', 'borrowed_at', '-borrowed_at']:
+        qs = qs.order_by(sort)
+    else:
+        qs = qs.order_by('due_at')
+
+    return render(request, 'borrowing/admin_transactions.html', {
+        'transactions': qs,
+        'search': search,
+        'status': status,
+        'sort': sort,
+    })
 
 
 @login_required

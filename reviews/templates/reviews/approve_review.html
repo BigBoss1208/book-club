@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Duyệt đánh giá{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Duyệt đánh giá</h2>
+  <a class="btn btn-outline-secondary" href="{% url 'reviews:admin_pending' %}"><i class="bi bi-arrow-left"></i> Quay lại</a>
+</div>
+
+<div class="card p-3 mb-3">
+  <div><b>Book:</b> {{ review.book.title }}</div>
+  <div><b>User:</b> {{ review.user.username }} ({{ review.user.email|default:"-" }})</div>
+  <div><b>Rating:</b> {{ review.rating }}/5</div>
+  <hr>
+  <div style="white-space: pre-wrap;">{{ review.content }}</div>
+</div>
+
+<form method="post" class="card p-3">
+  {% csrf_token %}
+  <div class="d-flex gap-2">
+    <button class="btn btn-success" type="submit"><i class="bi bi-check-circle"></i> Xác nhận duyệt</button>
+    <a class="btn btn-secondary" href="{% url 'reviews:admin_pending' %}">Hủy</a>
+  </div>
+</form>
+{% endblock %}

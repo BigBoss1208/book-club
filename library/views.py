@@ -56,11 +56,14 @@ def book_list_view(request):
 
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk, is_active=True)
-    reviews = book.reviews.filter(status='APPROVED').select_related('user')[:10]
+    approved_qs = book.reviews.filter(status='APPROVED').select_related('user')
+    reviews_count = approved_qs.count()
+    reviews = approved_qs.order_by('-created_at')[:10]
 
     context = {
         'book': book,
         'reviews': reviews,
+        'reviews_count': reviews_count,
     }
     return render(request, 'library/book_detail.html', context)
 
@@ -112,8 +115,37 @@ def book_delete_view(request, pk):
 @login_required
 @user_passes_test(is_admin)
 def category_list_view(request):
+    """Admin: list categories with search / filter / sort."""
     categories = Category.objects.annotate(book_count=Count('books'))
-    return render(request, 'library/category_list.html', {'categories': categories})
+
+    # Search
+    search = request.GET.get('search', '')
+    if search:
+        categories = categories.filter(
+            Q(name__icontains=search) |
+            Q(description__icontains=search)
+        )
+
+    # Filter active
+    active = request.GET.get('active', '')
+    if active in ['1', '0']:
+        categories = categories.filter(is_active=(active == '1'))
+
+    # Sort
+    sort = request.GET.get('sort', 'name')
+    if sort == 'book_count':
+        categories = categories.order_by('-book_count', 'name')
+    elif sort == '-created_at':
+        categories = categories.order_by('-created_at')
+    else:
+        categories = categories.order_by('name')
+
+    return render(request, 'library/category_list.html', {
+        'categories': categories,
+        'search': search,
+        'active': active,
+        'sort': sort,
+    })
 
 
 @login_required
@@ -128,3 +160,46 @@ def category_create_view(request):
     else:
         form = CategoryForm()
     return render(request, 'library/category_form.html', {'form': form, 'action': 'Thêm'})
+
+
+@login_required
+@user_passes_test(is_admin)
+def category_update_view(request, pk):
+    """Admin: update a category."""
+    category = get_object_or_404(Category, pk=pk)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Đã cập nhật danh mục "{category.name}"')
+            return redirect('library:category_list')
+    else:
+        form = CategoryForm(instance=category)
+
+    return render(request, 'library/category_form.html', {
+        'form': form,
+        'action': 'Cập nhật'
+    })
+
+
+@login_required
+@user_passes_test(is_admin)
+def category_delete_view(request, pk):
+    """Admin: soft delete (hide) a category.
+
+    Business rule: do not allow hiding a category if it still has active books.
+    """
+    category = get_object_or_404(Category, pk=pk)
+
+    has_active_books = category.books.filter(is_active=True).exists()
+    if has_active_books:
+        messages.error(request, 'Không thể ẩn danh mục vì vẫn còn sách đang hoạt động trong danh mục này.')
+        return redirect('library:category_list')
+
+    if request.method == 'POST':
+        category.is_active = False
+        category.save()
+        messages.success(request, f'Đã ẩn danh mục "{category.name}"')
+        return redirect('library:category_list')
+
+    return render(request, 'library/category_confirm_delete.html', {'category': category})

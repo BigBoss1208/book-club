@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.utils import timezone
+from django.db.models import Q
 from .models import Review
 from .forms import ReviewForm
 from library.models import Book
@@ -50,8 +51,29 @@ def is_admin(user):
 @login_required
 @user_passes_test(is_admin)
 def admin_pending_reviews_view(request):
-    reviews = Review.objects.filter(status='PENDING').select_related('user', 'book')
-    return render(request, 'reviews/admin_pending_reviews.html', {'reviews': reviews})
+    """Admin: pending reviews with search/sort."""
+    qs = Review.objects.filter(status='PENDING').select_related('user', 'book')
+
+    search = request.GET.get('search', '')
+    if search:
+        qs = qs.filter(
+            Q(user__username__icontains=search) |
+            Q(user__email__icontains=search) |
+            Q(book__title__icontains=search) |
+            Q(content__icontains=search)
+        )
+
+    sort = request.GET.get('sort', '-created_at')
+    if sort in ['created_at', '-created_at', 'rating', '-rating']:
+        qs = qs.order_by(sort)
+    else:
+        qs = qs.order_by('-created_at')
+
+    return render(request, 'reviews/admin_pending_reviews.html', {
+        'reviews': qs,
+        'search': search,
+        'sort': sort,
+    })
 
 
 @login_required
