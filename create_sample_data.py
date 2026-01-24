@@ -8,6 +8,33 @@ from django.contrib.auth.models import User
 from library.models import Category, Book
 from accounts.models import StudentProfile
 
+# Tạo tài khoản admin trước
+admin_user, admin_created = User.objects.get_or_create(
+    username='admin',
+    defaults={
+        'email': 'admin@example.com',
+        'first_name': 'System',
+        'last_name': 'Admin',
+        'is_staff': True,
+        'is_superuser': True,
+    }
+)
+if admin_created:
+    admin_user.set_password('admin@123')
+    admin_user.save()
+    print("✅ Created admin user: admin/admin@123")
+else:
+    updated = False
+    if not admin_user.is_staff:
+        admin_user.is_staff = True
+        updated = True
+    if not admin_user.is_superuser:
+        admin_user.is_superuser = True
+        updated = True
+    if updated:
+        admin_user.save()
+        print("✅ Updated admin user permissions: admin")
+
 # Tạo categories
 categories = [
     {'name': 'Văn học', 'description': 'Sách văn học trong và ngoài nước'},
@@ -35,18 +62,20 @@ user, created = User.objects.get_or_create(
 if created:
     user.set_password('student123')
     user.save()
-    StudentProfile.objects.create(
-        user=user,
-        student_code='SV001',
-        full_name='Nguyen Van A',
-        phone='0123456789',
-        faculty='Công nghệ thông tin',
-        class_name='CNTT01'
-    )
     print("✅ Created sample user: student01/student123")
 
+StudentProfile.objects.get_or_create(
+    user=user,
+    defaults={
+        'student_code': 'SV001',
+        'full_name': 'Nguyen Van A',
+        'phone': '0123456789',
+        'faculty': 'Công nghệ thông tin',
+        'class_name': 'CNTT01'
+    }
+)
+
 # Tạo sách mẫu
-admin = User.objects.filter(is_staff=True).first()
 category = Category.objects.first()
 
 books_data = [
@@ -81,7 +110,7 @@ books_data = [
 
 for book_data in books_data:
     book_data['category'] = category
-    book_data['created_by'] = admin
+    book_data['created_by'] = admin_user
     book, created = Book.objects.get_or_create(
         title=book_data['title'],
         defaults=book_data

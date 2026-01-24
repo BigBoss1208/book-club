@@ -2,28 +2,33 @@
 {% block title %}Từ chối đánh giá{% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <h2 class="mb-0">Từ chối đánh giá</h2>
-  <a class="btn btn-outline-secondary" href="{% url 'reviews:admin_pending' %}"><i class="bi bi-arrow-left"></i> Quay lại</a>
-</div>
-
-<div class="card p-3 mb-3">
-  <div><b>Sách:</b> {{ review.book.title }}</div>
-  <div><b>User:</b> {{ review.user.username }} ({{ review.user.email|default:"-" }})</div>
-  <div><b>Rating:</b> {{ review.rating }}/5</div>
-  <hr>
-  <div style="white-space: pre-wrap;">{{ review.content }}</div>
-</div>
-
-<div class="alert alert-warning">
-  Bạn có chắc muốn <b>từ chối</b> đánh giá này không?
-</div>
-
-<form method="post" class="card p-3">
-  {% csrf_token %}
-  <div class="d-flex gap-2">
-    <button class="btn btn-danger" type="submit"><i class="bi bi-x-circle"></i> Xác nhận từ chối</button>
-    <a class="btn btn-secondary" href="{% url 'reviews:admin_pending' %}">Hủy</a>
+<section class="form-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Từ chối đánh giá</h2>
+      <p class="page-subtitle">Đánh giá sẽ không hiển thị trên trang sách.</p>
+    </div>
+    <a class="btn btn-outline-secondary btn-back" href="{% url 'reviews:admin_pending' %}"><i class="bi bi-arrow-left"></i> Quay lại</a>
   </div>
-</form>
+
+  <div class="info-card">
+    <div><b>Sách:</b> {{ review.book.title }}</div>
+    <div><b>User:</b> {{ review.user.username }} ({{ review.user.email|default:"-" }})</div>
+    <div><b>Rating:</b> {{ review.rating }}/5</div>
+    <hr>
+    <div style="white-space: pre-wrap;">{{ review.content }}</div>
+  </div>
+
+  <div class="alert alert-warning mt-3">
+    Bạn có chắc muốn <b>từ chối</b> đánh giá này không?
+  </div>
+
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <div class="form-actions">
+      <button class="btn btn-danger" type="submit"><i class="bi bi-x-circle"></i> Xác nhận từ chối</button>
+      <a class="btn btn-secondary" href="{% url 'reviews:admin_pending' %}">Hủy</a>
+    </div>
+  </form>
+</section>
 {% endblock %}

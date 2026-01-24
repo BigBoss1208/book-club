@@ -21,6 +21,7 @@
 - Search by title/author/ISBN
 - Filter by category
 - Sort by newest/title/popular
+- Export CSV keeps current filters/sort
 
 ## 3) Category list search/filter/sort
 - Search by name/description
@@ -42,8 +43,21 @@
   - file type: JPG/PNG
   - size <= 5MB
 
-## 7) Automated tests
-```bash
-pip install -r requirements.txt
+## 7) Auth and notifications
+- Login fail shows error message
+- Login success shows success message
+- Register success auto login and shows success message
+- Logout shows info message
+
+## 8) Automated tests (script/CLI)
+PowerShell:
+```powershell
+if (Test-Path .\venv\Scripts\Activate.ps1) { . .\venv\Scripts\Activate.ps1 }
+python manage.py test
+```
+
+CMD:
+```cmd
+call venv\Scripts\activate
 python manage.py test
 ```

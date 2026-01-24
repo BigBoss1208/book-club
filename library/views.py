@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.db.models import Q, Count
@@ -11,13 +12,11 @@ def is_admin(user):
     return user.is_staff
 
 
-def book_list_view(request):
-    books = Book.objects.filter(is_active=True).select_related('category')
-
+def _apply_book_filters(request, qs):
     # Search
     search = request.GET.get('search', '')
     if search:
-        books = books.filter(
+        qs = qs.filter(
             Q(title__icontains=search) |
             Q(author__icontains=search) |
             Q(isbn__icontains=search)
@@ -25,17 +24,30 @@ def book_list_view(request):
 
     # Filter by category
     category_id = request.GET.get('category')
-    if category_id:
-        books = books.filter(category_id=category_id)
+    if category_id and category_id.isdigit():
+        qs = qs.filter(category_id=category_id)
+    elif category_id:
+        category_id = ''
 
     # Sort
     sort = request.GET.get('sort', '-created_at')
     if sort == 'title':
-        books = books.order_by('title')
+        qs = qs.order_by('title')
     elif sort == 'popular':
-        books = books.annotate(borrow_count=Count('borrow_requests')).order_by('-borrow_count')
+        qs = qs.annotate(borrow_count=Count('borrow_requests')).order_by('-borrow_count')
     else:
-        books = books.order_by(sort)
+        allowed_sorts = ['-created_at', 'created_at']
+        if sort not in allowed_sorts:
+            sort = '-created_at'
+        qs = qs.order_by(sort)
+
+    return qs, search, category_id, sort
+
+
+def book_list_view(request):
+    books = Book.objects.filter(is_active=True).select_related('category')
+
+    books, search, category_id, sort = _apply_book_filters(request, books)
 
     # Pagination
     paginator = Paginator(books, 12)
@@ -52,6 +64,43 @@ def book_list_view(request):
         'current_sort': sort,
     }
     return render(request, 'library/book_list.html', context)
+
+
+def book_export_csv_view(request):
+    books = Book.objects.filter(is_active=True).select_related('category')
+    books, search, category_id, sort = _apply_book_filters(request, books)
+
+    response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+    response['Content-Disposition'] = 'attachment; filename="books_export.csv"'
+
+    import csv
+    response.write('\ufeff')
+    writer = csv.writer(response)
+    writer.writerow([
+        'Title',
+        'Author',
+        'Category',
+        'Publisher',
+        'Publish Year',
+        'ISBN',
+        'Total Copies',
+        'Available Copies',
+        'Active',
+    ])
+    for book in books:
+        writer.writerow([
+            book.title,
+            book.author,
+            book.category.name if book.category else '',
+            book.publisher,
+            book.publish_year,
+            book.isbn or '',
+            book.total_copies,
+            book.available_copies,
+            'Yes' if book.is_active else 'No',
+        ])
+
+    return response
 
 
 def book_detail_view(request, pk):

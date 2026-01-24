@@ -5,6 +5,7 @@ app_name = 'library'
 
 urlpatterns = [
     path('books/', views.book_list_view, name='book_list'),
+    path('books/export/', views.book_export_csv_view, name='book_export'),
     path('books/<int:pk>/', views.book_detail_view, name='book_detail'),
     path('books/create/', views.book_create_view, name='book_create'),
     path('books/<int:pk>/update/', views.book_update_view, name='book_update'),

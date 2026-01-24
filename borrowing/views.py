@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.utils import timezone
+from django.conf import settings
+from django.core.mail import send_mail
 from datetime import timedelta
 from django.db.models import Q
 from .models import BorrowRequest, BorrowTransaction
@@ -125,6 +127,22 @@ def approve_borrow_request_view(request, pk):
         book.available_copies -= 1
         book.save()
 
+        if borrow_request.user.email:
+            subject = 'Yêu cầu mượn sách đã được duyệt'
+            message = (
+                f'Xin chào {borrow_request.user.username},\n\n'
+                f'Yêu cầu mượn sách "{book.title}" của bạn đã được duyệt.\n'
+                f'Ngày trả dự kiến: {borrow_request.expected_return_date:%d/%m/%Y}.\n\n'
+                'Cảm ơn bạn.'
+            )
+            send_mail(
+                subject,
+                message,
+                getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@bookclub.local'),
+                [borrow_request.user.email],
+                fail_silently=True,
+            )
+
         messages.success(request, f'Đã duyệt yêu cầu mượn sách cho {borrow_request.user.username}')
         return redirect('borrowing:admin_pending')
 
@@ -141,6 +159,22 @@ def reject_borrow_request_view(request, pk):
         borrow_request.handled_by = request.user
         borrow_request.handled_at = timezone.now()
         borrow_request.save()
+        if borrow_request.user.email:
+            subject = 'Yêu cầu mượn sách bị từ chối'
+            message = (
+                f'Xin chào {borrow_request.user.username},\n\n'
+                f'Yêu cầu mượn sách "{borrow_request.book.title}" của bạn đã bị từ chối.\n'
+                'Vui lòng liên hệ quản trị nếu cần hỗ trợ thêm.\n\n'
+                'Cảm ơn bạn.'
+            )
+            send_mail(
+                subject,
+                message,
+                getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@bookclub.local'),
+                [borrow_request.user.email],
+                fail_silently=True,
+            )
+
         messages.success(request, 'Đã từ chối yêu cầu')
         return redirect('borrowing:admin_pending')
 
