@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Thư viện{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --ink: #1f2a37;
+            --muted: #5b6573;
+            --brand: #1d4ed8;
+            --brand-2: #f59e0b;
+            --surface: #ffffff;
+            --surface-2: #f6f4ef;
+            --stroke: #e5ded3;
+            --shadow: 0 20px 40px rgba(20, 29, 43, 0.12);
+        }
+        body {
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at 20% -10%, #fff8e8 0%, transparent 45%),
+                        radial-gradient(circle at 85% 0%, #e8f0ff 0%, transparent 35%),
+                        #f6f7fb;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fraunces', 'Times New Roman', serif;
+            color: #1b1f2a;
+        }
+        .book-cover {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .form-shell {
+            position: relative;
+            padding: 28px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #fff7ea 0%, #edf2ff 100%);
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .form-shell::after {
+            content: "";
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.18), transparent 70%);
+            border-radius: 50%;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+        .page-title {
+            margin: 0;
+            font-size: clamp(1.6rem, 2vw, 2.1rem);
+        }
+        .page-subtitle {
+            margin: 6px 0 0;
+            color: var(--muted);
+        }
+        .btn-back {
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-weight: 600;
+        }
+        .info-card,
+        .form-card {
+            position: relative;
+            background: var(--surface);
+            border-radius: 18px;
+            border: 1px solid var(--stroke);
+            box-shadow: 0 12px 28px rgba(20, 29, 43, 0.08);
+            padding: 20px 22px;
+        }
+        .info-card + .form-card {
+            margin-top: 16px;
+        }
+        .form-card label {
+            font-weight: 600;
+            color: #2a3342;
+        }
+        .form-card input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+        .form-card select,
+        .form-card textarea {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #d7d1c6;
+            padding: 10px 12px;
+            background: #fffdfa;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-card input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+        .form-card select:focus,
+        .form-card textarea:focus {
+            outline: none;
+            border-color: rgba(29, 78, 216, 0.5);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
+        }
+        .form-text {
+            color: var(--muted);
+        }
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .form-actions .btn-primary {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #3b82f6 100%);
+            border: none;
+            box-shadow: 0 12px 24px rgba(29, 78, 216, 0.25);
+        }
+        .form-actions .btn-success {
+            background: linear-gradient(135deg, #059669, #10b981);
+            border: none;
+            box-shadow: 0 12px 24px rgba(5, 150, 105, 0.25);
+        }
+        .form-actions .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            border: none;
+            box-shadow: 0 12px 24px rgba(220, 38, 38, 0.2);
+        }
+        .alert-banner {
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+        }
+        .toast-stack {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1080;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: min(90vw, 360px);
+        }
+        .toast-card {
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+            background: #ffffff;
+        }
+        .toast-card .toast-header {
+            border-bottom: 1px solid #eef1f5;
+            font-weight: 600;
+        }
+        .toast-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            margin-right: 8px;
+        }
+        .toast-success .toast-icon { background: #10b981; }
+        .toast-error .toast-icon { background: #ef4444; }
+        .toast-warning .toast-icon { background: #f59e0b; }
+        .toast-info .toast-icon { background: #2563eb; }
+        @media (max-width: 768px) {
+            .form-shell {
+                padding: 20px;
+            }
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .toast-stack {
+                left: 16px;
+                right: 16px;
+                top: 16px;
+                max-width: none;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="bi bi-book"></i> Thư viện
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'library:book_list' %}">Danh sách sách</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'borrowing:my_requests' %}">Yêu cầu của tôi</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_staff %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Quản trị
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'dashboard:dashboard' %}">Dashboard</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'library:book_create' %}">Thêm sách</a></li>
+                                <li><a class="dropdown-item" href="{% url 'library:category_list' %}">Danh mục</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'borrowing:admin_pending' %}">Duyệt mượn sách</a></li>
+                                <li><a class="dropdown-item" href="{% url 'borrowing:admin_transactions' %}">Quản lý trả sách</a></li>
+                                <li><a class="dropdown-item" href="{% url 'reviews:admin_pending' %}">Duyệt đánh giá</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-person-circle"></i> {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Hồ sơ</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <form method="post" action="{% url 'accounts:logout' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="dropdown-item">Đăng xuất</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login' %}">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:register' %}">Đăng ký</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="toast-stack">
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    {% with toast_class='toast-success' toast_title='Thành công' toast_icon='bi-check-lg' %}
+                        <div class="toast show toast-card {{ toast_class }}" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <span class="toast-icon"><i class="bi {{ toast_icon }}"></i></span>
+                                <strong class="me-auto">{{ toast_title }}</strong>
+                                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% elif message.tags == 'error' %}
+                    {% with toast_class='toast-error' toast_title='Lỗi' toast_icon='bi-x-lg' %}
+                        <div class="toast show toast-card {{ toast_class }}" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <span class="toast-icon"><i class="bi {{ toast_icon }}"></i></span>
+                                <strong class="me-auto">{{ toast_title }}</strong>
+                                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% elif message.tags == 'warning' %}
+                    {% with toast_class='toast-warning' toast_title='Cảnh báo' toast_icon='bi-exclamation-lg' %}
+                        <div class="toast show toast-card {{ toast_class }}" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <span class="toast-icon"><i class="bi {{ toast_icon }}"></i></span>
+                                <strong class="me-auto">{{ toast_title }}</strong>
+                                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% else %}
+                    {% with toast_class='toast-info' toast_title='Thông báo' toast_icon='bi-info-lg' %}
+                        <div class="toast show toast-card {{ toast_class }}" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <span class="toast-icon"><i class="bi {{ toast_icon }}"></i></span>
+                                <strong class="me-auto">{{ toast_title }}</strong>
+                                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Hệ thống quản lý thư viện. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

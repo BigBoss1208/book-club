@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Hồ sơ{% endblock %}
+
+{% block content %}
+<h2 class="mb-3">Hồ sơ</h2>
+
+<div class="card p-3">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="mb-2"><b>Username:</b> {{ user.username }}</div>
+      <div class="mb-2"><b>Email:</b> {{ user.email|default:"-" }}</div>
+      <div class="mb-2"><b>Quyền:</b>
+        {% if user.is_staff %}
+          <span class="badge bg-primary">Admin</span>
+        {% else %}
+          <span class="badge bg-secondary">User</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      {% if user.studentprofile %}
+        <div class="mb-2"><b>Mã SV:</b> {{ user.studentprofile.student_code }}</div>
+        <div class="mb-2"><b>Họ tên:</b> {{ user.studentprofile.full_name }}</div>
+        <div class="mb-2"><b>SĐT:</b> {{ user.studentprofile.phone|default:"-" }}</div>
+        <div class="mb-2"><b>Khoa:</b> {{ user.studentprofile.faculty|default:"-" }}</div>
+        <div class="mb-2"><b>Lớp:</b> {{ user.studentprofile.class_name|default:"-" }}</div>
+      {% else %}
+        <div class="text-muted">Không có thông tin hồ sơ sinh viên.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

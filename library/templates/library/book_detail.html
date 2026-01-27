@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        {% if book.cover_image %}
+            <img src="{{ book.cover_image.url }}" class="img-fluid rounded shadow" alt="{{ book.title }}">
+        {% else %}
+            <div class="bg-secondary text-white p-5 text-center rounded">
+                <i class="bi bi-book display-1"></i>
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+        <h1 class="mb-3">{{ book.title }}</h1>
+        {% if user.is_staff %}
+            <div class="mb-3">
+                <div class="btn-group">
+                    <a class="btn btn-outline-primary" href="{% url 'library:book_update' book.pk %}"><i class="bi bi-pencil"></i> Sửa</a>
+                    <a class="btn btn-outline-danger" href="{% url 'library:book_delete' book.pk %}"><i class="bi bi-eye-slash"></i> Ẩn</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="mb-3">
+            <span class="badge bg-primary fs-6">{{ book.category.name }}</span>
+            {% if book.available_copies > 0 %}
+                <span class="badge bg-success fs-6">Còn: {{ book.available_copies }}/{{ book.total_copies }}</span>
+            {% else %}
+                <span class="badge bg-danger fs-6">Hết sách</span>
+            {% endif %}
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <th width="30%">Tác giả</th>
+                <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+                <th>Nhà xuất bản</th>
+                <td>{{ book.publisher }}</td>
+            </tr>
+            <tr>
+                <th>Năm xuất bản</th>
+                <td>{{ book.publish_year }}</td>
+            </tr>
+            {% if book.isbn %}
+            <tr>
+                <th>ISBN</th>
+                <td>{{ book.isbn }}</td>
+            </tr>
+            {% endif %}
+        </table>
+
+        <h5>Mô tả</h5>
+        <p>{{ book.description|default:"Chưa có mô tả" }}</p>
+
+        {% if user.is_authenticated and book.is_available %}
+            <a href="{% url 'borrowing:create_request' book.pk %}" class="btn btn-primary btn-lg">
+                <i class="bi bi-bookmark-plus"></i> Mượn sách
+            </a>
+        {% elif not user.is_authenticated %}
+            <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn btn-outline-primary btn-lg">
+                Đăng nhập để mượn sách
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Reviews Section -->
+<div class="mt-5">
+    <h3>Đánh giá <span class="badge bg-secondary">{{ reviews_count }}</span></h3>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'reviews:create_review' book.pk %}" class="btn btn-sm btn-outline-primary mb-3">
+            <i class="bi bi-star"></i> Viết đánh giá
+        </a>
+    {% endif %}
+
+    {% for review in reviews %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h6>{{ review.user.username }}</h6>
+                    <small class="text-muted">{{ review.created_at|date:"d/m/Y H:i" }}</small>
+                </div>
+                <div class="mb-2">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= review.rating %}
+                            <i class="bi bi-star-fill text-warning"></i>
+                        {% else %}
+                            <i class="bi bi-star text-warning"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <p class="mb-0">{{ review.content }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted">Chưa có đánh giá nào</p>
+    {% endfor %}
+</div>
+{% endblock %}

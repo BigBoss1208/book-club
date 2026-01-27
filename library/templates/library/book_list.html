@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}Danh sách sách{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <h2 class="mb-0">Danh sách sách</h2>
+    <a class="btn btn-outline-primary" href="{% url 'library:book_export' %}?search={{ search|default:'' }}&category={{ current_category|default:'' }}&sort={{ current_sort|default:'-created_at' }}">
+        <i class="bi bi-download"></i> Export CSV
+    </a>
+</div>
+
+<!-- Search & Filter -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-5">
+                <input type="text" name="search" class="form-control" placeholder="Tìm theo tên sách, tác giả, ISBN..." value="{{ search }}">
+            </div>
+            <div class="col-md-3">
+                <select name="category" class="form-select">
+                    <option value="">-- Tất cả danh mục --</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat.id }}" {% if cat.id|stringformat:"s" == current_category %}selected{% endif %}>
+                            {{ cat.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="sort" class="form-select">
+                    <option value="-created_at" {% if current_sort == '-created_at' %}selected{% endif %}>Mới nhất</option>
+                    <option value="title" {% if current_sort == 'title' %}selected{% endif %}>Tên A-Z</option>
+                    <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>Phổ biến</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-search"></i> Tìm
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Book Grid -->
+<div class="row g-4">
+    {% for book in books %}
+        <div class="col-md-3">
+            <div class="card h-100">
+                {% if book.cover_image %}
+                    <img src="{{ book.cover_image.url }}" class="book-cover" alt="{{ book.title }}">
+                {% else %}
+                    <div class="book-cover bg-secondary d-flex align-items-center justify-content-center text-white">
+                        <i class="bi bi-book display-1"></i>
+                    </div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text text-muted mb-2">
+                        <small><i class="bi bi-person"></i> {{ book.author }}</small>
+                    </p>
+                    <p class="card-text">
+                        <span class="badge bg-primary">{{ book.category.name }}</span>
+                        {% if book.available_copies > 0 %}
+                            <span class="badge bg-success">Còn: {{ book.available_copies }}</span>
+                        {% else %}
+                            <span class="badge bg-danger">Hết sách</span>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="{% url 'library:book_detail' book.pk %}" class="btn btn-sm btn-outline-primary w-100">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info text-center">
+                <i class="bi bi-info-circle"></i> Không tìm thấy sách nào
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if books.has_other_pages %}
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if books.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ books.previous_page_number }}&search={{ search }}&category={{ current_category }}&sort={{ current_sort }}">
+                        Trước
+                    </a>
+                </li>
+            {% endif %}
+
+            <li class="page-item active">
+                <span class="page-link">{{ books.number }} / {{ books.paginator.num_pages }}</span>
+            </li>
+
+            {% if books.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ books.next_page_number }}&search={{ search }}&category={{ current_category }}&sort={{ current_sort }}">
+                        Sau
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+{% endblock %}

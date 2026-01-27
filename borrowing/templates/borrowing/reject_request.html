@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Từ chối yêu cầu{% endblock %}
+
+{% block content %}
+<section class="form-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Từ chối yêu cầu mượn sách</h2>
+      <p class="page-subtitle">Thông tin yêu cầu sẽ được lưu lại để tra soát.</p>
+    </div>
+    <a class="btn btn-outline-secondary btn-back" href="{% url 'borrowing:admin_pending' %}"><i class="bi bi-arrow-left"></i> Quay lại</a>
+  </div>
+
+  <div class="info-card">
+    <h5 class="mb-1">{{ request.book.title }}</h5>
+    <div class="text-muted">User: {{ request.user.username }} ({{ request.user.email|default:"-" }})</div>
+    <div class="text-muted">Ngày tạo: {{ request.created_at|date:"d/m/Y H:i" }}</div>
+    <div class="text-muted">Ngày trả dự kiến: {{ request.expected_return_date|date:"d/m/Y" }}</div>
+  </div>
+
+  <div class="alert alert-warning mt-3">
+    Bạn có chắc muốn <b>từ chối</b> yêu cầu này không?
+  </div>
+
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <div class="form-actions">
+      <button class="btn btn-danger" type="submit"><i class="bi bi-x-circle"></i> Xác nhận từ chối</button>
+      <a class="btn btn-secondary" href="{% url 'borrowing:admin_pending' %}">Hủy</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

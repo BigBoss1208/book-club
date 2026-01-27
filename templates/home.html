@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Trang chủ - Thư viện{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 text-center mb-5">
+        <h1 class="display-4"><i class="bi bi-book"></i> Chào mừng đến Thư viện</h1>
+        <p class="lead">Khám phá kho sách đa dạng và tiện lợi</p>
+        <a href="{% url 'library:book_list' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-search"></i> Tìm sách ngay
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-search display-1 text-primary"></i>
+                <h3 class="card-title mt-3">Tìm kiếm dễ dàng</h3>
+                <p class="card-text">Tìm sách theo tên, tác giả, danh mục với công cụ lọc mạnh mẽ</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-bookmark-check display-1 text-success"></i>
+                <h3 class="card-title mt-3">Mượn sách online</h3>
+                <p class="card-text">Gửi yêu cầu mượn sách trực tuyến, theo dõi trạng thái dễ dàng</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-star-fill display-1 text-warning"></i>
+                <h3 class="card-title mt-3">Đánh giá & Review</h3>
+                <p class="card-text">Chia sẻ cảm nhận và xem đánh giá từ cộng đồng độc giả</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

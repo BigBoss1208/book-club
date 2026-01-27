@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Dashboard Quản trị</h2>
+
+<!-- Stats Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h3>{{ total_books }}</h3>
+                <p class="mb-0">Tổng số sách</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h3>{{ active_borrows }}</h3>
+                <p class="mb-0">Đang mượn</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <h3>{{ pending_requests }}</h3>
+                <p class="mb-0">Chờ duyệt</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <h3>{{ overdue_borrows }}</h3>
+                <p class="mb-0">Quá hạn</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Lượt mượn 30 ngày qua</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="borrowTrendChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Top 5 sách được mượn nhiều</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="topBooksChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Borrow Trend Chart
+const trendCtx = document.getElementById('borrowTrendChart');
+new Chart(trendCtx, {
+    type: 'line',
+    data: {
+        labels: {{ borrow_trend|safe }}.map(d => d.date),
+        datasets: [{
+            label: 'Lượt mượn',
+            data: {{ borrow_trend|safe }}.map(d => d.count),
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    }
+});
+
+// Top Books Chart
+const booksCtx = document.getElementById('topBooksChart');
+new Chart(booksCtx, {
+    type: 'bar',
+    data: {
+        labels: {{ top_books|safe }}.map(b => b.title.substring(0, 20)),
+        datasets: [{
+            label: 'Số lượt mượn',
+            data: {{ top_books|safe }}.map(b => b.borrow_count),
+            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+        }]
+    }
+});
+</script>
+{% endblock %}
