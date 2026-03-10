@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Ẩn sách{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Ẩn sách</h2>
+  <a class="btn btn-outline-secondary" href="{% url 'library:book_detail' book.pk %}"><i class="bi bi-arrow-left"></i> Quay lại</a>
+</div>
+
+<div class="alert alert-warning">
+  Bạn có chắc muốn ẩn sách <b>{{ book.title }}</b> không?
+  <div class="mt-2 small text-muted">(Dữ liệu không bị xoá vĩnh viễn, chỉ chuyển sang trạng thái inactive)</div>
+</div>
+
+<form method="post" class="card p-3">
+  {% csrf_token %}
+  <div class="d-flex gap-2">
+    <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i> Xác nhận ẩn</button>
+    <a class="btn btn-secondary" href="{% url 'library:book_detail' book.pk %}">Hủy</a>
+  </div>
+</form>
+{% endblock %}

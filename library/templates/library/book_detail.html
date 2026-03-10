@@ -1,0 +1,346 @@
+{% extends 'base.html' %}
+{% block title %}{{ book.title }} - Thư viện{% endblock %}
+
+{% block extra_css %}
+<style>
+    .book-detail-cover {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 18px;
+        box-shadow: 0 16px 40px rgba(17, 24, 39, .16);
+    }
+
+    .book-detail-placeholder {
+        width: 100%;
+        height: 340px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #93afd4;
+        font-size: 5rem;
+        box-shadow: 0 16px 40px rgba(17, 24, 39, .10);
+    }
+
+    .detail-title {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 700;
+        line-height: 1.25;
+        color: #111827;
+        margin-bottom: 10px;
+    }
+
+    .detail-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+    }
+
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        font-size: .82rem;
+        font-weight: 600;
+    }
+
+    .pill-cat {
+        background: #eff6ff;
+        color: #1d4ed8;
+    }
+
+    .pill-avail {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .pill-out {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .info-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        margin-bottom: 20px;
+    }
+
+    .info-table th,
+    .info-table td {
+        padding: 11px 16px;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: .9rem;
+    }
+
+    .info-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+        width: 35%;
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .book-desc {
+        color: #374151;
+        line-height: 1.75;
+        font-size: .95rem;
+        margin-bottom: 24px;
+    }
+
+    .btn-borrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        border: none;
+        box-shadow: 0 8px 22px rgba(29, 78, 216, .28);
+        transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-borrow:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(29, 78, 216, .36);
+    }
+
+    .btn-login-borrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 26px;
+        border-radius: 999px;
+        border: 2px solid #1d4ed8;
+        color: #1d4ed8;
+        font-weight: 700;
+        font-size: .95rem;
+        text-decoration: none;
+        background: transparent;
+        transition: background .2s, color .2s;
+    }
+
+    .btn-login-borrow:hover {
+        background: #1d4ed8;
+        color: #fff;
+    }
+
+    /* Reviews */
+    .reviews-section {
+        margin-top: 48px;
+    }
+
+    .reviews-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .review-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        transition: box-shadow .2s;
+    }
+
+    .review-card:hover {
+        box-shadow: 0 8px 22px rgba(17, 24, 39, .08);
+    }
+
+    .review-author {
+        font-weight: 700;
+        font-size: .92rem;
+        color: #111827;
+    }
+
+    .review-date {
+        font-size: .78rem;
+        color: #9ca3af;
+    }
+
+    .star-fill {
+        color: #f59e0b;
+    }
+
+    .star-empty {
+        color: #d1d5db;
+    }
+
+    .review-content {
+        font-size: .9rem;
+        color: #374151;
+        line-height: 1.65;
+        margin-top: 8px;
+    }
+
+    .btn-write-review {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 18px;
+        border-radius: 10px;
+        border: 1.5px solid #d1d5db;
+        color: #374151;
+        font-weight: 600;
+        font-size: .88rem;
+        background: #fff;
+        text-decoration: none;
+        margin-bottom: 20px;
+        transition: border-color .2s, color .2s;
+    }
+
+    .btn-write-review:hover {
+        border-color: #1d4ed8;
+        color: #1d4ed8;
+    }
+
+    .no-reviews {
+        color: #9ca3af;
+        font-size: .93rem;
+        padding: 24px 0;
+        text-align: center;
+    }
+
+    .admin-actions {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 18px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row g-5">
+    <!-- Cover -->
+    <div class="col-md-4 col-lg-3">
+        {% if book.cover_image %}
+        <img src="{{ book.cover_image.url }}" class="book-detail-cover" alt="{{ book.title }}">
+        {% else %}
+        <div class="book-detail-placeholder"><i class="bi bi-book"></i></div>
+        {% endif %}
+    </div>
+
+    <!-- Info -->
+    <div class="col-md-8 col-lg-9">
+        <!-- Admin actions -->
+        {% if user.is_staff %}
+        <div class="admin-actions">
+            <a class="btn btn-sm btn-outline-primary" href="{% url 'library:book_update' book.pk %}">
+                <i class="bi bi-pencil"></i> Chỉnh sửa
+            </a>
+            <a class="btn btn-sm btn-outline-danger" href="{% url 'library:book_delete' book.pk %}">
+                <i class="bi bi-eye-slash"></i> Ẩn sách
+            </a>
+        </div>
+        {% endif %}
+
+        <h1 class="detail-title">{{ book.title }}</h1>
+
+        <div class="detail-meta">
+            <span class="pill pill-cat"><i class="bi bi-tag-fill"></i> {{ book.category.name }}</span>
+            {% if book.available_copies > 0 %}
+            <span class="pill pill-avail"><i class="bi bi-check-circle-fill"></i> Còn {{ book.available_copies }}/{{ book.total_copies }} bản</span>
+            {% else %}
+            <span class="pill pill-out"><i class="bi bi-x-circle-fill"></i> Hết sách</span>
+            {% endif %}
+        </div>
+
+        <table class="info-table">
+            <tr>
+                <th>Tác giả</th>
+                <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+                <th>Nhà xuất bản</th>
+                <td>{{ book.publisher }}</td>
+            </tr>
+            <tr>
+                <th>Năm xuất bản</th>
+                <td>{{ book.publish_year }}</td>
+            </tr>
+            {% if book.isbn %}
+            <tr>
+                <th>ISBN</th>
+                <td>{{ book.isbn }}</td>
+            </tr>
+            {% endif %}
+        </table>
+
+        {% if book.description %}
+        <p class="book-desc">{{ book.description }}</p>
+        {% endif %}
+
+        <!-- CTA -->
+        {% if user.is_authenticated and not user.is_staff and book.is_available %}
+        <a href="{% url 'borrowing:create_request' book.pk %}" class="btn-borrow">
+            <i class="bi bi-bookmark-plus-fill"></i> Mượn sách này
+        </a>
+        {% elif not user.is_authenticated %}
+        <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn-login-borrow">
+            <i class="bi bi-box-arrow-in-right"></i> Đăng nhập để mượn sách
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- ── Reviews ── -->
+<div class="reviews-section">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="reviews-title">
+            <i class="bi bi-chat-square-text me-2 text-warning"></i>
+            Đánh giá
+            <span class="badge bg-secondary fw-normal ms-1" style="font-size:.8rem;vertical-align:middle">{{ reviews_count }}</span>
+        </h2>
+        {% if user.is_authenticated %}
+        <a href="{% url 'reviews:create_review' book.pk %}" class="btn-write-review">
+            <i class="bi bi-star"></i> Viết đánh giá
+        </a>
+        {% endif %}
+    </div>
+
+    {% for review in reviews %}
+    <div class="review-card">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <div class="review-author">{{ review.user.username }}</div>
+                <div class="mb-1 mt-1">
+                    {% for i in "12345"|make_list %}
+                    {% if forloop.counter <= review.rating %} <i class="bi bi-star-fill star-fill"
+                        style="font-size:.85rem"></i>
+                        {% else %}
+                        <i class="bi bi-star star-empty" style="font-size:.85rem"></i>
+                        {% endif %}
+                        {% endfor %}
+                </div>
+            </div>
+            <span class="review-date"><i class="bi bi-clock me-1"></i>{{ review.created_at|date:"d/m/Y H:i" }}</span>
+        </div>
+        <p class="review-content">{{ review.content }}</p>
+    </div>
+    {% empty %}
+    <div class="no-reviews">
+        <i class="bi bi-chat-square display-5 d-block mb-2 text-muted"></i>
+        Chưa có đánh giá nào. Hãy là người đầu tiên!
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

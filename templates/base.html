@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hệ thống quản lý thư viện trường - tìm kiếm, mượn và quản lý sách trực tuyến dễ dàng.">
+    <title>{% block title %}Thư viện{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        /* ── Design Tokens ── */
+        :root {
+            --ink: #111827;
+            --ink-2: #374151;
+            --muted: #6b7280;
+            --brand: #1d4ed8;
+            --brand-dark: #1e3a8a;
+            --brand-2: #f59e0b;
+            --surface: #ffffff;
+            --surface-2: #f9fafb;
+            --stroke: #e5e7eb;
+            --shadow-sm: 0 2px 8px rgba(17, 24, 39, .07);
+            --shadow: 0 8px 32px rgba(17, 24, 39, .10);
+            --shadow-lg: 0 20px 48px rgba(17, 24, 39, .14);
+            --radius: 16px;
+        }
+
+        /* ── Base ── */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
+            color: var(--ink);
+            background: radial-gradient(ellipse 80% 50% at 50% -15%, #e8f0ff 0%, transparent 55%),
+                radial-gradient(circle at 90% 80%, #fff8e8 0%, transparent 40%),
+                #f6f7fb;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Fraunces', 'Times New Roman', serif;
+            color: var(--ink);
+        }
+
+        /* ── Navbar ── */
+        .navbar-custom {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, .88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--stroke);
+            padding: 10px 0;
+            box-shadow: 0 2px 12px rgba(17, 24, 39, .06);
+            transition: box-shadow .3s;
+        }
+
+        .navbar-brand-custom {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            text-decoration: none;
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .navbar-brand-custom .brand-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand), #7c3aed);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .navbar-brand-custom:hover {
+            color: var(--brand);
+        }
+
+        .nav-link-custom {
+            font-weight: 500;
+            color: var(--ink-2);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: .93rem;
+            transition: background .18s, color .18s;
+        }
+
+        .nav-link-custom:hover,
+        .nav-link-custom.active {
+            background: rgba(29, 78, 216, .07);
+            color: var(--brand);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--stroke);
+            margin: 0 6px;
+            align-self: center;
+        }
+
+        .btn-nav-login {
+            padding: 7px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: .88rem;
+            border: 1.5px solid var(--stroke);
+            color: var(--ink-2);
+            background: var(--surface);
+            text-decoration: none;
+            transition: border-color .2s, color .2s;
+        }
+
+        .btn-nav-login:hover {
+            border-color: var(--brand);
+            color: var(--brand);
+        }
+
+        .btn-nav-register {
+            padding: 7px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: .88rem;
+            background: linear-gradient(135deg, var(--brand), #2563eb);
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            box-shadow: 0 4px 12px rgba(29, 78, 216, .25);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .btn-nav-register:hover {
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(29, 78, 216, .32);
+        }
+
+        /* User avatar button */
+        .user-avatar-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px 5px 6px;
+            border-radius: 999px;
+            border: 1.5px solid var(--stroke);
+            background: var(--surface);
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--ink-2);
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .user-avatar-btn:hover {
+            border-color: #cbd5e1;
+            box-shadow: var(--shadow-sm);
+            color: var(--ink);
+        }
+
+        .user-avatar-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), #7c3aed);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+        }
+
+        /* Dropdown */
+        .dropdown-menu-custom {
+            border-radius: 14px;
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow-lg);
+            padding: 6px;
+            min-width: 190px;
+        }
+
+        .dropdown-item-custom {
+            border-radius: 9px;
+            padding: 8px 12px;
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--ink-2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .15s, color .15s;
+        }
+
+        .dropdown-item-custom:hover {
+            background: rgba(29, 78, 216, .06);
+            color: var(--brand);
+        }
+
+        .dropdown-item-custom.danger:hover {
+            background: rgba(220, 38, 38, .06);
+            color: #dc2626;
+        }
+
+        .dropdown-divider-custom {
+            height: 1px;
+            background: var(--stroke);
+            margin: 4px 0;
+        }
+
+        /* ── Cards & forms ── */
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card {
+            border-radius: var(--radius);
+            border-color: var(--stroke);
+            transition: transform .22s, box-shadow .22s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-shell {
+            position: relative;
+            padding: 32px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #fff7ea 0%, #edf2ff 100%);
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .form-shell::after {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 158, 11, .18), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+        }
+
+        .page-subtitle {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: .93rem;
+        }
+
+        .btn-back {
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-size: .88rem;
+        }
+
+        .info-card,
+        .form-card {
+            position: relative;
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow);
+            padding: 22px 24px;
+        }
+
+        .info-card+.form-card {
+            margin-top: 16px;
+        }
+
+        .form-card label {
+            font-weight: 600;
+            color: #2a3342;
+        }
+
+        .form-card input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+        .form-card select,
+        .form-card textarea {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            padding: 10px 14px;
+            background: #fafafa;
+            transition: border-color .2s, box-shadow .2s;
+            font-size: .93rem;
+        }
+
+        .form-card input:focus,
+        .form-card select:focus,
+        .form-card textarea:focus {
+            outline: none;
+            border-color: rgba(29, 78, 216, .5);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, .12);
+        }
+
+        .form-text {
+            color: var(--muted);
+            font-size: .83rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-actions .btn-primary {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #3b82f6 100%);
+            border: none;
+            box-shadow: 0 8px 20px rgba(29, 78, 216, .25);
+        }
+
+        .form-actions .btn-success {
+            background: linear-gradient(135deg, #059669, #10b981);
+            border: none;
+            box-shadow: 0 8px 20px rgba(5, 150, 105, .25);
+        }
+
+        .form-actions .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            border: none;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, .2);
+        }
+
+        /* ── Badge status pills ── */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: .77rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-approved {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-cancelled {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .status-borrowing {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-overdue {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* ── Alerts / Toast ── */
+        .alert-banner {
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, .05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toast-stack {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: min(90vw, 360px);
+        }
+
+        .toast-card {
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, .06);
+            box-shadow: var(--shadow-lg);
+            background: #fff;
+            overflow: hidden;
+            animation: slideIn .35s cubic-bezier(.22, .68, 0, 1.2) both;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(32px) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .toast-card .toast-header {
+            border-bottom: 1px solid #f1f5f9;
+            font-weight: 600;
+        }
+
+        .toast-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            margin-right: 8px;
+            font-size: .8rem;
+        }
+
+        .toast-success .toast-icon {
+            background: #10b981;
+        }
+
+        .toast-error .toast-icon {
+            background: #ef4444;
+        }
+
+        .toast-warning .toast-icon {
+            background: #f59e0b;
+        }
+
+        .toast-info .toast-icon {
+            background: #2563eb;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--ink);
+            color: #9ca3af;
+            padding: 40px 0 24px;
+            margin-top: 80px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--brand), #7c3aed);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+        }
+
+        .footer p {
+            font-size: .85rem;
+            line-height: 1.7;
+        }
+
+        .footer-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: .85rem;
+            transition: color .18s;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .footer-link:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            margin-top: 28px;
+            padding-top: 18px;
+            font-size: .8rem;
+            text-align: center;
+        }
+
+        .footer h6 {
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            margin-bottom: 14px;
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
+
+        @media (max-width: 768px) {
+            .form-shell {
+                padding: 22px;
+            }
+
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .toast-stack {
+                left: 14px;
+                right: 14px;
+                top: 14px;
+                max-width: none;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- ══════════════ NAVBAR ══════════════ -->
+    <nav class="navbar-custom">
+        <div class="container d-flex align-items-center gap-2">
+            <!-- Brand -->
+            <a href="{% url 'home' %}" class="navbar-brand-custom me-3">
+                <span class="brand-icon"><i class="bi bi-book-half"></i></span>
+                Thư viện
+            </a>
+
+            <!-- Nav links (desktop) -->
+            <div class="d-none d-lg-flex align-items-center gap-1 me-auto">
+                <a class="nav-link-custom" href="{% url 'library:book_list' %}">
+                    <i class="bi bi-journals"></i> Danh sách sách
+                </a>
+                {% if user.is_authenticated and not user.is_staff %}
+                <a class="nav-link-custom" href="{% url 'borrowing:my_requests' %}">
+                    <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
+                </a>
+                {% endif %}
+                {% if user.is_staff %}
+                <!-- Admin dropdown -->
+                <div class="dropdown">
+                    <a class="nav-link-custom d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-grid-3x3-gap"></i> Quản trị
+                        <i class="bi bi-chevron-down" style="font-size:.7rem;opacity:.6"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-custom mt-1">
+                        <li><a class="dropdown-item-custom" href="{% url 'dashboard:dashboard' %}">
+                                <i class="bi bi-speedometer2"></i> Dashboard
+                            </a></li>
+                        <li>
+                            <div class="dropdown-divider-custom"></div>
+                        </li>
+                        <li><a class="dropdown-item-custom" href="{% url 'library:book_create' %}">
+                                <i class="bi bi-plus-circle"></i> Thêm sách
+                            </a></li>
+                        <li><a class="dropdown-item-custom" href="{% url 'library:category_list' %}">
+                                <i class="bi bi-tag"></i> Danh mục
+                            </a></li>
+                        <li>
+                            <div class="dropdown-divider-custom"></div>
+                        </li>
+                        <li><a class="dropdown-item-custom" href="{% url 'borrowing:admin_pending' %}">
+                                <i class="bi bi-hourglass-split"></i> Duyệt mượn sách
+                            </a></li>
+                        <li><a class="dropdown-item-custom" href="{% url 'borrowing:admin_transactions' %}">
+                                <i class="bi bi-arrow-return-left"></i> Quản lý trả sách
+                            </a></li>
+                        <li><a class="dropdown-item-custom" href="{% url 'reviews:admin_pending' %}">
+                                <i class="bi bi-chat-square-text"></i> Duyệt đánh giá
+                            </a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Right side -->
+            <div class="d-none d-lg-flex align-items-center gap-2 ms-2">
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <a class="user-avatar-btn" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="user-avatar-icon"><i class="bi bi-person-fill"></i></span>
+                        {{ user.username }}
+                        <i class="bi bi-chevron-down ms-1" style="font-size:.68rem;opacity:.55"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-custom dropdown-menu-end mt-1">
+                        <li>
+                            <div style="padding:10px 12px 8px;border-bottom:1px solid var(--stroke);margin-bottom:4px;">
+                                <div style="font-weight:700;font-size:.9rem;color:var(--ink)">{{ user.username }}</div>
+                                <div style="font-size:.78rem;color:var(--muted)">
+                                    {% if user.is_staff %}
+                                    <span style="color:#1d4ed8">⭐ Quản trị viên</span>
+                                    {% else %}
+                                    Sinh viên
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                        <li><a class="dropdown-item-custom" href="{% url 'accounts:profile' %}">
+                                <i class="bi bi-person"></i> Hồ sơ của tôi
+                            </a></li>
+                        {% if not user.is_staff %}
+                        <li><a class="dropdown-item-custom" href="{% url 'borrowing:my_requests' %}">
+                                <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
+                            </a></li>
+                        {% endif %}
+                        <li>
+                            <div class="dropdown-divider-custom"></div>
+                        </li>
+                        <li>
+                            <form method="post" action="{% url 'accounts:logout' %}" class="d-block">
+                                {% csrf_token %}
+                                <button type="submit"
+                                    class="dropdown-item-custom danger w-100 border-0 bg-transparent text-start">
+                                    <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <a href="{% url 'accounts:login' %}" class="btn-nav-login">Đăng nhập</a>
+                <a href="{% url 'accounts:register' %}" class="btn-nav-register">
+                    <i class="bi bi-person-plus"></i> Đăng ký
+                </a>
+                {% endif %}
+            </div>
+
+            <!-- Mobile toggler -->
+            <button class="d-lg-none btn btn-sm btn-outline-secondary ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobileMenu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="collapse" id="mobileMenu">
+            <div class="container py-3 d-flex flex-column gap-1 border-top mt-2">
+                <a class="nav-link-custom" href="{% url 'library:book_list' %}">
+                    <i class="bi bi-journals"></i> Danh sách sách
+                </a>
+                {% if user.is_authenticated and not user.is_staff %}
+                <a class="nav-link-custom" href="{% url 'borrowing:my_requests' %}">
+                    <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
+                </a>
+                {% endif %}
+                {% if user.is_staff %}
+                <div class="nav-link-custom fw-semibold text-muted"
+                    style="font-size:.78rem;padding:8px 12px 2px;text-transform:uppercase;letter-spacing:.06em">Quản trị
+                </div>
+                <a class="nav-link-custom" href="{% url 'dashboard:dashboard' %}"><i
+                        class="bi bi-speedometer2"></i>Dashboard</a>
+                <a class="nav-link-custom" href="{% url 'library:book_create' %}"><i class="bi bi-plus-circle"></i> Thêm
+                    sách</a>
+                <a class="nav-link-custom" href="{% url 'library:category_list' %}"><i class="bi bi-tag"></i> Danh
+                    mục</a>
+                <a class="nav-link-custom" href="{% url 'borrowing:admin_pending' %}"><i
+                        class="bi bi-hourglass-split"></i>
+                    Duyệt mượn sách</a>
+                <a class="nav-link-custom" href="{% url 'borrowing:admin_transactions' %}"><i
+                        class="bi bi-arrow-return-left"></i> Quản lý trả sách</a>
+                <a class="nav-link-custom" href="{% url 'reviews:admin_pending' %}"><i
+                        class="bi bi-chat-square-text"></i>
+                    Duyệt đánh giá</a>
+                {% endif %}
+                <hr style="margin:8px 0;border-color:var(--stroke)">
+                {% if user.is_authenticated %}
+                <a class="nav-link-custom" href="{% url 'accounts:profile' %}"><i class="bi bi-person"></i> Hồ sơ</a>
+                <form method="post" action="{% url 'accounts:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link-custom w-100 border-0 bg-transparent text-start"
+                        style="color:#dc2626">
+                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                    </button>
+                </form>
+                {% else %}
+                <a class="nav-link-custom" href="{% url 'accounts:login' %}"><i class="bi bi-box-arrow-in-right"></i>
+                    Đăng nhập</a>
+                <a class="nav-link-custom" href="{% url 'accounts:register' %}"><i class="bi bi-person-plus"></i> Đăng
+                    ký</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════ TOASTS ══════════════ -->
+    {% if messages %}
+    <div class="toast-stack">
+        {% for message in messages %}
+        {% if message.tags == 'success' %}
+        {% with tc='toast-success' tt='Thành công' ti='bi-check-lg' %}
+        <div class="toast show toast-card {{ tc }}" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <span class="toast-icon"><i class="bi {{ ti }}"></i></span>
+                <strong class="me-auto">{{ tt }}</strong>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">{{ message }}</div>
+        </div>
+        {% endwith %}
+        {% elif message.tags == 'error' %}
+        {% with tc='toast-error' tt='Lỗi' ti='bi-x-lg' %}
+        <div class="toast show toast-card {{ tc }}" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <span class="toast-icon"><i class="bi {{ ti }}"></i></span>
+                <strong class="me-auto">{{ tt }}</strong>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">{{ message }}</div>
+        </div>
+        {% endwith %}
+        {% elif message.tags == 'warning' %}
+        {% with tc='toast-warning' tt='Cảnh báo' ti='bi-exclamation-lg' %}
+        <div class="toast show toast-card {{ tc }}" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <span class="toast-icon"><i class="bi {{ ti }}"></i></span>
+                <strong class="me-auto">{{ tt }}</strong>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">{{ message }}</div>
+        </div>
+        {% endwith %}
+        {% else %}
+        {% with tc='toast-info' tt='Thông báo' ti='bi-info-lg' %}
+        <div class="toast show toast-card {{ tc }}" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <span class="toast-icon"><i class="bi {{ ti }}"></i></span>
+                <strong class="me-auto">{{ tt }}</strong>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">{{ message }}</div>
+        </div>
+        {% endwith %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- ══════════════ MAIN ══════════════ -->
+    <main class="container py-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <a href="{% url 'home' %}" class="footer-brand">
+                        <span class="brand-icon"><i class="bi bi-book-half"></i></span>
+                        Thư viện Trường
+                    </a>
+                    <p class="mt-2">Hệ thống quản lý thư viện hiện đại - giúp sinh viên tìm kiếm, mượn và trả sách trực
+                        tuyến dễ dàng.</p>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <h6>Khám phá</h6>
+                    <a class="footer-link" href="{% url 'library:book_list' %}">Danh sách sách</a>
+                    <a class="footer-link" href="{% url 'library:book_list' %}">Tìm kiếm nâng cao</a>
+                    <a class="footer-link" href="{% url 'home' %}">Trang chủ</a>
+                </div>
+                <div class="col-md-2">
+                    <h6>Tài khoản</h6>
+                    {% if user.is_authenticated %}
+                    <a class="footer-link" href="{% url 'accounts:profile' %}">Hồ sơ</a>
+                    {% if not user.is_staff %}
+                    <a class="footer-link" href="{% url 'borrowing:my_requests' %}">Yêu cầu của tôi</a>
+                    {% endif %}
+                    {% else %}
+                    <a class="footer-link" href="{% url 'accounts:login' %}">Đăng nhập</a>
+                    <a class="footer-link" href="{% url 'accounts:register' %}">Đăng ký</a>
+                    {% endif %}
+                </div>
+                
+                <div class="col-md-3">
+    <h6>Liên hệ</h6>
+    <p class="mb-1" style="font-size:.83rem"><i class="bi bi-envelope me-1"></i> quangmanh2005@gmail.com</p>
+    <p class="mb-0" style="font-size:.83rem"><i class="bi bi-telephone me-1"></i> 0962022716</p>
+</div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Hệ thống quản lý thư viện. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Auto-dismiss toasts after 5s
+        document.querySelectorAll('.toast.show').forEach(el => {
+            setTimeout(() => {
+                const bsToast = bootstrap.Toast.getOrCreateInstance(el);
+                bsToast.hide();
+            }, 5000);
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

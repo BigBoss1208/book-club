@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Danh mục{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Danh mục</h2>
+  <a class="btn btn-primary" href="{% url 'library:category_create' %}"><i class="bi bi-plus"></i> Thêm danh mục</a>
+</div>
+
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-5">
+    <input class="form-control" name="search" placeholder="Tìm theo tên/mô tả..." value="{{ search }}">
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" name="active">
+      <option value="">-- Trạng thái --</option>
+      <option value="1" {% if active == '1' %}selected{% endif %}>Active</option>
+      <option value="0" {% if active == '0' %}selected{% endif %}>Inactive</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <select class="form-select" name="sort">
+      <option value="name" {% if sort == 'name' %}selected{% endif %}>Tên A-Z</option>
+      <option value="book_count" {% if sort == 'book_count' %}selected{% endif %}>Nhiều sách</option>
+      <option value="-created_at" {% if sort == '-created_at' %}selected{% endif %}>Mới nhất</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-outline-primary w-100"><i class="bi bi-search"></i> Lọc</button>
+  </div>
+</form>
+
+<table class="table table-hover align-middle">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Mô tả</th>
+      <th class="text-center">Số sách</th>
+      <th class="text-center">Trạng thái</th>
+      <th class="text-end">Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in categories %}
+    <tr>
+      <td><b>{{ c.name }}</b></td>
+      <td class="text-muted">{{ c.description|default:"-" }}</td>
+      <td class="text-center">{{ c.book_count }}</td>
+      <td class="text-center">
+        {% if c.is_active %}
+          <span class="badge bg-success">Active</span>
+        {% else %}
+          <span class="badge bg-secondary">Inactive</span>
+        {% endif %}
+      </td>
+      <td class="text-end">
+        <div class="btn-group">
+          <a class="btn btn-sm btn-outline-primary" href="{% url 'library:category_update' c.pk %}"><i class="bi bi-pencil"></i> Sửa</a>
+          <a class="btn btn-sm btn-outline-danger" href="{% url 'library:category_delete' c.pk %}"><i class="bi bi-eye-slash"></i> Ẩn</a>
+        </div>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5" class="text-center text-muted">Chưa có danh mục</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Duyệt yêu cầu{% endblock %}
+
+{% block content %}
+<section class="form-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Duyệt yêu cầu mượn sách</h2>
+      <p class="page-subtitle">Xác nhận để tạo giao dịch mượn và cập nhật tồn kho.</p>
+    </div>
+    <a class="btn btn-outline-secondary btn-back" href="{% url 'borrowing:admin_pending' %}"><i class="bi bi-arrow-left"></i> Quay lại</a>
+  </div>
+
+  <div class="info-card">
+    <div><b>User:</b> {{ request.user.username }} ({{ request.user.email|default:"-" }})</div>
+    <div><b>Sách:</b> {{ request.book.title }} - {{ request.book.author }}</div>
+    <div><b>Ngày trả dự kiến:</b> {{ request.expected_return_date|date:"d/m/Y" }}</div>
+    <div class="text-muted small mt-2">Nếu duyệt, hệ thống sẽ tạo giao dịch mượn và trừ số lượng sách hiện có.</div>
+  </div>
+
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <div class="form-actions">
+      <button class="btn btn-success" type="submit"><i class="bi bi-check-circle"></i> Xác nhận duyệt</button>
+      <a class="btn btn-secondary" href="{% url 'borrowing:admin_pending' %}">Hủy</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

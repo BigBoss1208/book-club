@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% block title %}Đăng ký - Thư viện{% endblock %}
+
+{% block extra_css %}
+<style>
+  .auth-wrap {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 460px;
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 60px rgba(17, 24, 39, .12);
+    overflow: hidden;
+  }
+
+  .auth-header {
+    background: linear-gradient(135deg, #065f46 0%, #059669 60%, #10b981 100%);
+    padding: 28px 32px 24px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .auth-header::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 140px;
+    height: 140px;
+    background: rgba(255, 255, 255, .08);
+    border-radius: 50%;
+  }
+
+  .auth-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 12px;
+  }
+
+  .auth-header h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Fraunces', serif;
+  }
+
+  .auth-header p {
+    opacity: .80;
+    font-size: .88rem;
+    margin: 4px 0 0;
+  }
+
+  .auth-body {
+    padding: 28px 32px 24px;
+  }
+
+  .auth-label {
+    display: block;
+    font-weight: 600;
+    font-size: .88rem;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+
+  .auth-input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1.5px solid #d1d5db;
+    padding: 11px 14px;
+    font-size: .93rem;
+    background: #fafafa;
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+
+  .auth-input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 4px rgba(5, 150, 105, .10);
+    background: #fff;
+  }
+
+  .auth-field {
+    margin-bottom: 16px;
+  }
+
+  .btn-auth {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(5, 150, 105, .28);
+    transition: transform .2s, box-shadow .2s;
+    margin-top: 4px;
+  }
+
+  .btn-auth:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(5, 150, 105, .34);
+  }
+
+  .auth-footer {
+    text-align: center;
+    padding: 14px 32px 24px;
+    font-size: .88rem;
+    color: #6b7280;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .auth-footer a {
+    color: #059669;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .form-error {
+    color: #dc2626;
+    font-size: .82rem;
+    margin-top: 4px;
+  }
+
+  .pw-hint {
+    font-size: .78rem;
+    color: #9ca3af;
+    margin-top: 4px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="auth-icon"><i class="bi bi-person-plus-fill"></i></div>
+      <h4>Tạo tài khoản mới</h4>
+      <p>Đăng ký để mượn sách và theo dõi yêu cầu của bạn</p>
+    </div>
+    <div class="auth-body">
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger alert-banner mb-3" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>{{ form.non_field_errors }}
+      </div>
+      {% endif %}
+      <form method="post">
+        {% csrf_token %}
+        <div class="auth-field">
+          <label class="auth-label" for="id_reg_username">Tên đăng nhập</label>
+          <input id="id_reg_username" type="text" name="username" class="auth-input" placeholder="Chọn username..."
+            required autofocus value="{{ form.username.value|default_if_none:'' }}">
+          {% if form.username.errors %}<div class="form-error">{{ form.username.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_reg_email">Email</label>
+          <input id="id_reg_email" type="email" name="email" class="auth-input" placeholder="email@example.com" required
+            value="{{ form.email.value|default_if_none:'' }}">
+          {% if form.email.errors %}<div class="form-error">{{ form.email.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_reg_pw1">Mật khẩu</label>
+          <input id="id_reg_pw1" type="password" name="password1" class="auth-input" placeholder="Tối thiểu 8 ký tự..."
+            required>
+          {% if form.password1.errors %}<div class="form-error">{{ form.password1.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_reg_pw2">Nhập lại mật khẩu</label>
+          <input id="id_reg_pw2" type="password" name="password2" class="auth-input" placeholder="Xác nhận mật khẩu..."
+            required>
+          {% if form.password2.errors %}<div class="form-error">{{ form.password2.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="auth-field">
+          <label class="auth-label" for="id_student_code">Mã sinh viên</label>
+          <input id="id_student_code" type="text" name="student_code" class="auth-input" placeholder="VD: B20DCCN123"
+            required value="{{ form.student_code.value|default_if_none:'' }}">
+          {% if form.student_code.errors %}<div class="form-error">{{ form.student_code.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_full_name">Họ và tên</label>
+          <input id="id_full_name" type="text" name="full_name" class="auth-input" placeholder="VD: Nguyễn Văn A"
+            required value="{{ form.full_name.value|default_if_none:'' }}">
+          {% if form.full_name.errors %}<div class="form-error">{{ form.full_name.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_phone">Số điện thoại</label>
+          <input id="id_phone" type="text" name="phone" class="auth-input" placeholder="VD: 0987654321" required
+            value="{{ form.phone.value|default_if_none:'' }}">
+          {% if form.phone.errors %}<div class="form-error">{{ form.phone.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_faculty">Khoa</label>
+          <input id="id_faculty" type="text" name="faculty" class="auth-input" placeholder="VD: Công nghệ thông tin"
+            required value="{{ form.faculty.value|default_if_none:'' }}">
+          {% if form.faculty.errors %}<div class="form-error">{{ form.faculty.errors.0 }}</div>{% endif %}
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="id_class_name">Lớp</label>
+          <input id="id_class_name" type="text" name="class_name" class="auth-input" placeholder="VD: D20CQCN01-B"
+            required value="{{ form.class_name.value|default_if_none:'' }}">
+          {% if form.class_name.errors %}<div class="form-error">{{ form.class_name.errors.0 }}</div>{% endif %}
+        </div>
+
+        <button type="submit" class="btn-auth">
+          <i class="bi bi-person-check-fill me-1"></i> Tạo tài khoản
+        </button>
+      </form>
+    </div>
+    <div class="auth-footer">
+      Đã có tài khoản? <a href="{% url 'accounts:login' %}">Đăng nhập →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% block title %}Yêu cầu của tôi - Thư viện{% endblock %}
+
+{% block extra_css %}
+<style>
+  .req-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 16px rgba(17, 24, 39, .06);
+    overflow: hidden;
+    margin-bottom: 14px;
+    transition: box-shadow .2s, border-color .2s;
+  }
+
+  .req-card:hover {
+    box-shadow: 0 10px 28px rgba(17, 24, 39, .1);
+    border-color: #bfdbfe;
+  }
+
+  .req-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .req-book-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1d4ed8;
+    font-size: 1.3rem;
+  }
+
+  .req-book-title {
+    font-weight: 700;
+    font-size: .97rem;
+    color: #111827;
+  }
+
+  .req-book-author {
+    font-size: .8rem;
+    color: #9ca3af;
+  }
+
+  .req-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: .8rem;
+    color: #6b7280;
+  }
+
+  .req-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+
+  .sp-pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .sp-approved {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .sp-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .sp-cancelled {
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  .btn-cancel {
+    padding: 7px 16px;
+    border-radius: 10px;
+    font-size: .83rem;
+    font-weight: 600;
+    border: 1.5px solid #fca5a5;
+    color: #dc2626;
+    background: #fff;
+    text-decoration: none;
+    transition: background .18s, color .18s;
+    white-space: nowrap;
+  }
+
+  .btn-cancel:hover {
+    background: #dc2626;
+    color: #fff;
+    border-color: #dc2626;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 72px 24px;
+    color: #9ca3af;
+  }
+
+  .empty-state>i {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .page-hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .page-hdr h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .btn-find {
+    padding: 9px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: .88rem;
+    border: 1.5px solid #1d4ed8;
+    color: #1d4ed8;
+    background: #fff;
+    text-decoration: none;
+    transition: background .18s, color .18s;
+  }
+
+  .btn-find:hover {
+    background: #1d4ed8;
+    color: #fff;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-hdr">
+  <h2><i class="bi bi-bookmark-check me-2 text-primary"></i>Yêu cầu mượn sách của tôi</h2>
+  <a class="btn-find" href="{% url 'library:book_list' %}">
+    <i class="bi bi-search me-1"></i> Tìm sách mới
+  </a>
+</div>
+
+{% if requests %}
+{% for r in requests %}
+<div class="req-card">
+  <div class="req-inner">
+    <div class="req-book-icon"><i class="bi bi-book-half"></i></div>
+    <div class="flex-grow-1 overflow-hidden">
+      <div class="req-book-title">
+        <a href="{% url 'library:book_detail' r.book.pk %}" class="text-decoration-none text-dark">{{ r.book.title }}</a>
+      </div>
+      <div class="req-book-author">{{ r.book.author }}</div>
+      <div class="req-meta mt-2">
+        <span><i class="bi bi-calendar-plus"></i> {{ r.request_date|date:"d/m/Y" }}</span>
+        <span><i class="bi bi-calendar-check"></i> Trả: {{ r.expected_return_date|date:"d/m/Y" }}</span>
+        {% if r.handled_by %}
+        <span><i class="bi bi-person-check"></i> {{ r.handled_by.username }} · {{ r.handled_at|date:"d/m/Y" }}</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-end gap-2">
+      {% if r.status == 'PENDING' %}
+      <span class="status-pill sp-pending"><i class="bi bi-hourglass-split"></i> Chờ duyệt</span>
+      <a class="btn-cancel" href="{% url 'borrowing:cancel_request' r.pk %}">
+        <i class="bi bi-x-circle"></i> Huỷ
+      </a>
+      {% elif r.status == 'APPROVED' %}
+      <span class="status-pill sp-approved"><i class="bi bi-check-circle-fill"></i> Đã duyệt</span>
+      {% elif r.status == 'REJECTED' %}
+      <span class="status-pill sp-rejected"><i class="bi bi-x-circle-fill"></i> Từ chối</span>
+      {% elif r.status == 'CANCELLED' %}
+      <span class="status-pill sp-cancelled"><i class="bi bi-dash-circle"></i> Đã huỷ</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="empty-state">
+  <i class="bi bi-bookmark text-muted"></i>
+  <h5>Bạn chưa có yêu cầu mượn sách nào</h5>
+  <p>Hãy khám phá kho sách và gửi yêu cầu mượn!</p>
+  <a href="{% url 'library:book_list' %}" class="btn-find mt-2">
+    <i class="bi bi-search me-1"></i> Tìm sách ngay
+  </a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,469 @@
+{% extends 'base.html' %}
+{% block title %}Trang chủ - Thư viện Trường{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* ── Hero ── */
+    .hero {
+        position: relative;
+        padding: 80px 0 72px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 70% 60% at 50% -10%, rgba(29, 78, 216, .13), transparent),
+            radial-gradient(circle at 85% 80%, rgba(245, 158, 11, .10), transparent 50%);
+        pointer-events: none;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        background: rgba(29, 78, 216, .08);
+        border: 1px solid rgba(29, 78, 216, .18);
+        color: #1d4ed8;
+        font-size: .78rem;
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: #111827;
+        margin-bottom: 18px;
+    }
+
+    .hero-title span {
+        background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-sub {
+        font-size: 1.1rem;
+        color: #5b6573;
+        max-width: 540px;
+        margin: 0 auto 32px;
+        line-height: 1.7;
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 13px 30px;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 8px 24px rgba(29, 78, 216, .30);
+        transition: transform .2s, box-shadow .2s;
+        text-decoration: none;
+    }
+
+    .btn-hero-primary:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px rgba(29, 78, 216, .38);
+    }
+
+    .btn-hero-outline {
+        border-radius: 999px;
+        padding: 12px 28px;
+        font-weight: 600;
+        font-size: 1rem;
+        border: 1.5px solid #cbd5e1;
+        background: #fff;
+        color: #374151;
+        text-decoration: none;
+        transition: border-color .2s, box-shadow .2s;
+    }
+
+    .btn-hero-outline:hover {
+        color: #1d4ed8;
+        border-color: #1d4ed8;
+        box-shadow: 0 4px 16px rgba(29, 78, 216, .12);
+    }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding: 32px 0;
+        border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
+        margin-bottom: 60px;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-num {
+        font-family: 'Fraunces', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1d4ed8;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: .82rem;
+        color: #6b7280;
+        margin-top: 4px;
+        letter-spacing: .03em;
+    }
+
+    /* ── Feature cards ── */
+    .section-label {
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: #1d4ed8;
+        margin-bottom: 8px;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .section-sub {
+        color: #6b7280;
+        margin-bottom: 40px;
+    }
+
+    .feat-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        padding: 28px 24px;
+        height: 100%;
+        transition: transform .25s, box-shadow .25s, border-color .25s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .feat-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(20, 29, 43, .12);
+        border-color: #bfdbfe;
+        color: inherit;
+    }
+
+    .feat-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+
+    .feat-icon.blue {
+        background: #eff6ff;
+        color: #1d4ed8;
+    }
+
+    .feat-icon.green {
+        background: #f0fdf4;
+        color: #059669;
+    }
+
+    .feat-icon.amber {
+        background: #fffbeb;
+        color: #d97706;
+    }
+
+    .feat-icon.violet {
+        background: #f5f3ff;
+        color: #7c3aed;
+    }
+
+    .feat-card h5 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .feat-card p {
+        font-size: .9rem;
+        color: #6b7280;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* ── Guest CTA banner ── */
+    .cta-banner {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #7c3aed 100%);
+        border-radius: 24px;
+        padding: 48px 40px;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin: 60px 0;
+    }
+
+    .cta-banner::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: rgba(255, 255, 255, .07);
+        border-radius: 50%;
+    }
+
+    .cta-banner::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -40px;
+        width: 280px;
+        height: 280px;
+        background: rgba(255, 255, 255, .05);
+        border-radius: 50%;
+    }
+
+    .cta-banner h2 {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .cta-banner p {
+        opacity: .85;
+        margin-bottom: 28px;
+        font-size: 1rem;
+    }
+
+    .cta-banner .btn-light {
+        border-radius: 999px;
+        padding: 12px 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #1d4ed8;
+        border: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+        transition: transform .2s;
+        margin: 4px;
+    }
+
+    .cta-banner .btn-light:hover {
+        transform: translateY(-2px);
+    }
+
+    .cta-banner .btn-outline-light {
+        border-radius: 999px;
+        padding: 11px 28px;
+        font-weight: 600;
+        font-size: 1rem;
+        border: 2px solid rgba(255, 255, 255, .5);
+        color: #fff;
+        margin: 4px;
+        transition: border-color .2s, background .2s;
+    }
+
+    .cta-banner .btn-outline-light:hover {
+        background: rgba(255, 255, 255, .15);
+        border-color: #fff;
+        color: #fff;
+    }
+
+    /* ── How it works ── */
+    .step-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .step-connector {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, #bfdbfe, #ddd6fe);
+        margin: 0 4px;
+        align-self: center;
+    }
+
+    @media (max-width: 767px) {
+        .hero {
+            padding: 52px 0 48px;
+        }
+
+        .stats-strip {
+            gap: 24px;
+        }
+
+        .cta-banner {
+            padding: 36px 24px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ──────────────── HERO ──────────────── -->
+<section class="hero">
+    <div class="hero-badge"><i class="bi bi-mortarboard-fill"></i> Hệ thống thư viện trường</div>
+    <h1 class="hero-title">
+        Kho tri thức<br><span>dành cho sinh viên</span>
+    </h1>
+    <p class="hero-sub">
+        Tìm kiếm, mượn và quản lý sách trực tuyến - tiện lợi, nhanh chóng, mọi lúc mọi nơi.
+    </p>
+    <div class="hero-cta">
+        <a href="{% url 'library:book_list' %}" class="btn-hero-primary">
+            <i class="bi bi-search"></i> Khám phá sách ngay
+        </a>
+        {% if not user.is_authenticated %}
+        <a href="{% url 'accounts:register' %}" class="btn-hero-outline">
+            <i class="bi bi-person-plus"></i> Đăng ký miễn phí
+        </a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- ──────────────── STATS ──────────────── -->
+<div class="stats-strip">
+    <div class="stat-item">
+        <div class="stat-num">1,200+</div>
+        <div class="stat-label">Đầu sách</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Danh mục</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">3,500+</div>
+        <div class="stat-label">Sinh viên sử dụng</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Hài lòng</div>
+    </div>
+</div>
+
+<!-- ──────────────── FEATURES ──────────────── -->
+<div class="text-center mb-1">
+    <div class="section-label">Tính năng nổi bật</div>
+    <h2 class="section-title">Mọi thứ bạn cần trong một nơi</h2>
+    <p class="section-sub">Hệ thống thư viện số hiện đại, thân thiện với sinh viên.</p>
+</div>
+
+<div class="row g-4 mb-2">
+    <div class="col-sm-6 col-lg-3">
+        <a href="{% url 'library:book_list' %}" class="feat-card">
+            <div class="feat-icon blue"><i class="bi bi-search"></i></div>
+            <h5>Tìm kiếm thông minh</h5>
+            <p>Lọc theo tên sách, tác giả, ISBN, danh mục với công cụ tìm kiếm mạnh mẽ.</p>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <a href="{% url 'library:book_list' %}" class="feat-card">
+            <div class="feat-icon green"><i class="bi bi-bookmark-check"></i></div>
+            <h5>Mượn sách online</h5>
+            <p>Gửi yêu cầu mượn sách trực tuyến, được duyệt nhanh bởi thủ thư.</p>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <a href="{% url 'library:book_list' %}" class="feat-card">
+            <div class="feat-icon amber"><i class="bi bi-star-fill"></i></div>
+            <h5>Đánh giá & Review</h5>
+            <p>Chia sẻ cảm nhận sau khi đọc, xem review từ cộng đồng độc giả.</p>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <a href="{% url 'library:book_list' %}" class="feat-card">
+            <div class="feat-icon violet"><i class="bi bi-bell"></i></div>
+            <h5>Theo dõi trạng thái</h5>
+            <p>Xem chi tiết yêu cầu mượn, ngày trả, trạng thái xử lý bất cứ lúc nào.</p>
+        </a>
+    </div>
+</div>
+
+<!-- ──────────────── GUEST CTA ──────────────── -->
+{% if not user.is_authenticated %}
+<div class="cta-banner">
+    <h2>Bắt đầu ngay hôm nay - hoàn toàn miễn phí!</h2>
+    <p>Tạo tài khoản sinh viên để mượn sách, theo dõi yêu cầu và viết đánh giá.</p>
+    <a href="{% url 'accounts:register' %}" class="btn btn-light">
+        <i class="bi bi-person-plus-fill"></i> Đăng ký tài khoản
+    </a>
+    <a href="{% url 'accounts:login' %}" class="btn btn-outline-light">
+        <i class="bi bi-box-arrow-in-right"></i> Đăng nhập
+    </a>
+</div>
+{% endif %}
+
+<!-- ──────────────── HOW IT WORKS (guest only) ──────────────── -->
+{% if not user.is_authenticated %}
+<div class="text-center mb-4">
+    <div class="section-label">Hướng dẫn</div>
+    <h2 class="section-title">Chỉ 3 bước đơn giản</h2>
+    <p class="section-sub">Dễ dàng mượn sách trong vài phút.</p>
+</div>
+<div class="row g-4 mb-5 align-items-start">
+    <div class="col-md-4 text-center">
+        <div class="d-flex justify-content-center mb-3">
+            <div class="step-num">1</div>
+        </div>
+        <h6 class="fw-bold">Tạo tài khoản</h6>
+        <p class="text-muted small">Đăng ký nhanh với username và email sinh viên của bạn.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <div class="d-flex justify-content-center mb-3">
+            <div class="step-num">2</div>
+        </div>
+        <h6 class="fw-bold">Chọn sách muốn mượn</h6>
+        <p class="text-muted small">Duyệt qua danh mục, tìm kiếm và chọn sách bạn cần.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <div class="d-flex justify-content-center mb-3">
+            <div class="step-num">3</div>
+        </div>
+        <h6 class="fw-bold">Nhận sách & đọc thôi!</h6>
+        <p class="text-muted small">Sau khi được duyệt, đến thư viện nhận sách và trả đúng hạn.</p>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

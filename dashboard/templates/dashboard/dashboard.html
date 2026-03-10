@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - Thư viện{% endblock %}
+
+{% block extra_css %}
+<style>
+    .stat-card {
+        border-radius: 18px;
+        padding: 22px 20px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, .14);
+        transition: transform .22s, box-shadow .22s;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .stat-card::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        width: 90px;
+        height: 90px;
+        background: rgba(255, 255, 255, .1);
+        border-radius: 50%;
+    }
+
+    .stat-card .stat-num {
+        font-family: 'Fraunces', serif;
+        font-size: 2.3rem;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+
+    .stat-card .stat-label {
+        font-size: .88rem;
+        opacity: .88;
+        font-weight: 500;
+    }
+
+    .stat-card .stat-icon {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        font-size: 1.8rem;
+        opacity: .35;
+    }
+
+    .sc-blue {
+        background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+    }
+
+    .sc-green {
+        background: linear-gradient(135deg, #065f46, #059669);
+    }
+
+    .sc-amber {
+        background: linear-gradient(135deg, #92400e, #d97706);
+    }
+
+    .sc-red {
+        background: linear-gradient(135deg, #991b1b, #dc2626);
+    }
+
+    .chart-card {
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 4px 16px rgba(17, 24, 39, .06);
+        overflow: hidden;
+    }
+
+    .chart-card-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid #f1f5f9;
+        font-weight: 700;
+        font-size: .95rem;
+        color: #374151;
+        background: #f9fafb;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .chart-card-body {
+        padding: 20px;
+    }
+
+    .dash-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    .dash-header h2 {
+        font-size: 1.6rem;
+        margin: 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dash-header">
+    <h2><i class="bi bi-speedometer2 me-2 text-primary"></i>Dashboard Quản trị</h2>
+</div>
+
+<!-- Stats -->
+<div class="row g-4 mb-4">
+    <div class="col-6 col-md-3">
+        <div class="stat-card sc-blue">
+            <i class="stat-icon bi bi-journals"></i>
+            <div class="stat-num">{{ total_books }}</div>
+            <div class="stat-label">Tổng số sách</div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card sc-green">
+            <i class="stat-icon bi bi-bookmark-check-fill"></i>
+            <div class="stat-num">{{ active_borrows }}</div>
+            <div class="stat-label">Đang được mượn</div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card sc-amber">
+            <i class="stat-icon bi bi-hourglass-split"></i>
+            <div class="stat-num">{{ pending_requests }}</div>
+            <div class="stat-label">Chờ duyệt</div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card sc-red">
+            <i class="stat-icon bi bi-exclamation-triangle-fill"></i>
+            <div class="stat-num">{{ overdue_borrows }}</div>
+            <div class="stat-label">Quá hạn</div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick actions -->
+<div class="row g-3 mb-4">
+    <div class="col-auto">
+        <a href="{% url 'borrowing:admin_pending' %}" class="btn btn-outline-primary"
+            style="border-radius:10px;font-weight:600">
+            <i class="bi bi-hourglass-split me-1"></i> Duyệt mượn sách
+        </a>
+    </div>
+    <div class="col-auto">
+        <a href="{% url 'borrowing:admin_transactions' %}" class="btn btn-outline-success"
+            style="border-radius:10px;font-weight:600">
+            <i class="bi bi-arrow-return-left me-1"></i> Quản lý trả sách
+        </a>
+    </div>
+    <div class="col-auto">
+        <a href="{% url 'library:book_create' %}" class="btn btn-outline-secondary"
+            style="border-radius:10px;font-weight:600">
+            <i class="bi bi-plus-circle me-1"></i> Thêm sách mới
+        </a>
+    </div>
+</div>
+
+<!-- Charts -->
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="chart-card">
+            <div class="chart-card-header">
+                <i class="bi bi-graph-up-arrow text-primary"></i> Lượt mượn 30 ngày qua
+            </div>
+            <div class="chart-card-body">
+                <canvas id="borrowTrendChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="chart-card">
+            <div class="chart-card-header">
+                <i class="bi bi-trophy text-warning"></i> Top 5 sách được mượn nhiều nhất
+            </div>
+            <div class="chart-card-body">
+                <canvas id="topBooksChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const trendCtx = document.getElementById('borrowTrendChart');
+    new Chart(trendCtx, {
+        type: 'line',
+        data: {
+            labels: {{ borrow_trend| safe }}.map(d => d.date),
+        datasets: [{
+            label: 'Lượt mượn',
+            data: {{ borrow_trend| safe }}.map(d => d.count),
+        borderColor: '#1d4ed8',
+        backgroundColor: 'rgba(29,78,216,.08)',
+        tension: 0.35,
+        fill: true,
+        pointBackgroundColor: '#1d4ed8',
+        pointRadius: 4,
+        }]
+    },
+        options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: true, grid: { color: '#f1f5f9' } }
+        }
+    }
+});
+
+    const booksCtx = document.getElementById('topBooksChart');
+    new Chart(booksCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ top_books| safe }}.map(b => b.title.substring(0, 18) + (b.title.length > 18 ? '…' : '')),
+        datasets: [{
+            label: 'Lượt mượn',
+            data: {{ top_books| safe }}.map(b => b.borrow_count),
+        backgroundColor: [
+            'rgba(29,78,216,.7)',
+            'rgba(5,150,105,.7)',
+            'rgba(217,119,6,.7)',
+            'rgba(124,58,237,.7)',
+            'rgba(220,38,38,.7)',
+        ],
+        borderRadius: 8,
+        }]
+    },
+        options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: true, grid: { color: '#f1f5f9' } }
+        }
+    }
+});
+</script>
+{% endblock %}

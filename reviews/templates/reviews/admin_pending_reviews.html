@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Duyệt đánh giá{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Duyệt đánh giá (Pending)</h2>
+  <a class="btn btn-outline-secondary" href="{% url 'dashboard:dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+</div>
+
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-6">
+    <input class="form-control" name="search" placeholder="Tìm user/email, tên sách, nội dung..." value="{{ search }}">
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" name="sort">
+      <option value="-created_at" {% if sort == '-created_at' %}selected{% endif %}>Mới nhất</option>
+      <option value="created_at" {% if sort == 'created_at' %}selected{% endif %}>Cũ nhất</option>
+      <option value="-rating" {% if sort == '-rating' %}selected{% endif %}>Rating cao</option>
+      <option value="rating" {% if sort == 'rating' %}selected{% endif %}>Rating thấp</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <button class="btn btn-outline-primary w-100"><i class="bi bi-search"></i> Tìm/Lọc</button>
+  </div>
+</form>
+
+<table class="table table-hover align-middle">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Sách</th>
+      <th class="text-center">Rating</th>
+      <th>Nội dung</th>
+      <th class="text-center">Ngày tạo</th>
+      <th class="text-end">Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in reviews %}
+      <tr>
+        <td>
+          <b>{{ r.user.username }}</b>
+          <div class="small text-muted">{{ r.user.email|default:"-" }}</div>
+        </td>
+        <td>
+          <a href="{% url 'library:book_detail' r.book.pk %}"><b>{{ r.book.title }}</b></a>
+          <div class="small text-muted">{{ r.book.author }}</div>
+        </td>
+        <td class="text-center"><span class="badge bg-dark">{{ r.rating }}/5</span></td>
+        <td>{{ r.content|truncatechars:80 }}</td>
+        <td class="text-center">{{ r.created_at|date:"d/m/Y H:i" }}</td>
+        <td class="text-end">
+          <div class="btn-group">
+            <a class="btn btn-sm btn-outline-success" href="{% url 'reviews:approve_review' r.pk %}"><i class="bi bi-check-circle"></i> Duyệt</a>
+            <a class="btn btn-sm btn-outline-danger" href="{% url 'reviews:reject_review' r.pk %}"><i class="bi bi-x-circle"></i> Từ chối</a>
+          </div>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="6" class="text-center text-muted">Không có đánh giá pending.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

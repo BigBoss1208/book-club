@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% block title %}Hồ sơ - Thư viện{% endblock %}
+
+{% block extra_css %}
+<style>
+  .profile-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .profile-banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #7c3aed 100%);
+    border-radius: 20px;
+    padding: 32px 28px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 32px rgba(29, 78, 216, .24);
+  }
+
+  .profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    border: 3px solid rgba(255, 255, 255, .4);
+  }
+
+  .profile-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .profile-role {
+    opacity: .82;
+    font-size: .88rem;
+  }
+
+  .profile-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 16px rgba(17, 24, 39, .06);
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+
+  .profile-card-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-weight: 700;
+    font-size: .88rem;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .profile-row {
+    display: flex;
+    align-items: center;
+    padding: 13px 20px;
+    border-bottom: 1px solid #f9fafb;
+    font-size: .9rem;
+  }
+
+  .profile-row:last-child {
+    border-bottom: none;
+  }
+
+  .profile-row .label {
+    font-weight: 600;
+    color: #6b7280;
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+
+  .profile-row .value {
+    color: #111827;
+  }
+
+  .badge-role {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+  }
+
+  .badge-admin {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  .badge-student {
+    background: #dcfce7;
+    color: #166534;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="profile-wrap">
+  <!-- Banner -->
+  <div class="profile-banner">
+    <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+    <div>
+      <div class="profile-name">{{ user.username }}</div>
+      <div class="profile-role">
+      {% if user.is_staff %}
+        ⭐ Quản trị viên hệ thống
+      {% else %}
+        🎓 Sinh viên
+      {% endif %}
+</div>
+    </div>
+  </div>
+
+  <!-- Account info -->
+  <div class="profile-card">
+    <div class="profile-card-header"><i class="bi bi-shield-check text-primary"></i> Thông tin tài khoản</div>
+    <div class="profile-row">
+      <span class="label">Tên đăng nhập</span>
+      <span class="value">{{ user.username }}</span>
+    </div>
+    <div class="profile-row">
+      <span class="label">Email</span>
+      <span class="value">{{ user.email|default:"-" }}</span>
+    </div>
+    <div class="profile-row">
+      <span class="label">Vai trò</span>
+      <span class="value">
+        {% if user.is_staff %}
+        <span class="badge-role badge-admin">Admin</span>
+        {% else %}
+        <span class="badge-role badge-student">Sinh viên</span>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+
+  <!-- Student profile -->
+  {% if user.studentprofile %}
+  <div class="profile-card">
+    <div class="profile-card-header"><i class="bi bi-mortarboard text-success"></i> Thông tin sinh viên</div>
+    <div class="profile-row">
+      <span class="label">Mã sinh viên</span>
+      <span class="value">{{ user.studentprofile.student_code }}</span>
+    </div>
+    <div class="profile-row">
+      <span class="label">Họ và tên</span>
+      <span class="value">{{ user.studentprofile.full_name }}</span>
+    </div>
+    <div class="profile-row">
+      <span class="label">Số điện thoại</span>
+      <span class="value">{{ user.studentprofile.phone|default:"-" }}</span>
+    </div>
+    <div class="profile-row">
+      <span class="label">Khoa</span>
+      <span class="value">{{ user.studentprofile.faculty|default:"-" }}</span>
+    </div>
+    <div class="profile-row">
+      <span class="label">Lớp</span>
+      <span class="value">{{ user.studentprofile.class_name|default:"-" }}</span>
+    </div>
+  </div>
+  {% elif not user.is_staff %}
+  <div class="profile-card">
+    <div class="profile-card-header"><i class="bi bi-mortarboard text-success"></i> Thông tin sinh viên</div>
+    <div class="profile-row">
+      <span class="value text-muted">Chưa có thông tin hồ sơ sinh viên.</span>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

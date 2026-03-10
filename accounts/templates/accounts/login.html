@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% block title %}Đăng nhập - Thư viện{% endblock %}
+
+{% block extra_css %}
+<style>
+    .auth-wrap {
+        min-height: calc(100vh - 200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 440px;
+        background: #fff;
+        border-radius: 24px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 20px 60px rgba(17, 24, 39, .12);
+        overflow: hidden;
+    }
+
+    .auth-header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #2563eb 100%);
+        padding: 28px 32px 24px;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .auth-header::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 120px;
+        height: 120px;
+        background: rgba(255, 255, 255, .08);
+        border-radius: 50%;
+    }
+
+    .auth-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, .18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin: 0 auto 12px;
+        backdrop-filter: blur(4px);
+    }
+
+    .auth-header h4 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0;
+        font-family: 'Fraunces', serif;
+    }
+
+    .auth-header p {
+        opacity: .80;
+        font-size: .88rem;
+        margin: 4px 0 0;
+    }
+
+    .auth-body {
+        padding: 28px 32px 24px;
+    }
+
+    .auth-label {
+        display: block;
+        font-weight: 600;
+        font-size: .88rem;
+        color: #374151;
+        margin-bottom: 6px;
+    }
+
+    .auth-input {
+        width: 100%;
+        border-radius: 10px;
+        border: 1.5px solid #d1d5db;
+        padding: 11px 14px;
+        font-size: .93rem;
+        background: #fafafa;
+        transition: border-color .2s, box-shadow .2s;
+        outline: none;
+    }
+
+    .auth-input:focus {
+        border-color: #1d4ed8;
+        box-shadow: 0 0 0 4px rgba(29, 78, 216, .10);
+        background: #fff;
+    }
+
+    .auth-field {
+        margin-bottom: 18px;
+    }
+
+    .btn-auth {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        color: #fff;
+        border: none;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(29, 78, 216, .28);
+        transition: transform .2s, box-shadow .2s;
+        margin-top: 4px;
+    }
+
+    .btn-auth:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(29, 78, 216, .34);
+    }
+
+    .auth-footer {
+        text-align: center;
+        padding: 14px 32px 24px;
+        font-size: .88rem;
+        color: #6b7280;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .auth-footer a {
+        color: #1d4ed8;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+
+    .form-error {
+        color: #dc2626;
+        font-size: .82rem;
+        margin-top: 4px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="auth-icon"><i class="bi bi-box-arrow-in-right"></i></div>
+            <h4>Chào mừng trở lại!</h4>
+            <p>Đăng nhập để tiếp tục sử dụng thư viện</p>
+        </div>
+        <div class="auth-body">
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger alert-banner mb-4" role="alert">
+                <i class="bi bi-exclamation-triangle me-2"></i>{{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="auth-field">
+                    <label class="auth-label" for="id_username">Tên đăng nhập</label>
+                    <input id="id_username" type="text" name="username" class="auth-input" placeholder="Nhập username..." required autofocus>
+                </div>
+                <div class="auth-field">
+                    <label class="auth-label" for="id_password">Mật khẩu</label>
+                    <input id="id_password" type="password" name="password" class="auth-input" placeholder="Nhập mật khẩu..." required>
+                </div>
+                <button type="submit" class="btn-auth">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Đăng nhập
+                </button>
+            </form>
+        </div>
+        <div class="auth-footer">
+            Chưa có tài khoản? <a href="{% url 'accounts:register' %}">Đăng ký ngay →</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
