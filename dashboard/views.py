@@ -7,6 +7,7 @@ from datetime import timedelta
 from library.models import Book, Category
 from borrowing.models import BorrowRequest, BorrowTransaction
 from reviews.models import Review
+import json
 
 
 def is_admin(user):
@@ -16,28 +17,23 @@ def is_admin(user):
 @login_required
 @user_passes_test(is_admin)
 def dashboard_view(request):
-    # Overall statistics
     total_books = Book.objects.filter(is_active=True).count()
     total_categories = Category.objects.filter(is_active=True).count()
     total_users = User.objects.filter(is_active=True).count()
 
-    # Current borrowing stats
     active_borrows = BorrowTransaction.objects.filter(status__in=['BORROWING', 'OVERDUE']).count()
     overdue_borrows = BorrowTransaction.objects.filter(status='OVERDUE').count()
     pending_requests = BorrowRequest.objects.filter(status='PENDING').count()
     pending_reviews = Review.objects.filter(status='PENDING').count()
 
-    # Top borrowed books
     top_books = Book.objects.annotate(
         borrow_count=Count('borrow_requests', filter=Q(borrow_requests__status='APPROVED'))
     ).order_by('-borrow_count')[:5]
 
-    # Top categories
     top_categories = Category.objects.annotate(
         borrow_count=Count('books__borrow_requests', filter=Q(books__borrow_requests__status='APPROVED'))
     ).order_by('-borrow_count')[:5]
 
-    # Borrow trend (last 30 days)
     today = timezone.now().date()
     borrow_trend = []
     for i in range(30):
@@ -46,6 +42,13 @@ def dashboard_view(request):
             borrowed_at__date=date
         ).count()
         borrow_trend.append({'date': date.strftime('%d/%m'), 'count': count})
+
+    top_books_data = json.dumps([
+        {'title': b.title, 'borrow_count': b.borrow_count}
+        for b in top_books
+    ], ensure_ascii=False)
+
+    borrow_trend_data = json.dumps(borrow_trend, ensure_ascii=False)
 
     context = {
         'total_books': total_books,
@@ -58,5 +61,7 @@ def dashboard_view(request):
         'top_books': top_books,
         'top_categories': top_categories,
         'borrow_trend': borrow_trend,
+        'top_books_data': top_books_data,
+        'borrow_trend_data': borrow_trend_data,
     }
     return render(request, 'dashboard/dashboard.html', context)
