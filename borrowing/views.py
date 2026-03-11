@@ -67,12 +67,7 @@ def cancel_borrow_request_view(request, pk):
 
 @login_required
 def user_return_book_view(request, pk):
-    transaction = get_object_or_404(
-        BorrowTransaction,
-        pk=pk,
-        borrow_request__user=request.user,
-        status__in=['BORROWING', 'OVERDUE']
-    )
+    transaction = get_object_or_404(BorrowTransaction, pk=pk)
     if request.method == 'POST':
         transaction.returned_at = timezone.now()
         transaction.status = 'RETURNED'
