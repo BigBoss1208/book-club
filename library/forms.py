@@ -15,7 +15,7 @@ class BookForm(forms.ModelForm):
 
     def clean_cover_image(self):
         image = self.cleaned_data.get('cover_image')
-        if image:
+        if image and hasattr(image, 'content_type'):
             if image.size > 2 * 1024 * 1024:  # 2MB
                 raise ValidationError('Ảnh không được vượt quá 2MB')
             if not image.content_type in ['image/jpeg', 'image/png', 'image/webp']:
