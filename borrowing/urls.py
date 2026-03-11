@@ -7,6 +7,7 @@ urlpatterns = [
     path('request/<int:book_id>/', views.create_borrow_request_view, name='create_request'),
     path('my-requests/', views.my_borrow_requests_view, name='my_requests'),
     path('cancel/<int:pk>/', views.cancel_borrow_request_view, name='cancel_request'),
+    path('return/<int:pk>/', views.user_return_book_view, name='user_return_book'),
 
     # Admin
     path('admin/pending/', views.admin_pending_requests_view, name='admin_pending'),

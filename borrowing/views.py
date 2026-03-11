@@ -15,12 +15,10 @@ from library.models import Book
 def create_borrow_request_view(request, book_id):
     book = get_object_or_404(Book, pk=book_id, is_active=True)
 
-    # Check if book is available
     if not book.is_available:
         messages.error(request, 'Sách này hiện không còn sẵn')
         return redirect('library:book_detail', pk=book_id)
 
-    # Check if user already has pending/approved request for this book
     existing = BorrowRequest.objects.filter(
         user=request.user,
         book=book,
@@ -67,6 +65,31 @@ def cancel_borrow_request_view(request, pk):
     return render(request, 'borrowing/cancel_request.html', {'request': borrow_request})
 
 
+@login_required
+def user_return_book_view(request, pk):
+    transaction = get_object_or_404(
+        BorrowTransaction,
+        pk=pk,
+        borrow_request__user=request.user,
+        status__in=['BORROWING', 'OVERDUE']
+    )
+    if request.method == 'POST':
+        transaction.returned_at = timezone.now()
+        transaction.status = 'RETURNED'
+        transaction.calculate_fine()
+        transaction.save()
+
+        transaction.borrow_request.status = 'RETURNED'
+        transaction.borrow_request.save()
+
+        book = transaction.borrow_request.book
+        book.available_copies += 1
+        book.save()
+        messages.success(request, 'Đã gửi yêu cầu trả sách thành công!')
+        return redirect('borrowing:my_requests')
+    return render(request, 'borrowing/user_return_book.html', {'transaction': transaction})
+
+
 # Admin views
 def is_admin(user):
     return user.is_staff
@@ -77,7 +100,6 @@ def is_admin(user):
 def admin_pending_requests_view(request):
     qs = BorrowRequest.objects.filter(status='PENDING').select_related('user', 'book')
 
-    # search theo username / title
     search = request.GET.get('search', '').strip()
     if search:
         qs = qs.filter(
@@ -85,7 +107,6 @@ def admin_pending_requests_view(request):
             Q(book__title__icontains=search)
         )
 
-    # sort
     sort = request.GET.get('sort', '-request_date')
     allowed_sorts = ['-request_date', 'request_date', 'expected_return_date', '-expected_return_date']
     if sort not in allowed_sorts:
@@ -110,20 +131,17 @@ def approve_borrow_request_view(request, pk):
         return redirect('borrowing:admin_pending')
 
     if request.method == 'POST':
-        # Update request
         borrow_request.status = 'APPROVED'
         borrow_request.handled_by = request.user
         borrow_request.handled_at = timezone.now()
         borrow_request.save()
 
-        # Create transaction
         due_date = timezone.now() + timedelta(days=(borrow_request.expected_return_date - timezone.now().date()).days)
         BorrowTransaction.objects.create(
             borrow_request=borrow_request,
             due_at=due_date
         )
 
-        # Update book availability
         book.available_copies -= 1
         book.save()
 
@@ -159,6 +177,7 @@ def reject_borrow_request_view(request, pk):
         borrow_request.handled_by = request.user
         borrow_request.handled_at = timezone.now()
         borrow_request.save()
+
         if borrow_request.user.email:
             subject = 'Yêu cầu mượn sách bị từ chối'
             message = (
@@ -184,12 +203,10 @@ def reject_borrow_request_view(request, pk):
 @login_required
 @user_passes_test(is_admin)
 def admin_active_transactions_view(request):
-    """Admin: active transactions (borrowing/overdue) with search/filter/sort."""
     qs = BorrowTransaction.objects.filter(
         status__in=['BORROWING', 'OVERDUE']
     ).select_related('borrow_request__user', 'borrow_request__book')
 
-    # Search
     search = request.GET.get('search', '')
     if search:
         qs = qs.filter(
@@ -198,12 +215,10 @@ def admin_active_transactions_view(request):
             Q(borrow_request__book__title__icontains=search)
         )
 
-    # Filter by status
     status = request.GET.get('status', '')
     if status in ['BORROWING', 'OVERDUE']:
         qs = qs.filter(status=status)
 
-    # Sort
     sort = request.GET.get('sort', 'due_at')
     if sort in ['due_at', '-due_at', 'borrowed_at', '-borrowed_at']:
         qs = qs.order_by(sort)
@@ -229,7 +244,6 @@ def return_book_view(request, pk):
         transaction.calculate_fine()
         transaction.save()
 
-        # Update book availability
         book = transaction.borrow_request.book
         book.available_copies += 1
         book.save()
