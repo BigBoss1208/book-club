@@ -73,25 +73,11 @@
     font-weight: 700;
   }
 
-  .sp-pending {
-    background: #fef3c7;
-    color: #92400e;
-  }
-
-  .sp-approved {
-    background: #dcfce7;
-    color: #166534;
-  }
-
-  .sp-rejected {
-    background: #fee2e2;
-    color: #991b1b;
-  }
-
-  .sp-cancelled {
-    background: #f1f5f9;
-    color: #475569;
-  }
+  .sp-pending   { background: #fef3c7; color: #92400e; }
+  .sp-approved  { background: #dcfce7; color: #166534; }
+  .sp-rejected  { background: #fee2e2; color: #991b1b; }
+  .sp-cancelled { background: #f1f5f9; color: #475569; }
+  .sp-returned  { background: #f0fdf4; color: #166534; }
 
   .btn-cancel {
     padding: 7px 16px;
@@ -112,13 +98,32 @@
     border-color: #dc2626;
   }
 
+  .btn-return {
+    padding: 7px 16px;
+    border-radius: 10px;
+    font-size: .83rem;
+    font-weight: 600;
+    border: 1.5px solid #f59e0b;
+    color: #d97706;
+    background: #fff;
+    text-decoration: none;
+    transition: background .18s, color .18s;
+    white-space: nowrap;
+  }
+
+  .btn-return:hover {
+    background: #f59e0b;
+    color: #fff;
+    border-color: #f59e0b;
+  }
+
   .empty-state {
     text-align: center;
     padding: 72px 24px;
     color: #9ca3af;
   }
 
-  .empty-state>i {
+  .empty-state > i {
     font-size: 3.5rem;
     display: block;
     margin-bottom: 14px;
@@ -132,10 +137,7 @@
     margin-bottom: 24px;
   }
 
-  .page-hdr h2 {
-    font-size: 1.5rem;
-    margin: 0;
-  }
+  .page-hdr h2 { font-size: 1.5rem; margin: 0; }
 
   .btn-find {
     padding: 9px 20px;
@@ -184,16 +186,23 @@
     </div>
     <div class="d-flex flex-column align-items-end gap-2">
       {% if r.status == 'PENDING' %}
-      <span class="status-pill sp-pending"><i class="bi bi-hourglass-split"></i> Chờ duyệt</span>
-      <a class="btn-cancel" href="{% url 'borrowing:cancel_request' r.pk %}">
-        <i class="bi bi-x-circle"></i> Huỷ
-      </a>
+        <span class="status-pill sp-pending"><i class="bi bi-hourglass-split"></i> Chờ duyệt</span>
+        <a class="btn-cancel" href="{% url 'borrowing:cancel_request' r.pk %}">
+          <i class="bi bi-x-circle"></i> Huỷ
+        </a>
       {% elif r.status == 'APPROVED' %}
-      <span class="status-pill sp-approved"><i class="bi bi-check-circle-fill"></i> Đã duyệt</span>
+        <span class="status-pill sp-approved"><i class="bi bi-check-circle-fill"></i> Đã duyệt</span>
+        {% if r.transaction %}
+        <a class="btn-return" href="{% url 'borrowing:user_return_book' r.transaction.pk %}">
+          <i class="bi bi-arrow-return-left"></i> Trả sách
+        </a>
+        {% endif %}
+      {% elif r.status == 'RETURNED' %}
+        <span class="status-pill sp-returned"><i class="bi bi-check2-all"></i> Đã trả</span>
       {% elif r.status == 'REJECTED' %}
-      <span class="status-pill sp-rejected"><i class="bi bi-x-circle-fill"></i> Từ chối</span>
+        <span class="status-pill sp-rejected"><i class="bi bi-x-circle-fill"></i> Từ chối</span>
       {% elif r.status == 'CANCELLED' %}
-      <span class="status-pill sp-cancelled"><i class="bi bi-dash-circle"></i> Đã huỷ</span>
+        <span class="status-pill sp-cancelled"><i class="bi bi-dash-circle"></i> Đã huỷ</span>
       {% endif %}
     </div>
   </div>
