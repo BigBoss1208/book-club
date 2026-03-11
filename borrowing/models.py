@@ -9,6 +9,7 @@ class BorrowRequest(models.Model):
         ('APPROVED', 'Đã duyệt'),
         ('REJECTED', 'Từ chối'),
         ('CANCELLED', 'Đã huỷ'),
+        ('RETURNED', 'Đã trả'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='borrow_requests')
