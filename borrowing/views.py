@@ -68,6 +68,12 @@ def cancel_borrow_request_view(request, pk):
 @login_required
 def user_return_book_view(request, pk):
     transaction = get_object_or_404(BorrowTransaction, pk=pk)
+
+    # Cho phép cả RETURN_PENDING vì model có status này
+    if transaction.status not in ['BORROWING', 'OVERDUE', 'RETURN_PENDING']:
+        messages.error(request, 'Giao dịch này không thể trả sách!')
+        return redirect('borrowing:my_requests')
+
     if request.method == 'POST':
         transaction.returned_at = timezone.now()
         transaction.status = 'RETURNED'
@@ -82,6 +88,7 @@ def user_return_book_view(request, pk):
         book.save()
         messages.success(request, 'Đã gửi yêu cầu trả sách thành công!')
         return redirect('borrowing:my_requests')
+
     return render(request, 'borrowing/user_return_book.html', {'transaction': transaction})
 
 
@@ -134,7 +141,8 @@ def approve_borrow_request_view(request, pk):
         due_date = timezone.now() + timedelta(days=(borrow_request.expected_return_date - timezone.now().date()).days)
         BorrowTransaction.objects.create(
             borrow_request=borrow_request,
-            due_at=due_date
+            due_at=due_date,
+            status='BORROWING'
         )
 
         book.available_copies -= 1
