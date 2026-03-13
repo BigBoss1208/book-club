@@ -1,10 +1,10 @@
-# BookClub Library System
+# BookClub Library Management System
 
-## Muc tieu
-- Quan ly thu vien sach: danh muc, sach, muon/tra, va danh gia.
-- Cung cap giao dien cho nguoi dung va trang quan tri cho nhan vien.
-- Co du lieu mau de test nhanh cac chuc nang chinh.
+**Mục tiêu**
 
+* Quản lý thư viện sách: danh mục, sách, mượn/trả và đánh giá.
+* Cung cấp giao diện cho người dùng và trang quản trị cho nhân viên.
+* Có dữ liệu mẫu để test nhanh các chức năng chính.
 ## Cai dat
 
 ### 1) Tao va kich hoat virtual environment
