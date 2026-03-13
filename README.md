@@ -5,36 +5,36 @@
 * Quản lý thư viện sách: danh mục, sách, mượn/trả và đánh giá.
 * Cung cấp giao diện cho người dùng và trang quản trị cho nhân viên.
 * Có dữ liệu mẫu để test nhanh các chức năng chính.
-## Cai dat
+## Cài Đặt
 
-### 1) Tao va kich hoat virtual environment
+### 1) Tạo và kích hoạt virtual environment
 ```powershell
 python -m venv venv
 venv\Scripts\activate
 ```
 
-### 2) Cai dat dependencies
+### 2) Cài Đặt dependencies
 ```powershell
 pip install -r requirements.txt
 ```
 
-### 3) Thiet lap database
-- Chay file `schema` de tao database va bang.
-- Cap nhat thong tin ket noi trong `.env`.
+### 3) Thiết lập database
+- Chạy file `schema` để tạo   database va bảng.
+- Cập nhập thông tin kết nối `.env`.
 
-### 4) Migrate va tao du lieu mau
+### 4) Migrate va tạo dữ liệu mẫu
 ```powershell
 python manage.py makemigrations
 python manage.py migrate
 python create_sample_data.py
 ```
 
-### 5) Chay server
+### 5) Chạy server
 ```powershell
 python manage.py runserver
 ```
 
-## Tai khoan mau
+## Tài Khoản Mẫu
 - Admin: `admin` / `admin@123`
 - User mau: `student01` / `student123`
 
