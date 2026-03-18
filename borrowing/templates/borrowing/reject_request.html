@@ -24,6 +24,13 @@
 
   <form method="post" class="form-card">
     {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Lý do từ chối <span class="text-danger">*</span></label>
+      {{ form.reject_reason }}
+      {% if form.reject_reason.errors %}
+        <div class="text-danger small mt-1">{{ form.reject_reason.errors }}</div>
+      {% endif %}
+    </div>
     <div class="form-actions">
       <button class="btn btn-danger" type="submit"><i class="bi bi-x-circle"></i> Xác nhận từ chối</button>
       <a class="btn btn-secondary" href="{% url 'borrowing:admin_pending' %}">Hủy</a>
