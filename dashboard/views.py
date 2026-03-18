@@ -26,22 +26,31 @@ def dashboard_view(request):
     pending_requests = BorrowRequest.objects.filter(status='PENDING').count()
     pending_reviews = Review.objects.filter(status='PENDING').count()
 
+    # ✅ Đếm cả APPROVED lẫn RETURNED
     top_books = Book.objects.annotate(
-        borrow_count=Count('borrow_requests', filter=Q(borrow_requests__status='APPROVED'))
+        borrow_count=Count('borrow_requests', filter=Q(
+            borrow_requests__status__in=['APPROVED', 'RETURNED']
+        ))
     ).order_by('-borrow_count')[:5]
 
     top_categories = Category.objects.annotate(
-        borrow_count=Count('books__borrow_requests', filter=Q(books__borrow_requests__status='APPROVED'))
+        borrow_count=Count('books__borrow_requests', filter=Q(
+            books__borrow_requests__status__in=['APPROVED', 'RETURNED']
+        ))
     ).order_by('-borrow_count')[:5]
 
-    today = timezone.now().date()
+    # ✅ Dùng range thay vì __date để tránh lệch timezone
+    today = timezone.now()
     borrow_trend = []
     for i in range(30):
-        date = today - timedelta(days=29 - i)
+        start = today - timedelta(days=29 - i)
+        start = start.replace(hour=0, minute=0, second=0, microsecond=0)
+        end = start + timedelta(days=1)
         count = BorrowTransaction.objects.filter(
-            borrowed_at__date=date
+            borrowed_at__gte=start,
+            borrowed_at__lt=end
         ).count()
-        borrow_trend.append({'date': date.strftime('%d/%m'), 'count': count})
+        borrow_trend.append({'date': start.strftime('%d/%m'), 'count': count})
 
     top_books_data = json.dumps([
         {'title': b.title, 'borrow_count': b.borrow_count}
