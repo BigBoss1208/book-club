@@ -18,6 +18,7 @@ class BorrowRequest(models.Model):
     expected_return_date = models.DateField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
     note = models.TextField(blank=True)
+    reject_reason = models.TextField(blank=True)  # ✅ Thêm mới
     handled_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='handled_requests')
     handled_at = models.DateTimeField(null=True, blank=True)
 
@@ -27,6 +28,7 @@ class BorrowRequest(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.book.title}"
+
 
 class BorrowTransaction(models.Model):
     STATUS_CHOICES = [
@@ -53,5 +55,5 @@ class BorrowTransaction(models.Model):
     def calculate_fine(self):
         if self.returned_at and self.returned_at > self.due_at:
             days_late = (self.returned_at - self.due_at).days
-            self.fine_amount = days_late * 5000  # 5000 VND/day
+            self.fine_amount = days_late * 5000
             self.save()

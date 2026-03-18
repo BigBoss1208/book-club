@@ -90,6 +90,7 @@
     text-decoration: none;
     transition: background .18s, color .18s;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .btn-cancel:hover {
@@ -115,6 +116,26 @@
     background: #f59e0b;
     color: #fff;
     border-color: #f59e0b;
+  }
+
+  .btn-info-reason {
+    padding: 7px 16px;
+    border-radius: 10px;
+    font-size: .83rem;
+    font-weight: 600;
+    border: 1.5px solid #93c5fd;
+    color: #1d4ed8;
+    background: #fff;
+    text-decoration: none;
+    transition: background .18s, color .18s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .btn-info-reason:hover {
+    background: #1d4ed8;
+    color: #fff;
+    border-color: #1d4ed8;
   }
 
   .empty-state {
@@ -201,12 +222,42 @@
         <span class="status-pill sp-returned"><i class="bi bi-check2-all"></i> Đã trả</span>
       {% elif r.status == 'REJECTED' %}
         <span class="status-pill sp-rejected"><i class="bi bi-x-circle-fill"></i> Từ chối</span>
+        {% if r.reject_reason %}
+        <button class="btn-info-reason" data-bs-toggle="modal" data-bs-target="#rejectModal{{ r.pk }}">
+          <i class="bi bi-info-circle"></i> Xem lý do
+        </button>
+        {% endif %}
       {% elif r.status == 'CANCELLED' %}
         <span class="status-pill sp-cancelled"><i class="bi bi-dash-circle"></i> Đã huỷ</span>
       {% endif %}
     </div>
   </div>
 </div>
+
+<!-- Modal lý do từ chối -->
+{% if r.status == 'REJECTED' and r.reject_reason %}
+<div class="modal fade" id="rejectModal{{ r.pk }}" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 16px;">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold"><i class="bi bi-x-circle-fill text-danger me-2"></i>Lý do từ chối</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body pt-2">
+        <p class="text-muted mb-1"><strong>Sách:</strong> {{ r.book.title }}</p>
+        <p class="text-muted mb-3"><strong>Ngày từ chối:</strong> {{ r.handled_at|date:"d/m/Y" }}</p>
+        <div class="p-3 rounded" style="background: #fee2e2; color: #991b1b;">
+          {{ r.reject_reason }}
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
 {% endfor %}
 {% else %}
 <div class="empty-state">
