@@ -102,13 +102,13 @@ for u in sample_users_data:
 categories_obj = {cat.name: cat for cat in Category.objects.all()}
 
 books_data = [
-    {'title': 'Clean Code',                 'author': 'Robert C. Martin',  'publisher': 'Prentice Hall',        'publish_year': 2008, 'description': 'A Handbook of Agile Software Craftsmanship',               'total_copies': 5,  'available_copies': 5,  'category': categories_obj.get('Công nghệ')},
-    {'title': 'Sapiens: Lược sử loài người','author': 'Yuval Noah Harari', 'publisher': 'NXB Trẻ',              'publish_year': 2018, 'description': 'Từ khi xuất hiện đến nay, loài người đã trải qua những gì?','total_copies': 10, 'available_copies': 10, 'category': categories_obj.get('Văn học')},
-    {'title': 'Đắc nhân tâm',               'author': 'Dale Carnegie',     'publisher': 'NXB Tổng hợp TP.HCM', 'publish_year': 2015, 'description': 'Nghệ thuật thu phục lòng người',                          'total_copies': 8,  'available_copies': 8,  'category': categories_obj.get('Kỹ năng sống')},
-    {'title': 'Rich Dad Poor Dad',          'author': 'Robert Kiyosaki',   'publisher': 'NXB Trẻ',              'publish_year': 2016, 'description': 'Cha giàu cha nghèo',                                      'total_copies': 6,  'available_copies': 6,  'category': categories_obj.get('Kinh tế')},
-    {'title': 'Lập Trình Python Cơ Bản',    'author': 'Nguyen Van X',      'publisher': 'NXB KHKT',             'publish_year': 2020, 'description': 'Học Python từ cơ bản đến nâng cao',                       'total_copies': 7,  'available_copies': 7,  'category': categories_obj.get('Công nghệ')},
-    {'title': 'Truyện Kiều',                'author': 'Nguyễn Du',         'publisher': 'NXB Văn học',          'publish_year': 2010, 'description': 'Kiệt tác văn học Việt Nam',                               'total_copies': 4,  'available_copies': 4,  'category': categories_obj.get('Văn học')},
-    {'title': 'Pride and Prejudice',        'author': 'Jane Austen',       'publisher': 'Penguin',              'publish_year': 1813, 'description': 'Classic English novel',                                   'total_copies': 3,  'available_copies': 3,  'category': categories_obj.get('Văn học')},
+    {'title': 'Clean Code',                  'author': 'Robert C. Martin',  'publisher': 'Prentice Hall',        'publish_year': 2008, 'description': 'A Handbook of Agile Software Craftsmanship',                'total_copies': 5,  'available_copies': 5,  'category': categories_obj.get('Công nghệ')},
+    {'title': 'Sapiens: Lược sử loài người', 'author': 'Yuval Noah Harari', 'publisher': 'NXB Trẻ',              'publish_year': 2018, 'description': 'Từ khi xuất hiện đến nay, loài người đã trải qua những gì?', 'total_copies': 10, 'available_copies': 10, 'category': categories_obj.get('Văn học')},
+    {'title': 'Đắc nhân tâm',                'author': 'Dale Carnegie',     'publisher': 'NXB Tổng hợp TP.HCM', 'publish_year': 2015, 'description': 'Nghệ thuật thu phục lòng người',                           'total_copies': 8,  'available_copies': 8,  'category': categories_obj.get('Kỹ năng sống')},
+    {'title': 'Rich Dad Poor Dad',           'author': 'Robert Kiyosaki',   'publisher': 'NXB Trẻ',              'publish_year': 2016, 'description': 'Cha giàu cha nghèo',                                       'total_copies': 6,  'available_copies': 6,  'category': categories_obj.get('Kinh tế')},
+    {'title': 'Lập Trình Python Cơ Bản',     'author': 'Nguyen Van X',      'publisher': 'NXB KHKT',             'publish_year': 2020, 'description': 'Học Python từ cơ bản đến nâng cao',                        'total_copies': 7,  'available_copies': 7,  'category': categories_obj.get('Công nghệ')},
+    {'title': 'Truyện Kiều',                 'author': 'Nguyễn Du',         'publisher': 'NXB Văn học',          'publish_year': 2010, 'description': 'Kiệt tác văn học Việt Nam',                                'total_copies': 4,  'available_copies': 4,  'category': categories_obj.get('Văn học')},
+    {'title': 'Pride and Prejudice',         'author': 'Jane Austen',       'publisher': 'Penguin',              'publish_year': 1813, 'description': 'Classic English novel',                                    'total_copies': 3,  'available_copies': 3,  'category': categories_obj.get('Văn học')},
 ]
 
 for book_data in books_data:
@@ -136,44 +136,66 @@ today = timezone.now()
 
 for i in range(30):
     request_date = today - timedelta(days=29 - i)
-    num_borrows = random.randint(1, 4)  # Mỗi ngày 1-4 lượt mượn
+    num_borrows = random.randint(1, 4)
 
     for _ in range(num_borrows):
         book = random.choice(books)
         user = random.choice(users)
 
         expected_return = request_date + timedelta(days=14)
+        due_at = request_date + timedelta(days=14)
+
+        # 70% đã trả, 30% đang mượn (chỉ với sách trong 14 ngày gần đây)
+        days_ago = (today - request_date).days
+        is_recent = days_ago <= 14
+
+        if is_recent and random.random() < 0.3:
+            # Đang mượn - chưa trả
+            if due_at < today:
+                transaction_status = 'OVERDUE'
+            else:
+                transaction_status = 'BORROWING'
+            request_status = 'APPROVED'  # ✅ BorrowRequest phải là APPROVED
+            returned_at = None
+            fine_amount = 0
+        else:
+            # Đã trả
+            transaction_status = 'RETURNED'
+            request_status = 'RETURNED'  # ✅ BorrowRequest đồng bộ là RETURNED
+            returned_at = request_date + timedelta(days=random.randint(3, 13))
+            if returned_at > due_at:
+                days_late = (returned_at - due_at).days
+                fine_amount = days_late * 5000
+            else:
+                fine_amount = 0
 
         # Tạo BorrowRequest
         borrow_request = BorrowRequest(
             user=user,
             book=book,
-            status='APPROVED',
+            status=request_status,
             expected_return_date=expected_return.date(),
             handled_by=admin_user,
             handled_at=request_date + timedelta(hours=1),
         )
         borrow_request.save()
 
-        # Ép request_date về quá khứ (vì field là auto_now_add)
+        # Ép request_date về quá khứ
         BorrowRequest.objects.filter(pk=borrow_request.pk).update(
             request_date=request_date
         )
 
         # Tạo BorrowTransaction
-        due_at = request_date + timedelta(days=14)
-        returned_at = request_date + timedelta(days=random.randint(3, 13))
-
         transaction = BorrowTransaction(
             borrow_request=borrow_request,
             due_at=due_at,
             returned_at=returned_at,
-            status='RETURNED',
-            fine_amount=0,
+            status=transaction_status,
+            fine_amount=fine_amount,
         )
         transaction.save()
 
-        # Ép borrowed_at về quá khứ (vì field là auto_now_add)
+        # Ép borrowed_at về quá khứ
         BorrowTransaction.objects.filter(pk=transaction.pk).update(
             borrowed_at=request_date
         )
