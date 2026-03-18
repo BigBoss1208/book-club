@@ -18,3 +18,15 @@ class BorrowRequestForm(forms.ModelForm):
         if return_date and return_date > date.today() + timedelta(days=30):
             raise forms.ValidationError('Thời gian mượn tối đa 30 ngày')
         return return_date
+
+
+class RejectRequestForm(forms.Form):
+    reject_reason = forms.CharField(
+        label='Lý do từ chối',
+        widget=forms.Textarea(attrs={
+            'rows': 3,
+            'placeholder': 'Nhập lý do từ chối yêu cầu này...',
+            'class': 'form-control',
+        }),
+        required=True,
+    )
