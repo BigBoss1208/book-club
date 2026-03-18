@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from datetime import timedelta
 from django.db.models import Q
 from .models import BorrowRequest, BorrowTransaction
-from .forms import BorrowRequestForm
+from .forms import BorrowRequestForm, RejectRequestForm  # ✅ Thêm RejectRequestForm
 from library.models import Book
 
 
@@ -69,7 +69,6 @@ def cancel_borrow_request_view(request, pk):
 def user_return_book_view(request, pk):
     transaction = get_object_or_404(BorrowTransaction, pk=pk)
 
-    # Cho phép cả RETURN_PENDING vì model có status này
     if transaction.status not in ['BORROWING', 'OVERDUE', 'RETURN_PENDING']:
         messages.error(request, 'Giao dịch này không thể trả sách!')
         return redirect('borrowing:my_requests')
@@ -77,8 +76,8 @@ def user_return_book_view(request, pk):
     if request.method == 'POST':
         transaction.returned_at = timezone.now()
         transaction.status = 'RETURNED'
-        transaction.calculate_fine()
         transaction.save()
+        transaction.calculate_fine()
 
         transaction.borrow_request.status = 'RETURNED'
         transaction.borrow_request.save()
@@ -176,31 +175,40 @@ def reject_borrow_request_view(request, pk):
     borrow_request = get_object_or_404(BorrowRequest, pk=pk, status='PENDING')
 
     if request.method == 'POST':
-        borrow_request.status = 'REJECTED'
-        borrow_request.handled_by = request.user
-        borrow_request.handled_at = timezone.now()
-        borrow_request.save()
+        form = RejectRequestForm(request.POST)
+        if form.is_valid():
+            borrow_request.status = 'REJECTED'
+            borrow_request.handled_by = request.user
+            borrow_request.handled_at = timezone.now()
+            borrow_request.reject_reason = form.cleaned_data['reject_reason']  # ✅
+            borrow_request.save()
 
-        if borrow_request.user.email:
-            subject = 'Yêu cầu mượn sách bị từ chối'
-            message = (
-                f'Xin chào {borrow_request.user.username},\n\n'
-                f'Yêu cầu mượn sách "{borrow_request.book.title}" của bạn đã bị từ chối.\n'
-                'Vui lòng liên hệ quản trị nếu cần hỗ trợ thêm.\n\n'
-                'Cảm ơn bạn.'
-            )
-            send_mail(
-                subject,
-                message,
-                getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@bookclub.local'),
-                [borrow_request.user.email],
-                fail_silently=True,
-            )
+            if borrow_request.user.email:
+                subject = 'Yêu cầu mượn sách bị từ chối'
+                message = (
+                    f'Xin chào {borrow_request.user.username},\n\n'
+                    f'Yêu cầu mượn sách "{borrow_request.book.title}" của bạn đã bị từ chối.\n'
+                    f'Lý do: {borrow_request.reject_reason}\n\n'  # ✅
+                    'Vui lòng liên hệ quản trị nếu cần hỗ trợ thêm.\n\n'
+                    'Cảm ơn bạn.'
+                )
+                send_mail(
+                    subject,
+                    message,
+                    getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@bookclub.local'),
+                    [borrow_request.user.email],
+                    fail_silently=True,
+                )
 
-        messages.success(request, 'Đã từ chối yêu cầu')
-        return redirect('borrowing:admin_pending')
+            messages.success(request, 'Đã từ chối yêu cầu')
+            return redirect('borrowing:admin_pending')
+    else:
+        form = RejectRequestForm()
 
-    return render(request, 'borrowing/reject_request.html', {'request': borrow_request})
+    return render(request, 'borrowing/reject_request.html', {
+        'request': borrow_request,
+        'form': form,
+    })
 
 
 @login_required
@@ -244,8 +252,8 @@ def return_book_view(request, pk):
     if request.method == 'POST':
         transaction.returned_at = timezone.now()
         transaction.status = 'RETURNED'
-        transaction.calculate_fine()
         transaction.save()
+        transaction.calculate_fine()
 
         book = transaction.borrow_request.book
         book.available_copies += 1
