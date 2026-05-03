@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -584,11 +584,29 @@
                     <i class="bi bi-journals"></i> Danh sách sách
                 </a>
                 {% if user.is_authenticated and not user.is_staff %}
+                <a class="nav-link-custom" href="{% url 'library:trending' %}">
+                    <i class="bi bi-fire"></i> Xu hướng
+                </a>
                 <a class="nav-link-custom" href="{% url 'borrowing:my_requests' %}">
                     <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
                 </a>
+                       <a class="nav-link-custom" href="{% url 'members:my_membership' %}">
+                           <i class="bi bi-shield-check"></i> Thành viên CLB
+                       </a>
+                       <a class="nav-link-custom" href="{% url 'events:public_list' %}">
+                           <i class="bi bi-calendar-event"></i> Lịch sinh hoạt
+                       </a>
                 {% endif %}
                 {% if user.is_staff %}
+                <a class="nav-link-custom" href="{% url 'members:admin_pending' %}">
+                    <i class="bi bi-person-check"></i> Duyệt thành viên
+                </a>
+                <a class="nav-link-custom" href="{% url 'members:admin_members' %}">
+                    <i class="bi bi-people"></i> Danh sách thành viên
+                </a>
+                <a class="nav-link-custom" href="{% url 'events:event_list' %}">
+                    <i class="bi bi-calendar-event"></i> Quản lý sinh hoạt
+                </a>
                 <!-- Admin dropdown -->
                 <div class="dropdown">
                     <a class="nav-link-custom d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown"
@@ -652,10 +670,16 @@
                                 <i class="bi bi-person"></i> Hồ sơ của tôi
                             </a></li>
                         {% if not user.is_staff %}
-                        <li><a class="dropdown-item-custom" href="{% url 'borrowing:my_requests' %}">
-                                <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
-                            </a></li>
-                        {% endif %}
+<li><a class="dropdown-item-custom" href="{% url 'borrowing:my_requests' %}">
+        <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
+    </a></li>
+<li><a class="dropdown-item-custom" href="{% url 'members:my_membership' %}">
+        <i class="bi bi-patch-check"></i> Thành viên CLB
+    </a></li>
+<li><a class="dropdown-item-custom" href="{% url 'events:public_list' %}">
+        <i class="bi bi-calendar-event"></i> Lịch sinh hoạt
+    </a></li>
+{% endif %}
                         <li>
                             <div class="dropdown-divider-custom"></div>
                         </li>
