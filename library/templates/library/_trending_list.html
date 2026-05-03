@@ -1,0 +1,15 @@
+<ol class="list-group list-group-numbered">
+    {% for book in books %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <a href="{% url 'library:book_detail' book.id %}"><strong>{{ book.title }}</strong></a>
+            <div class="text-muted small">{{ book.author }}</div>
+        </div>
+        <span class="badge bg-warning text-dark rounded-pill">
+            <i class="bi bi-book"></i> {{ book.borrow_count }} lượt
+        </span>
+    </li>
+    {% empty %}
+    <li class="list-group-item">Không có dữ liệu.</li>
+    {% endfor %}
+</ol>

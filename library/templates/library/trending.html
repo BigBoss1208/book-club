@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="fw-bold mb-1">🔥 Xu hướng mượn sách</h2>
+  <p class="text-muted mb-4">Top sách được mượn nhiều nhất</p>
+
+  <ul class="nav nav-tabs mb-3" id="trendingTabs" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#today" type="button">Hôm nay</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#week" type="button">Tuần này</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#month" type="button">Tháng này</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#alltime" type="button">Tất cả thời gian</button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="today">
+      <div class="form-card">
+        {% for book in today_books %}
+        <div class="d-flex align-items-center py-2 border-bottom">
+          <span class="fw-bold me-3 text-muted" style="min-width:30px">{{ forloop.counter }}.</span>
+          <div class="flex-grow-1">
+            <a href="{% url 'library:book_detail' book.book %}" class="fw-semibold text-decoration-none">{{ book.book__title }}</a>
+            <div class="text-muted small">{{ book.book__author }}</div>
+          </div>
+          <span class="badge bg-danger ms-2">{{ book.borrow_count }} lần</span>
+        </div>
+        {% empty %}
+        <p class="text-muted text-center py-3">Không có dữ liệu hôm nay.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="week">
+      <div class="form-card">
+        {% for book in week_books %}
+        <div class="d-flex align-items-center py-2 border-bottom">
+          <span class="fw-bold me-3 text-muted" style="min-width:30px">{{ forloop.counter }}.</span>
+          <div class="flex-grow-1">
+            <a href="{% url 'library:book_detail' book.book %}" class="fw-semibold text-decoration-none">{{ book.book__title }}</a>
+            <div class="text-muted small">{{ book.book__author }}</div>
+          </div>
+          <span class="badge bg-warning text-dark ms-2">{{ book.borrow_count }} lần</span>
+        </div>
+        {% empty %}
+        <p class="text-muted text-center py-3">Không có dữ liệu tuần này.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="month">
+      <div class="form-card">
+        {% for book in month_books %}
+        <div class="d-flex align-items-center py-2 border-bottom">
+          <span class="fw-bold me-3 text-muted" style="min-width:30px">{{ forloop.counter }}.</span>
+          <div class="flex-grow-1">
+            <a href="{% url 'library:book_detail' book.book %}" class="fw-semibold text-decoration-none">{{ book.book__title }}</a>
+            <div class="text-muted small">{{ book.book__author }}</div>
+          </div>
+          <span class="badge bg-success ms-2">{{ book.borrow_count }} lần</span>
+        </div>
+        {% empty %}
+        <p class="text-muted text-center py-3">Không có dữ liệu tháng này.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="alltime">
+      <div class="form-card">
+        {% for book in all_time_books %}
+        <div class="d-flex align-items-center py-2 border-bottom">
+          <span class="fw-bold me-3 text-muted" style="min-width:30px">{{ forloop.counter }}.</span>
+          <div class="flex-grow-1">
+            <a href="{% url 'library:book_detail' book.book %}" class="fw-semibold text-decoration-none">{{ book.book__title }}</a>
+            <div class="text-muted small">{{ book.book__author }}</div>
+          </div>
+          <span class="badge bg-primary ms-2">{{ book.borrow_count }} lần</span>
+        </div>
+        {% empty %}
+        <p class="text-muted text-center py-3">Không có dữ liệu.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
