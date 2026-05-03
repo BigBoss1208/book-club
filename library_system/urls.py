@@ -12,6 +12,8 @@ urlpatterns = [
     path('borrowing/', include('borrowing.urls')),
     path('reviews/', include('reviews.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('members/', include(('members.urls', 'members'), namespace='members')),
+    path('events/', include('events.urls')),     # thêm
 ]
 
 if settings.DEBUG:

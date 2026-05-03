@@ -22,12 +22,14 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_cleanup.apps.CleanupConfig',
 
-    # Local apps
+   # Local apps
     'accounts',
     'library',
     'borrowing',
     'reviews',
     'dashboard',
+    'members.apps.MembersConfig',
+    'events.apps.EventsConfig',
 ]
 
 MIDDLEWARE = [
