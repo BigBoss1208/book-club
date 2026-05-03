@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Tạo buổi sinh hoạt mới</h2>
+    <form method="post" class="mt-3">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Tiêu đề</label>
+            <input type="text" class="form-control" id="title" name="title" required value="{{ request.POST.title }}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Mô tả</label>
+            <textarea class="form-control" id="description" name="description" rows="3">{{ request.POST.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="event_date" class="form-label">Thời gian diễn ra</label>
+            <input type="datetime-local" class="form-control" id="event_date" name="event_date" required value="{{ request.POST.event_date }}">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Địa điểm</label>
+            <input type="text" class="form-control" id="location" name="location" value="{{ request.POST.location }}">
+        </div>
+        <div class="mb-3">
+            <label for="points_reward" class="form-label">Điểm thưởng</label>
+            <input type="number" class="form-control" id="points_reward" name="points_reward" value="{{ request.POST.points_reward|default:10 }}">
+        </div>
+        <div class="mb-3">
+            <label for="checkin_window_minutes" class="form-label">Thời gian check-in (phút)</label>
+            <input type="number" class="form-control" id="checkin_window_minutes" name="checkin_window_minutes" value="{{ request.POST.checkin_window_minutes|default:60 }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Tạo buổi sinh hoạt</button>
+    </form>
+</div>
+{% endblock %}

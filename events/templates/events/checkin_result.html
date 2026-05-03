@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Kết quả check-in</h2>
+    {% if success %}
+        <div class="alert alert-success">
+            Check-in thành công!<br>
+            Bạn nhận được <strong>{{ points_earned }}</strong> điểm.<br>
+            Tổng điểm hiện tại: <strong>{{ total_points }}</strong>
+        </div>
+    {% else %}
+        {% if reason == 'expired' %}
+            <div class="alert alert-danger">Đã hết thời gian check-in cho sự kiện này.</div>
+        {% elif reason == 'already' %}
+            <div class="alert alert-warning">Bạn đã check-in cho sự kiện này rồi.</div>
+        {% else %}
+            <div class="alert alert-danger">Check-in thất bại.</div>
+        {% endif %}
+    {% endif %}
+    <a href="{% url 'events:public_list' %}" class="btn btn-secondary mt-3">Quay lại danh sách sự kiện</a>
+</div>
+{% endblock %}

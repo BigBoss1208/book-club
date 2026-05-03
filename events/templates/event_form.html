@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Tạo buổi sinh hoạt{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="page-header">
+            <h2 class="page-title">📅 Tạo buổi sinh hoạt</h2>
+        </div>
+        <div class="form-card">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Tên buổi sinh hoạt *</label>
+                    <input type="text" name="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <textarea name="description" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Thời gian *</label>
+                    <input type="datetime-local" name="event_date" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Địa điểm</label>
+                    <input type="text" name="location" class="form-control" placeholder="Ví dụ: Phòng B201">
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col">
+                        <label class="form-label">Điểm thưởng khi check-in</label>
+                        <input type="number" name="points_reward" class="form-control" value="10" min="1">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">QR hiệu lực (phút)</label>
+                        <input type="number" name="checkin_window_minutes" class="form-control" value="60" min="5">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-plus-circle me-1"></i> Tạo buổi
+                    </button>
+                    <a href="{% url 'events:event_list' %}" class="btn btn-outline-secondary">Huỷ</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

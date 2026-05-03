@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Chi tiết buổi sinh hoạt</h2>
+    <div class="mb-3">
+        <strong>Tiêu đề:</strong> {{ event.title }}<br>
+        <strong>Thời gian:</strong> {{ event.event_date|date:'d/m/Y H:i' }}<br>
+        <strong>Địa điểm:</strong> {{ event.location }}<br>
+        <strong>Điểm thưởng:</strong> {{ event.points_reward }}<br>
+    </div>
+    <div class="mb-3">
+        <a href="{% url 'events:event_qr' event.pk %}" class="btn btn-outline-dark btn-sm mb-2">
+            <i class="bi bi-qr-code"></i> Xem mã QR check-in
+        </a>
+        <div><strong>Link check-in:</strong></div>
+        <code>{{ checkin_url }}</code>
+    </div>
+    <h4 class="mt-4">Danh sách check-in</h4>
+    <table class="table table-bordered mt-2">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Thành viên</th>
+                <th>Thời gian check-in</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in checkins %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ c.member.user.username }}</td>
+                <td>{{ c.checked_in_at|date:'d/m/Y H:i' }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3" class="text-center">Chưa có ai check-in</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'events:event_list' %}" class="btn btn-secondary mt-3">Quay lại danh sách sự kiện</a>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Danh sách sinh hoạt CLB</h2>
+    <div class="row">
+        {% for e in events %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ e.title }}</h5>
+                    <p class="card-text">
+                        <strong>Thời gian:</strong> {{ e.event_date|date:'d/m/Y H:i' }}<br>
+                        <strong>Địa điểm:</strong> {{ e.location }}<br>
+                        <strong>Điểm thưởng:</strong> {{ e.points_reward }}
+                    </p>
+                    {% if member %}
+                        {% if e.id in checked_in_ids %}
+                            <span class="badge bg-success">Đã check-in</span>
+                        {% else %}
+                                <a href="{% url 'events:checkin' e.qr_token %}" class="badge bg-warning text-dark text-decoration-none">
+                                    <i class="bi bi-qr-code-scan"></i> Check-in ngay
+                                </a>
+                        {% endif %}
+                    {% else %}
+                        <span class="badge bg-secondary">Chỉ thành viên mới check-in được</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Quản lý sinh hoạt CLB</h2>
+    <a href="{% url 'events:event_create' %}" class="btn btn-primary mb-3">Tạo buổi sinh hoạt mới</a>
+    {% if events %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Thời gian</th>
+                    <th>Địa điểm</th>
+                    <th>Điểm thưởng</th>
+                    <th>Người tạo</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.event_date|date:'d/m/Y H:i' }}</td>
+                    <td>{{ event.location }}</td>
+                    <td>{{ event.points_reward }}</td>
+                    <td>{{ event.created_by.get_full_name }}</td>
+                    <td>
+                        <a href="{% url 'events:event_detail' event.pk %}" class="btn btn-info btn-sm">Chi tiết</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">Chưa có buổi sinh hoạt nào.</div>
+    {% endif %}
+</div>
+{% endblock %}

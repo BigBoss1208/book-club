@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2 class="page-title">{{ event.title }}</h2>
+        <p class="page-subtitle">
+            <i class="bi bi-calendar me-1"></i>{{ event.event_date|date:"d/m/Y H:i" }}
+            {% if event.location %}&nbsp;·&nbsp;<i class="bi bi-geo-alt me-1"></i>{{ event.location }}{% endif %}
+        </p>
+    </div>
+    <a href="{% url 'events:event_list' %}" class="btn btn-outline-secondary btn-back">
+        <i class="bi bi-arrow-left me-1"></i> Quay lại
+    </a>
+</div>
+
+<div class="row g-4">
+    <!-- QR Code -->
+    <div class="col-md-4">
+        <div class="form-card text-center">
+            <h6 class="mb-3"><i class="bi bi-qr-code me-1"></i>QR Điểm danh</h6>
+            <img src="{% url 'events:event_qr' event.pk %}" alt="QR Code"
+                class="img-fluid rounded-3" style="max-width:220px">
+            <p class="text-muted mt-2" style="font-size:.82rem">
+                Hiệu lực {{ event.checkin_window_minutes }} phút kể từ giờ bắt đầu
+            </p>
+            <div class="mt-2 p-2 rounded-2" style="background:#f1f5f9;font-size:.78rem;word-break:break-all;color:var(--muted)">
+                {{ checkin_url }}
+            </div>
+            <a href="{% url 'events:event_qr' event.pk %}" download="qr_{{ event.pk }}.png"
+                class="btn btn-sm btn-outline-primary mt-3">
+                <i class="bi bi-download me-1"></i> Tải QR về
+            </a>
+        </div>
+        <div class="form-card mt-3 text-center">
+            <div style="font-size:2.5rem;font-weight:700;color:var(--brand)">{{ checkins|length }}</div>
+            <div class="text-muted">Thành viên đã check-in</div>
+            <div class="mt-1 text-muted" style="font-size:.88rem">+{{ event.points_reward }} điểm/người</div>
+        </div>
+    </div>
+
+    <!-- Checkin list -->
+    <div class="col-md-8">
+        <div class="form-card">
+            <h6 class="mb-3"><i class="bi bi-people me-1"></i>Danh sách điểm danh</h6>
+            {% if checkins %}
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Thành viên</th>
+                            <th>Thời gian check-in</th>
+                            <th class="text-center">Điểm nhận</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in checkins %}
+                        <tr>
+                            <td class="text-muted">{{ forloop.counter }}</td>
+                            <td><strong>{{ c.member.user.username }}</strong></td>
+                            <td class="text-muted" style="font-size:.88rem">{{ c.checked_in_at|date:"d/m/Y H:i" }}</td>
+                            <td class="text-center">
+                                <span class="fw-bold" style="color:#10b981">+{{ event.points_reward }}</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="text-muted text-center py-4">Chưa có ai check-in.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
