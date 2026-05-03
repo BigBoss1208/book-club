@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Danh sách thành viên CLB{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2 class="page-title">🏆 Danh sách thành viên CLB</h2>
+        <p class="page-subtitle">{{ members|length }} thành viên</p>
+    </div>
+    <a href="{% url 'members:admin_pending' %}" class="btn btn-outline-primary">
+        <i class="bi bi-hourglass-split me-1"></i> Đơn chờ duyệt
+    </a>
+</div>
+
+<!-- Search & Sort -->
+<form method="get" class="d-flex gap-2 mb-4">
+    <input type="text" name="search" value="{{ search }}" class="form-control"
+        placeholder="Tìm username, email..." style="max-width:300px">
+    <select name="sort" class="form-select" style="max-width:200px">
+        <option value="-total_points" {% if sort == '-total_points' %}selected{% endif %}>Điểm cao nhất</option>
+        <option value="total_points" {% if sort == 'total_points' %}selected{% endif %}>Điểm thấp nhất</option>
+        <option value="-joined_at" {% if sort == '-joined_at' %}selected{% endif %}>Mới nhất</option>
+        <option value="joined_at" {% if sort == 'joined_at' %}selected{% endif %}>Cũ nhất</option>
+    </select>
+    <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+</form>
+
+<div class="form-card">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th class="text-center">Điểm</th>
+                    <th>Ngày tham gia</th>
+                    <th class="text-center">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in members %}
+                <tr>
+                    <td class="text-muted">{{ forloop.counter }}</td>
+                    <td><strong>{{ m.user.username }}</strong></td>
+                    <td class="text-muted">{{ m.user.email }}</td>
+                    <td class="text-center">
+                        <span class="fw-bold" style="color:var(--brand);font-size:1.1rem">{{ m.total_points }}</span>
+                    </td>
+                    <td class="text-muted" style="font-size:.88rem">{{ m.joined_at|date:"d/m/Y" }}</td>
+                    <td class="text-center">
+                        <a href="{% url 'members:adjust_points' m.pk %}" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-plus-slash-minus"></i> Điều chỉnh điểm
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

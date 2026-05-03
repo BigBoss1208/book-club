@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Điều chỉnh điểm{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="page-header">
+            <h2 class="page-title">Điều chỉnh điểm</h2>
+        </div>
+        <div class="form-card">
+            <p>Thành viên: <strong>{{ member.user.username }}</strong></p>
+            <p>Điểm hiện tại: <strong style="color:var(--brand)">{{ member.total_points }}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Số điểm (dương = cộng, âm = trừ)</label>
+                    <input type="number" name="points" class="form-control" placeholder="Ví dụ: 10 hoặc -5" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ghi chú</label>
+                    <input type="text" name="note" class="form-control" placeholder="Lý do điều chỉnh...">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-check-lg me-1"></i> Lưu
+                    </button>
+                    <a href="{% url 'members:admin_members' %}" class="btn btn-outline-secondary">Huỷ</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

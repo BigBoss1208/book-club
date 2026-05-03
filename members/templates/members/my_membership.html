@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Thành viên CLB{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2 class="page-title">🎖️ Thành viên CLB Sách</h2>
+        <p class="page-subtitle">Trạng thái và lịch sử điểm của bạn</p>
+    </div>
+</div>
+
+{% if not member %}
+<div class="form-card text-center py-5">
+    <i class="bi bi-person-plus" style="font-size:3rem;color:var(--muted)"></i>
+    <h5 class="mt-3">Bạn chưa đăng ký tham gia CLB</h5>
+    <a href="{% url 'members:join_club' %}" class="btn btn-primary mt-3">
+        <i class="bi bi-send me-1"></i> Đăng ký ngay
+    </a>
+</div>
+
+{% elif member.status == 'PENDING' %}
+<div class="form-card text-center py-5">
+    <i class="bi bi-hourglass-split" style="font-size:3rem;color:#f59e0b"></i>
+    <h5 class="mt-3">Đơn đang chờ duyệt</h5>
+    <p class="text-muted">Admin sẽ xem xét đơn của bạn sớm nhất có thể.</p>
+</div>
+
+{% elif member.status == 'REJECTED' %}
+<div class="form-card text-center py-5">
+    <i class="bi bi-x-circle" style="font-size:3rem;color:#ef4444"></i>
+    <h5 class="mt-3">Đơn đã bị từ chối</h5>
+    {% if member.reject_reason %}
+    <p class="text-muted">Lý do: <strong>{{ member.reject_reason }}</strong></p>
+    {% endif %}
+    <a href="{% url 'members:join_club' %}" class="btn btn-primary mt-3">Nộp lại đơn</a>
+</div>
+
+{% else %}
+<!-- Đã là thành viên -->
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="info-card text-center py-4">
+            <div style="font-size:3rem;font-weight:700;color:var(--brand)">{{ member.total_points }}</div>
+            <div class="text-muted mt-1">Tổng điểm tích lũy</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-card text-center py-4">
+            <div style="font-size:1.5rem;font-weight:700;color:#10b981">
+                <i class="bi bi-patch-check-fill"></i> Thành viên
+            </div>
+            <div class="text-muted mt-1">Tham gia {{ member.joined_at|date:"d/m/Y" }}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-card text-center py-4">
+            <div style="font-size:1.5rem;font-weight:700;color:var(--brand-2)">
+                {{ point_logs|length }}
+            </div>
+            <div class="text-muted mt-1">Lần tích điểm gần đây</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-card">
+    <h5 class="mb-3"><i class="bi bi-clock-history me-2"></i>Lịch sử điểm</h5>
+    {% if point_logs %}
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Thời gian</th>
+                    <th>Lý do</th>
+                    <th>Ghi chú</th>
+                    <th class="text-end">Điểm</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in point_logs %}
+                <tr>
+                    <td class="text-muted" style="font-size:.88rem">{{ log.created_at|date:"d/m/Y H:i" }}</td>
+                    <td><span class="status-pill status-approved">{{ log.get_reason_display }}</span></td>
+                    <td style="font-size:.9rem">{{ log.note }}</td>
+                    <td class="text-end fw-bold" style="color:{% if log.points > 0 %}#10b981{% else %}#ef4444{% endif %}">
+                        {% if log.points > 0 %}+{% endif %}{{ log.points }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted text-center py-3">Chưa có lịch sử điểm nào.</p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

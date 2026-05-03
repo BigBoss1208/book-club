@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Danh sách thành viên chờ duyệt</h2>
+    {% if pending %}
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Ngày đăng ký</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in pending %}
+                <tr>
+                    <td>{{ member.user.get_full_name|default:member.user.username }}</td>
+                    <td>{{ member.user.email }}</td>
+                    <td>{{ member.joined_at|date:'d/m/Y H:i' }}</td>
+                    <td>
+                        <a href="{% url 'members:approve' member.pk %}" class="btn btn-success btn-sm">Duyệt</a>
+                        <a href="{% url 'members:reject' member.pk %}" class="btn btn-danger btn-sm">Từ chối</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info mt-3">Không có thành viên nào đang chờ duyệt.</div>
+    {% endif %}
+</div>
+{% endblock %}

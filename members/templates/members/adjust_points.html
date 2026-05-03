@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4>Điều chỉnh điểm thành viên</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Thành viên:</strong> {{ member.full_name }} ({{ member.username }})</p>
+                    <p><strong>Tổng điểm hiện tại:</strong> {{ member.total_points }}</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="points" class="form-label">Điểm (+/-)</label>
+                            <input type="number" class="form-control" id="points" name="points" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="note" class="form-label">Ghi chú</label>
+                            <input type="text" class="form-control" id="note" name="note" maxlength="255">
+                        </div>
+                        <button type="submit" class="btn btn-success">Lưu</button>
+                        <a href="{% url 'members:admin_members' %}" class="btn btn-secondary ms-2">Hủy</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Tham gia CLB Sách{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="page-header">
+            <div>
+                <h2 class="page-title">🎉 Tham gia CLB Sách ICTU</h2>
+                <p class="page-subtitle">Điền đơn bên dưới, admin sẽ duyệt trong thời gian sớm nhất</p>
+            </div>
+        </div>
+
+        {% if existing and existing.status == 'REJECTED' %}
+        <div class="alert alert-warning rounded-3 mb-4">
+            <i class="bi bi-exclamation-triangle me-2"></i>
+            Đơn trước của bạn đã bị từ chối
+            {% if existing.reject_reason %}— lý do: <strong>{{ existing.reject_reason }}</strong>{% endif %}.
+            Bạn có thể nộp lại bên dưới.
+        </div>
+        {% endif %}
+
+        <div class="form-card">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Lý do muốn tham gia CLB</label>
+                    <textarea name="motivation" class="form-control" rows="4"
+                        placeholder="Ví dụ: Tôi yêu thích đọc sách và muốn giao lưu với những người cùng sở thích..."
+                        required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-send me-1"></i> Gửi đơn
+                    </button>
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Huỷ</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
