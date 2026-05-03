@@ -4,8 +4,11 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.db.models import Q, Count
 from django.core.paginator import Paginator
+from django.utils import timezone
+from datetime import timedelta
 from .models import Book, Category
 from .forms import BookForm, CategoryForm
+from borrowing.models import BorrowRequest
 
 
 def is_admin(user):
@@ -13,7 +16,6 @@ def is_admin(user):
 
 
 def _apply_book_filters(request, qs):
-    # Search
     search = request.GET.get('search', '')
     if search:
         qs = qs.filter(
@@ -21,15 +23,11 @@ def _apply_book_filters(request, qs):
             Q(author__icontains=search) |
             Q(isbn__icontains=search)
         )
-
-    # Filter by category
     category_id = request.GET.get('category')
     if category_id and category_id.isdigit():
         qs = qs.filter(category_id=category_id)
     elif category_id:
         category_id = ''
-
-    # Sort
     sort = request.GET.get('sort', '-created_at')
     if sort == 'title':
         qs = qs.order_by('title')
@@ -40,22 +38,16 @@ def _apply_book_filters(request, qs):
         if sort not in allowed_sorts:
             sort = '-created_at'
         qs = qs.order_by(sort)
-
     return qs, search, category_id, sort
 
 
 def book_list_view(request):
     books = Book.objects.filter(is_active=True).select_related('category')
-
     books, search, category_id, sort = _apply_book_filters(request, books)
-
-    # Pagination
     paginator = Paginator(books, 12)
     page = request.GET.get('page')
     books = paginator.get_page(page)
-
     categories = Category.objects.filter(is_active=True)
-
     context = {
         'books': books,
         'categories': categories,
@@ -69,60 +61,73 @@ def book_list_view(request):
 def book_export_csv_view(request):
     books = Book.objects.filter(is_active=True).select_related('category')
     books, search, category_id, sort = _apply_book_filters(request, books)
-
     response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
     response['Content-Disposition'] = 'attachment; filename="books_export.csv"'
-
     import csv
     response.write('\ufeff')
     writer = csv.writer(response)
-    writer.writerow([
-        'Title',
-        'Author',
-        'Category',
-        'Publisher',
-        'Publish Year',
-        'ISBN',
-        'Total Copies',
-        'Available Copies',
-        'Active',
-    ])
+    writer.writerow(['Title', 'Author', 'Category', 'Publisher', 'Publish Year', 'ISBN', 'Total Copies', 'Available Copies', 'Active'])
     for book in books:
         writer.writerow([
-            book.title,
-            book.author,
+            book.title, book.author,
             book.category.name if book.category else '',
-            book.publisher,
-            book.publish_year,
-            book.isbn or '',
-            book.total_copies,
+            book.publisher, book.publish_year,
+            book.isbn or '', book.total_copies,
             book.available_copies,
             'Yes' if book.is_active else 'No',
         ])
-
     return response
 
 
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk, is_active=True)
-    
-    # Lọc review: Hiện tất cả review đã duyệt và hiện cả review của user hiện tại (kể cả đang chờ duyệt) để họ biết đã gửi thành công.
     if request.user.is_authenticated:
         reviews_qs = book.reviews.filter(
             Q(status='APPROVED') | Q(user=request.user)
         ).select_related('user')
     else:
         reviews_qs = book.reviews.filter(status='APPROVED').select_related('user')
-
     reviews_count = reviews_qs.count()
     reviews = reviews_qs.order_by('-created_at')[:10]
-
-    context = {
-        'book': book,
-        'reviews': reviews,
-        'reviews_count': reviews_count,
-    }
+    context = {'book': book, 'reviews': reviews, 'reviews_count': reviews_count}
     return render(request, 'library/book_detail.html', context)
+
+
+@login_required
+def trending_view(request):
+    today = timezone.now().date()
+    week_start = today - timedelta(days=today.weekday())
+    month_start = today.replace(day=1)
+
+    today_books = (
+        BorrowRequest.objects.filter(request_date__date=today)
+        .values('book', 'book__title', 'book__author')
+        .annotate(borrow_count=Count('id'))
+        .order_by('-borrow_count')[:5]
+    )
+    week_books = (
+        BorrowRequest.objects.filter(request_date__date__gte=week_start)
+        .values('book', 'book__title', 'book__author')
+        .annotate(borrow_count=Count('id'))
+        .order_by('-borrow_count')[:5]
+    )
+    month_books = (
+        BorrowRequest.objects.filter(request_date__date__gte=month_start)
+        .values('book', 'book__title', 'book__author')
+        .annotate(borrow_count=Count('id'))
+        .order_by('-borrow_count')[:5]
+    )
+    all_time_books = (
+        BorrowRequest.objects.values('book', 'book__title', 'book__author')
+        .annotate(borrow_count=Count('id'))
+        .order_by('-borrow_count')[:5]
+    )
+    return render(request, 'library/trending.html', {
+        'today_books': today_books,
+        'week_books': week_books,
+        'month_books': month_books,
+        'all_time_books': all_time_books,
+    })
 
 
 @login_required
@@ -168,27 +173,16 @@ def book_delete_view(request, pk):
     return render(request, 'library/book_confirm_delete.html', {'book': book})
 
 
-# Category Views
 @login_required
 @user_passes_test(is_admin)
 def category_list_view(request):
-    """Admin: list categories with search / filter / sort."""
     categories = Category.objects.annotate(book_count=Count('books'))
-
-    # Search
     search = request.GET.get('search', '')
     if search:
-        categories = categories.filter(
-            Q(name__icontains=search) |
-            Q(description__icontains=search)
-        )
-
-    # Filter active
+        categories = categories.filter(Q(name__icontains=search) | Q(description__icontains=search))
     active = request.GET.get('active', '')
     if active in ['1', '0']:
         categories = categories.filter(is_active=(active == '1'))
-
-    # Sort
     sort = request.GET.get('sort', 'name')
     if sort == 'book_count':
         categories = categories.order_by('-book_count', 'name')
@@ -196,12 +190,8 @@ def category_list_view(request):
         categories = categories.order_by('-created_at')
     else:
         categories = categories.order_by('name')
-
     return render(request, 'library/category_list.html', {
-        'categories': categories,
-        'search': search,
-        'active': active,
-        'sort': sort,
+        'categories': categories, 'search': search, 'active': active, 'sort': sort,
     })
 
 
@@ -222,7 +212,6 @@ def category_create_view(request):
 @login_required
 @user_passes_test(is_admin)
 def category_update_view(request, pk):
-    """Admin: update a category."""
     category = get_object_or_404(Category, pk=pk)
     if request.method == 'POST':
         form = CategoryForm(request.POST, instance=category)
@@ -232,31 +221,20 @@ def category_update_view(request, pk):
             return redirect('library:category_list')
     else:
         form = CategoryForm(instance=category)
-
-    return render(request, 'library/category_form.html', {
-        'form': form,
-        'action': 'Cập nhật'
-    })
+    return render(request, 'library/category_form.html', {'form': form, 'action': 'Cập nhật'})
 
 
 @login_required
 @user_passes_test(is_admin)
 def category_delete_view(request, pk):
-    """Admin: soft delete (hide) a category.
-
-    Business rule: do not allow hiding a category if it still has active books.
-    """
     category = get_object_or_404(Category, pk=pk)
-
     has_active_books = category.books.filter(is_active=True).exists()
     if has_active_books:
         messages.error(request, 'Không thể ẩn danh mục vì vẫn còn sách đang hoạt động trong danh mục này.')
         return redirect('library:category_list')
-
     if request.method == 'POST':
         category.is_active = False
         category.save()
         messages.success(request, f'Đã ẩn danh mục "{category.name}"')
         return redirect('library:category_list')
-
     return render(request, 'library/category_confirm_delete.html', {'category': category})
