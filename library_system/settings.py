@@ -1,3 +1,4 @@
+ASGI_APPLICATION = 'library_system.asgi.application'
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -11,6 +12,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'channels',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -30,7 +32,25 @@ INSTALLED_APPS = [
     'dashboard',
     'members.apps.MembersConfig',
     'events.apps.EventsConfig',
+    'chat',
+    'leaderboard',
+    'notifications',
+    'recommendations',
+    'reports',
 ]
+
+# Channels
+ASGI_APPLICATION = 'library_system.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {'hosts': [('127.0.0.1', 6379)]}
+    }
+}
+
+# Celery
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

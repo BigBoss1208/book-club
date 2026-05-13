@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4 text-center">🏆 Bảng xếp hạng thành viên tích cực</h2>
+  <form method="get" class="d-flex justify-content-center mb-3 gap-2 flex-wrap">
+    <select name="period" class="form-select w-auto">
+      <option value="month" {% if period == 'month' %}selected{% endif %}>Tháng này</option>
+      <option value="semester" {% if period == 'semester' %}selected{% endif %}>Học kỳ</option>
+      <option value="year" {% if period == 'year' %}selected{% endif %}>Cả năm</option>
+    </select>
+    <select name="club_id" class="form-select w-auto">
+      <option value="">Tất cả CLB</option>
+      {% for c in clubs %}
+        <option value="{{ c.id }}" {% if club and club.id == c.id %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary">Lọc</button>
+  </form>
+
+  <div class="row justify-content-center mb-4">
+    {% for m in members|slice:':3' %}
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card text-center shadow h-100 border-2 border-warning">
+        <div class="card-body">
+          <div class="display-4 mb-2">
+            {% if forloop.counter == 1 %}🥇{% elif forloop.counter == 2 %}🥈{% else %}🥉{% endif %}
+          </div>
+          {% if m.user.profile.avatar %}
+            <img src="{{ m.user.profile.avatar.url }}" class="rounded-circle mb-2" style="width:70px;height:70px;object-fit:cover;">
+          {% else %}
+            <img src="{% static 'img/default_avatar.png' %}" class="rounded-circle mb-2" style="width:70px;height:70px;object-fit:cover;">
+          {% endif %}
+          <h4 class="fw-bold">{{ m.user.get_full_name|default:m.user.username }}</h4>
+          <div class="text-muted">{{ m.club.name }}</div>
+          <div class="fs-3 text-success">{{ m.total_points }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>STT</th>
+          <th>Avatar</th>
+          <th>Tên</th>
+          <th>CLB</th>
+          <th>Điểm</th>
+          <th>Tiến độ</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in members|slice:'3:' %}
+        <tr>
+          <td>{{ forloop.counter|add:3 }}</td>
+          <td>
+            {% if m.user.profile.avatar %}
+              <img src="{{ m.user.profile.avatar.url }}" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
+            {% else %}
+              <img src="{% static 'img/default_avatar.png' %}" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
+            {% endif %}
+          </td>
+          <td>{{ m.user.get_full_name|default:m.user.username }}</td>
+          <td>{{ m.club.name }}</td>
+          <td>{{ m.total_points }}</td>
+          <td>
+            <div class="progress" style="height: 18px;">
+              <div class="progress-bar bg-teal" role="progressbar" style="width: {{ m.percent }}%">
+                {{ m.total_points }}
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<style>
+.bg-teal { background-color: #20c997 !important; }
+@media (max-width: 576px) {
+  .display-4 { font-size: 2.5rem; }
+  .fs-3 { font-size: 1.5rem; }
+}
+</style>
+{% endblock %}

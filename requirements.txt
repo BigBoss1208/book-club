@@ -5,3 +5,4 @@ python-dotenv==1.0.0
 django-crispy-forms==2.3
 crispy-bootstrap5==2024.10
 django-cleanup==8.0.0
+channels==4.0.0

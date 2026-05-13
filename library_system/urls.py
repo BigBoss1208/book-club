@@ -13,7 +13,11 @@ urlpatterns = [
     path('reviews/', include('reviews.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('members/', include(('members.urls', 'members'), namespace='members')),
-    path('events/', include('events.urls')),     # thêm
+    path('events/', include('events.urls')),
+    path('leaderboard/', include(('leaderboard.urls', 'leaderboard'), namespace='leaderboard')),  # ← sửa
+    path('chat/', include(('chat.urls', 'chat'), namespace='chat')),  # ← thêm
+    path('reports/', include(('reports.urls', 'reports'), namespace='reports')),
+    path('recommendations/', include(('recommendations.urls', 'recommendations'), namespace='recommendations')),
 ]
 
 if settings.DEBUG:

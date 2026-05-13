@@ -3,7 +3,60 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.utils import timezone
 from django.db.models import Q
-from .models import ClubMember, PointLog
+from .models import ClubMember, PointLog, Club
+
+# Bảng xếp hạng thành viên CLB
+from django.db.models import Sum
+from datetime import datetime, timedelta
+
+@login_required
+def leaderboard_view(request):
+    club_id = request.GET.get('club_id')
+    period = request.GET.get('period', 'month')
+    now = timezone.now()
+    if period == 'month':
+        start = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    elif period == 'semester':
+        # Giả sử học kỳ 1: 1/1-30/6, học kỳ 2: 1/7-31/12
+        if now.month <= 6:
+            start = now.replace(month=1, day=1, hour=0, minute=0, second=0, microsecond=0)
+        else:
+            start = now.replace(month=7, day=1, hour=0, minute=0, second=0, microsecond=0)
+    elif period == 'year':
+        start = now.replace(month=1, day=1, hour=0, minute=0, second=0, microsecond=0)
+    else:
+        start = None
+
+    members = ClubMember.objects.filter(status='APPROVED')
+    club = None
+    if club_id:
+        members = members.filter(club_id=club_id)
+        club = Club.objects.filter(id=club_id).first()
+
+    if start:
+        # Tính tổng điểm theo kỳ
+        members = members.annotate(
+            period_points=Sum('point_logs__points', filter=models.Q(point_logs__created_at__gte=start))
+        ).order_by('-period_points')
+    else:
+        members = members.order_by('-total_points')
+
+    members = members[:10]
+    clubs = Club.objects.filter(is_active=True)
+    max_points = 0
+    if members:
+        if start:
+            max_points = max([getattr(m, 'period_points', 0) or 0 for m in members])
+        else:
+            max_points = max([m.total_points for m in members])
+    context = {
+        'members': members,
+        'period': period,
+        'club': club,
+        'clubs': clubs,
+        'max_points': max_points or 1,
+    }
+    return render(request, 'leaderboard/leaderboard.html', context)
 
 is_admin = lambda u: u.is_staff
 

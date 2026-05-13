@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Gợi ý CLB cho bạn</h2>
+<div class="row">
+  {% for club in clubs %}
+  <div class="col-md-6 col-lg-4 mb-3">
+    <div class="card h-100">
+      {% if club.logo %}
+      <img src="{{ club.logo.url }}" class="card-img-top" alt="Logo {{ club.name }}">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ club.name }}</h5>
+        <p class="card-text">{{ club.description|default:"Không có mô tả" }}</p>
+        <span class="badge bg-primary">{{ club.get_category_display }}</span>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12">Không còn CLB nào để gợi ý!</div>
+  {% endfor %}
+</div>
+{% endblock %}

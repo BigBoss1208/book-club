@@ -590,12 +590,19 @@
                 <a class="nav-link-custom" href="{% url 'borrowing:my_requests' %}">
                     <i class="bi bi-bookmark-check"></i> Yêu cầu của tôi
                 </a>
-                       <a class="nav-link-custom" href="{% url 'members:my_membership' %}">
-                           <i class="bi bi-shield-check"></i> Thành viên CLB
-                       </a>
-                       <a class="nav-link-custom" href="{% url 'events:public_list' %}">
-                           <i class="bi bi-calendar-event"></i> Lịch sinh hoạt
-                       </a>
+                <a class="nav-link-custom" href="{% url 'members:my_membership' %}">
+                    <i class="bi bi-shield-check"></i> Thành viên CLB
+                </a>
+                <a class="nav-link-custom" href="{% url 'events:public_list' %}">
+                    <i class="bi bi-calendar-event"></i> Lịch sinh hoạt
+                </a>
+                <!-- Mục mới cho sinh viên -->
+                <a class="nav-link-custom" href="{% url 'leaderboard:leaderboard' %}">
+                    🏆 Leaderboard
+                </a>
+                <a class="nav-link-custom" href="{% url 'chat:index' %}">
+                    💬 Chat CLB
+                </a>
                 {% endif %}
                 {% if user.is_staff %}
                 <a class="nav-link-custom" href="{% url 'members:admin_pending' %}">
@@ -639,6 +646,9 @@
                         <li><a class="dropdown-item-custom" href="{% url 'reviews:admin_pending' %}">
                                 <i class="bi bi-chat-square-text"></i> Duyệt đánh giá
                             </a></li>
+                        <!-- Mục mới cho admin -->
+                        <li><a class="dropdown-item-custom" href="{% url 'reports:export' %}">📊 Báo cáo điểm rèn luyện</a></li>
+                        <li><a class="dropdown-item-custom" href="{% url 'chat:index' %}">💬 Chat CLB</a></li>
                     </ul>
                 </div>
                 {% endif %}
