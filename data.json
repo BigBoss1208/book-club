@@ -1,0 +1,4177 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$ckroxzV23ncqySqYokmtrD$aS2fqP3eRpOgi0x8i8a0/3ctlrS5JEWdUIx4f9CL7l8=",
+    "last_login": "2026-05-06T07:57:41.802Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "System",
+    "last_name": "Admin",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-09T14:12:32.983Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$wcJ3k2DG3meQGZ8YXw0RVK$jae3kKsr7XZ5SJ4OpXPIJ5l9FHbLELzhwldw2ngkfvw=",
+    "last_login": "2026-09-15T03:36:02.643Z",
+    "is_superuser": false,
+    "username": "student01",
+    "first_name": "Nguyen",
+    "last_name": "Van A",
+    "email": "student01@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-09T14:37:55.891Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$vcmwhSfku1dopTJyc4UVpa$68k+nVdWMO79UyP/m18FfeUxWnIqNX9CmU1zejEVDRI=",
+    "last_login": "2026-05-04T07:27:04.334Z",
+    "is_superuser": false,
+    "username": "QuangManh",
+    "first_name": "",
+    "last_name": "",
+    "email": "quangmanh12082005@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-19T02:51:07.699Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$4SfE9KWwXpRwbVuXSih7Fq$a4i34qEiTHcwcbHedP927ZPjFlj1J2IgZikr/ekbKDE=",
+    "last_login": "2026-05-02T16:50:08.652Z",
+    "is_superuser": false,
+    "username": "NgoQuangManh",
+    "first_name": "",
+    "last_name": "",
+    "email": "manh@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-19T03:37:27.199Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$U5fm2EpWQLvup5bsWVjdzV$IkWmMyi/aS7iy6X5CCPtQXcuB3T0ShtTQKP0VoQdNXk=",
+    "last_login": "2026-05-03T08:53:55.661Z",
+    "is_superuser": false,
+    "username": "student05",
+    "first_name": "",
+    "last_name": "",
+    "email": "quangmanh12082005@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-02T16:56:44.971Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$h91ENNM7KZoQCXn2e0x57C$IYx2NTSoW8Qua6OfOtpRyZboeWfAYUloLkobqQjfS9A=",
+    "last_login": "2026-05-06T07:59:04.729Z",
+    "is_superuser": false,
+    "username": "ManhNhom",
+    "first_name": "",
+    "last_name": "",
+    "email": "dtc99999999@ictu.edu.vn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-03T09:07:29.481Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$ApRF00YdfEw1Rj8UVggWEo$a1JCKEOwdSuUaip+MePHHDHpZT/J2/ZMCjIMZcMX0kE=",
+    "last_login": "2026-05-04T01:50:27.090Z",
+    "is_superuser": false,
+    "username": "DangNam",
+    "first_name": "",
+    "last_name": "",
+    "email": "dnam@uet.edu.vn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-04T01:50:26.740Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$jjIX3i3RbjtNovyeSC5HwG$rdjgcDk+bXiAAPMA44reryR0e6TXjZGavgjmNClk4ZM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student02",
+    "first_name": "Tran",
+    "last_name": "Thi B",
+    "email": "student02@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-13T13:39:04.469Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$O2eQYkC9uuBtJFvbiLAm2R$vN+1ZKIwy1h/uzqnPAa//flZyfEnDrXqY9v0iArYYZc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student03",
+    "first_name": "Le",
+    "last_name": "Van C",
+    "email": "student03@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-13T13:39:04.796Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$vQRDXG7oLARS9j2nsPFfyU$1a9sKDcl12990dh6we2hy7rvyLvbtOup4B0Tt/BzAXA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student04",
+    "first_name": "Pham",
+    "last_name": "Thi D",
+    "email": "student04@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-13T13:39:05.124Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 3,
+  "fields": {
+    "student_code": "SV001",
+    "full_name": "Nguyen Van A",
+    "phone": "0123456789",
+    "faculty": "Công nghệ thông tin",
+    "class_name": "CNTT01",
+    "created_at": "2026-03-09T14:37:56.204Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 19,
+  "fields": {
+    "student_code": "DTC235200495",
+    "full_name": "Mạnh Quang",
+    "phone": "0962022716",
+    "faculty": "CNTT",
+    "class_name": "CNTT K22B",
+    "created_at": "2026-03-19T02:51:08.032Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 20,
+  "fields": {
+    "student_code": "DTC235200496",
+    "full_name": "Boss",
+    "phone": "999999999",
+    "faculty": "TDH",
+    "class_name": "TDH K22C",
+    "created_at": "2026-03-19T03:37:27.541Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 21,
+  "fields": {
+    "student_code": "DTC235200499",
+    "full_name": "Mạnh Quang",
+    "phone": "99999999",
+    "faculty": "TKDH",
+    "class_name": "TDH K24C",
+    "created_at": "2026-05-02T16:56:45.320Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 22,
+  "fields": {
+    "student_code": "DTC99999999",
+    "full_name": "Ngô Quang Mạnh",
+    "phone": "0339949337",
+    "faculty": "VMBD",
+    "class_name": "VMBD K24",
+    "created_at": "2026-05-03T09:07:29.929Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 23,
+  "fields": {
+    "student_code": "N1234567789",
+    "full_name": "Nguyễn Đăng Nam",
+    "phone": "0454826077",
+    "faculty": "CNTT",
+    "class_name": "CNTT K6",
+    "created_at": "2026-05-04T01:50:27.084Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 24,
+  "fields": {
+    "student_code": "SV002",
+    "full_name": "Tran Thi B",
+    "phone": "0987654321",
+    "faculty": "Công nghệ thông tin",
+    "class_name": "CNTT01",
+    "created_at": "2026-05-13T13:39:04.793Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 25,
+  "fields": {
+    "student_code": "SV003",
+    "full_name": "Le Van C",
+    "phone": "0912345678",
+    "faculty": "Công nghệ thông tin",
+    "class_name": "CNTT01",
+    "created_at": "2026-05-13T13:39:05.122Z"
+  }
+},
+{
+  "model": "accounts.studentprofile",
+  "pk": 26,
+  "fields": {
+    "student_code": "SV004",
+    "full_name": "Pham Thi D",
+    "phone": "0911222333",
+    "faculty": "Công nghệ thông tin",
+    "class_name": "CNTT01",
+    "created_at": "2026-05-13T13:39:05.484Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 1,
+  "fields": {
+    "name": "Văn học",
+    "description": "Sách văn học trong và ngoài nước",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.294Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 2,
+  "fields": {
+    "name": "Kỹ năng sống",
+    "description": "Phát triển bản thân và kỹ năng mềm",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.294Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 3,
+  "fields": {
+    "name": "Công nghệ",
+    "description": "Sách về lập trình và công nghệ",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.300Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 4,
+  "fields": {
+    "name": "Kinh tế",
+    "description": "Kinh doanh và quản trị",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.302Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 61,
+  "fields": {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "publisher": "Prentice Hall",
+    "publish_year": 2008,
+    "isbn": null,
+    "description": "A Handbook of Agile Software Craftsmanship",
+    "cover_image": "book_covers/images_3.jpg",
+    "total_copies": 100,
+    "available_copies": 100,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T14:37:56.204Z",
+    "updated_at": "2026-05-04T01:54:49.184Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 62,
+  "fields": {
+    "title": "Sapiens: Lược sử loài người",
+    "author": "Yuval Noah Harari",
+    "publisher": "NXB Trẻ",
+    "publish_year": 2018,
+    "isbn": null,
+    "description": "Từ khi xuất hiện đến nay, loài người đã trải qua những gì?",
+    "cover_image": "book_covers/sapiens-luoc-su-ve-loai-nguoi-outline-5-7-2017-02_1.webp",
+    "total_copies": 86,
+    "available_copies": 86,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T14:37:56.204Z",
+    "updated_at": "2026-05-04T01:54:46.962Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 63,
+  "fields": {
+    "title": "Đắc nhân tâm",
+    "author": "Dale Carnegie",
+    "publisher": "NXB Tổng hợp TP.HCM",
+    "publish_year": 2015,
+    "isbn": null,
+    "description": "Nghệ thuật thu phục lòng người",
+    "cover_image": "book_covers/-1726817123.jpg",
+    "total_copies": 99,
+    "available_copies": 98,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T14:37:56.204Z",
+    "updated_at": "2026-05-04T01:55:04.172Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 64,
+  "fields": {
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt, David Thomas",
+    "publisher": "Addison-Wesley",
+    "publish_year": 1999,
+    "isbn": "9780201616224",
+    "description": "Hướng dẫn tư duy và phương pháp làm việc hiệu quả cho lập trình viên.",
+    "cover_image": "book_covers/tpp20-1749649268930.webp",
+    "total_copies": 30,
+    "available_copies": 30,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T15:54:07.152Z",
+    "updated_at": "2026-03-11T16:34:06.759Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 65,
+  "fields": {
+    "title": "Artificial Intelligence Basics",
+    "author": "Tom Taulli",
+    "publisher": "Apress",
+    "publish_year": 2019,
+    "isbn": "9781484245149",
+    "description": "Giới thiệu cơ bản về AI và các ứng dụng trong đời sống và kinh doanh.",
+    "cover_image": "book_covers/8935235247031-1-1768811354-176-6366-3533-1768811431.webp",
+    "total_copies": 45,
+    "available_copies": 45,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T15:55:35.907Z",
+    "updated_at": "2026-03-11T15:08:14.732Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 66,
+  "fields": {
+    "title": "Python Crash Course",
+    "author": "Eric Matthes",
+    "publisher": "No Starch Press",
+    "publish_year": 2016,
+    "isbn": "9781593276034",
+    "description": "Cuốn sách học Python từ cơ bản đến xây dựng dự án thực tế.",
+    "cover_image": "book_covers/images.jpg",
+    "total_copies": 30,
+    "available_copies": 29,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T15:56:58.904Z",
+    "updated_at": "2026-05-02T15:20:31.415Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 67,
+  "fields": {
+    "title": "The Old Man and the Sea",
+    "author": "Ernest Hemingway",
+    "publisher": "Scribner",
+    "publish_year": 1952,
+    "isbn": "9780684801223",
+    "description": "Câu chuyện về sự kiên trì và nghị lực của một ông lão đánh cá.",
+    "cover_image": "book_covers/9786044915630.jpg",
+    "total_copies": 40,
+    "available_copies": 40,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T15:58:07.722Z",
+    "updated_at": "2026-05-04T01:54:27.085Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 68,
+  "fields": {
+    "title": "o Kill a Mockingbird",
+    "author": "Harper Lee",
+    "publisher": "J.B. Lippincott & Co.",
+    "publish_year": 1960,
+    "isbn": "9780061120084",
+    "description": "Tác phẩm nổi tiếng về công lý và lòng nhân ái.",
+    "cover_image": "book_covers/images_1.jpg",
+    "total_copies": 40,
+    "available_copies": 39,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T15:59:17.804Z",
+    "updated_at": "2026-05-04T01:56:48.973Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 69,
+  "fields": {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "publisher": "T. Egerton",
+    "publish_year": 1945,
+    "isbn": "9780141439518",
+    "description": "Câu chuyện tình yêu kinh điển trong xã hội Anh thế kỷ 19.",
+    "cover_image": "book_covers/images_2.jpg",
+    "total_copies": 50,
+    "available_copies": 50,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:00:46.651Z",
+    "updated_at": "2026-03-13T08:47:22.538Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 70,
+  "fields": {
+    "title": "The Little Prince",
+    "author": "Antoine de Saint-Exupéry",
+    "publisher": "Reynal & Hitchcock",
+    "publish_year": 1943,
+    "isbn": "9780156013987",
+    "description": "Câu chuyện đầy triết lý về cuộc sống và tình bạn.",
+    "cover_image": "book_covers/Littleprince.jpg",
+    "total_copies": 50,
+    "available_copies": 50,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:01:43.504Z",
+    "updated_at": "2026-05-02T15:19:15.407Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 71,
+  "fields": {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "publisher": "Avery",
+    "publish_year": 2018,
+    "isbn": "9780735211292",
+    "description": "Hướng dẫn xây dựng thói quen tốt và loại bỏ thói quen xấu.",
+    "cover_image": "book_covers/1a54924207d353105709a08d0637d91f.webp",
+    "total_copies": 60,
+    "available_copies": 60,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:02:42.331Z",
+    "updated_at": "2026-05-04T01:54:53.565Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 72,
+  "fields": {
+    "title": "The 7 Habits of Highly Effective People",
+    "author": "Stephen R. Covey",
+    "publisher": "Free Press",
+    "publish_year": 1989,
+    "isbn": "9780743269513",
+    "description": "7 nguyên tắc giúp phát triển bản thân và thành công.",
+    "cover_image": "book_covers/images.webp",
+    "total_copies": 60,
+    "available_copies": 60,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:03:49.265Z",
+    "updated_at": "2026-05-04T01:54:44.434Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 73,
+  "fields": {
+    "title": "Think and Grow Rich",
+    "author": "Napoleon Hill",
+    "publisher": "The Ralston Society",
+    "publish_year": 1937,
+    "isbn": "9781585424337",
+    "description": "Cuốn sách kinh điển về tư duy thành công.",
+    "cover_image": "book_covers/think-and-grow-rich-13-nguyen-tac-nghi-giau-lam-giau_bia-1_6b3b106a27404b31a_cuHEt9W.jpg",
+    "total_copies": 60,
+    "available_copies": 59,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:06:02.541Z",
+    "updated_at": "2026-05-04T01:52:07.174Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 74,
+  "fields": {
+    "title": "How to Win Friends and Influence People",
+    "author": "Dale Carnegie",
+    "publisher": "Simon & Schuster",
+    "publish_year": 1936,
+    "isbn": "9780671027032",
+    "description": "Kỹ năng giao tiếp và xây dựng mối quan hệ.",
+    "cover_image": "book_covers/9780091906351_3.webp",
+    "total_copies": 86,
+    "available_copies": 86,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:07:44.280Z",
+    "updated_at": "2026-03-11T17:11:09.968Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 75,
+  "fields": {
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "publisher": "Warner Books",
+    "publish_year": 1997,
+    "isbn": "9781612680194",
+    "description": "Bài học về tư duy tài chính và đầu tư.",
+    "cover_image": "book_covers/2023_01_09_16_34_30_1-390x510.webp",
+    "total_copies": 68,
+    "available_copies": 67,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:08:43.487Z",
+    "updated_at": "2026-03-11T17:10:39.255Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 76,
+  "fields": {
+    "title": "The Intelligent Investor",
+    "author": "Robert T. Kiyosaki",
+    "publisher": "Warner Books",
+    "publish_year": 1969,
+    "isbn": "9780060555665",
+    "description": "Cuốn sách kinh điển về đầu tư giá trị.",
+    "cover_image": "book_covers/images_3_9nTNo5S.jpg",
+    "total_copies": 80,
+    "available_copies": 79,
+    "category": 4,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:11:24.002Z",
+    "updated_at": "2026-03-13T13:49:21.660Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 77,
+  "fields": {
+    "title": "Truyện Kiều",
+    "author": "Nguyễn Du",
+    "publisher": "Nhà xuất bản Văn học",
+    "publish_year": 1920,
+    "isbn": "9786043073218",
+    "description": "Truyện thơ nổi tiếng của Nguyễn Du kể về cuộc đời và số phận truân chuyên của Thúy Kiều. Tác phẩm phản ánh sâu sắc xã hội phong kiến và giá trị nhân đạo.",
+    "cover_image": "book_covers/vn-11134207-820l4-mi9k0iabdgjla7resize_w900_nl.webp",
+    "total_copies": 21,
+    "available_copies": 21,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:13:33.065Z",
+    "updated_at": "2026-03-14T09:13:16.950Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 78,
+  "fields": {
+    "title": "Lập Trình Python Cơ Bản",
+    "author": "Nguyễn Văn Hiếu",
+    "publisher": "Nhà xuất bản Khoa học và KT",
+    "publish_year": 2020,
+    "isbn": "9786046712345",
+    "description": "Cuốn sách hướng dẫn lập trình Python từ cơ bản đến nâng cao, phù hợp cho người mới bắt đầu học lập trình.",
+    "cover_image": "book_covers/8e8ebce8-556d-4cd4-9a3f-f9ff6e70e711.jpg",
+    "total_copies": 100,
+    "available_copies": 98,
+    "category": 4,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-09T16:15:15.350Z",
+    "updated_at": "2026-05-03T09:10:18.622Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 79,
+  "fields": {
+    "title": "The Inner Citadel: The Meditations of Marcus Aurelius",
+    "author": "Pierre Hadot",
+    "publisher": "Harvard University Press",
+    "publish_year": 1998,
+    "isbn": "978-067400707",
+    "description": "Phân tích sâu về triết lý sống và tư duy của hoàng đế Marcus Aurelius – rất hữu ích cho phát triển bản thân, tư duy kỷ luật và kỹ năng sống.",
+    "cover_image": "book_covers/4182YMFZT2L._AC_UF350350_QL50_.jpg",
+    "total_copies": 50,
+    "available_copies": 50,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:00:49.793Z",
+    "updated_at": "2026-05-04T01:51:58.224Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 80,
+  "fields": {
+    "title": "Finding My Voice",
+    "author": "Marie Myung-Ok Lee",
+    "publisher": "HarperCollins",
+    "publish_year": 1992,
+    "isbn": "9780064472456",
+    "description": "Tiểu thuyết kể về hành trình tìm kiếm bản sắc của một cô gái gốc Á tại Mỹ. Tác phẩm khai thác sâu vấn đề văn hóa, phân biệt chủng tộc và sự trưởng thành cá nhân.",
+    "cover_image": "book_covers/images_XoGTuMj.jpg",
+    "total_copies": 20,
+    "available_copies": 20,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:11:50.657Z",
+    "updated_at": "2026-05-02T16:48:39.316Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 81,
+  "fields": {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "publisher": "Avery",
+    "publish_year": 2018,
+    "isbn": "1180735211292",
+    "description": "Cuốn sách hướng dẫn cách xây dựng thói quen tốt và loại bỏ thói quen xấu thông qua những thay đổi nhỏ nhưng bền vững.",
+    "cover_image": "book_covers/thay-doi-ti-hon.jpg",
+    "total_copies": 15,
+    "available_copies": 14,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:13:36.957Z",
+    "updated_at": "2026-05-04T01:54:35.805Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 82,
+  "fields": {
+    "title": "Principles of Economics",
+    "author": "N. Gregory Mankiw",
+    "publisher": "Cengage Learning",
+    "publish_year": 2017,
+    "isbn": "9781305585126",
+    "description": "Giới thiệu các nguyên lý cơ bản của kinh tế học như cung cầu, thị trường và vai trò của chính phủ.",
+    "cover_image": "book_covers/tinh-hoa-kinh-te-hoc-essentials-of-economics-1.jpg",
+    "total_copies": 15,
+    "available_copies": 15,
+    "category": 4,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:15:13.752Z",
+    "updated_at": "2026-05-04T01:54:33.903Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 83,
+  "fields": {
+    "title": "The Wealth of Nations",
+    "author": "Adam Smith",
+    "publisher": "W. Strahan & T. Cadell",
+    "publish_year": 1906,
+    "isbn": "9780553585971",
+    "description": "Tác phẩm kinh điển đặt nền móng cho kinh tế học hiện đại, phân tích sự giàu có và cơ chế vận hành của thị trường.",
+    "cover_image": "book_covers/kinh-te-hoc-co-ban.jpg",
+    "total_copies": 10,
+    "available_copies": 10,
+    "category": 4,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:17:24.398Z",
+    "updated_at": "2026-05-04T01:55:07.030Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 84,
+  "fields": {
+    "title": "Freakonomics",
+    "author": "Steven D. Levitt & Stephen J. Dubner",
+    "publisher": "William Morrow",
+    "publish_year": 2005,
+    "isbn": "9780060731335",
+    "description": "Cuốn sách phân tích các hiện tượng xã hội dưới góc nhìn kinh tế học, đưa ra những góc nhìn mới lạ và thú vị.",
+    "cover_image": "book_covers/800-800_33013f80-b7a6-4f33-982e-c34a6c27eb05.webp",
+    "total_copies": 5,
+    "available_copies": 4,
+    "category": 4,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:18:57.527Z",
+    "updated_at": "2026-05-04T01:54:00.247Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 85,
+  "fields": {
+    "title": "Lập Trình Java Cơ Bản",
+    "author": "Nguyễn Văn Ba",
+    "publisher": "Nhà Xuất Bản Giáo Dục Việt Nam",
+    "publish_year": 2018,
+    "isbn": "9786040134325",
+    "description": "Cuốn sách cung cấp kiến thức nền tảng về lập trình Java như cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng (OOP) và xử lý ngoại lệ. Phù hợp cho sinh viên mới bắt đầu học Java.",
+    "cover_image": "book_covers/s-l1600.webp",
+    "total_copies": 5,
+    "available_copies": 4,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:21:27.300Z",
+    "updated_at": "2026-05-04T01:58:31.603Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 86,
+  "fields": {
+    "title": "Giáo Trình Lập Trình Python",
+    "author": "Phạm Hữu Khang",
+    "publisher": "Nhà Xuất Bản Thông Tin và Truyền Thông",
+    "publish_year": 2020,
+    "isbn": "9786048023935",
+    "description": "Sách hướng dẫn từ cơ bản đến nâng cao về Python, bao gồm biến, hàm, xử lý dữ liệu và ứng dụng thực tế. Nội dung dễ hiểu, phù hợp cho người tự học.",
+    "cover_image": "book_covers/s-l1600_1.webp",
+    "total_copies": 5,
+    "available_copies": 5,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:22:32.354Z",
+    "updated_at": "2026-05-04T01:55:18.118Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 87,
+  "fields": {
+    "title": "Lập Trình Hướng Đối Tượng với Java",
+    "author": "Lê Minh Hoàng",
+    "publisher": "Nhà Xuất Bản Khoa Học và Kỹ Thuật",
+    "publish_year": 2019,
+    "isbn": "9786046725459",
+    "description": "Tập trung vào lập trình hướng đối tượng trong Java, bao gồm các khái niệm như lớp, kế thừa, đa hình và đóng gói. Có nhiều ví dụ thực tế giúp sinh viên dễ áp dụng.",
+    "cover_image": "book_covers/s-l1600_2.webp",
+    "total_copies": 5,
+    "available_copies": 4,
+    "category": 3,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:23:27.910Z",
+    "updated_at": "2026-05-04T01:55:43.392Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 88,
+  "fields": {
+    "title": "Nỗi Buồn Chiến Tranh",
+    "author": "Bảo Ninh",
+    "publisher": "Nhà xuất bản Hội Nhà Văn",
+    "publish_year": 1991,
+    "isbn": "9780140268638",
+    "description": "Tiểu thuyết phản ánh những mất mát và ám ảnh của chiến tranh qua góc nhìn của một người lính. Tác phẩm mang tính nhân văn sâu sắc, thể hiện hậu quả tâm lý của chiến tranh đối với con người.",
+    "cover_image": "book_covers/800-800_edd50d20-2206-4a16-8fcc-f12dbcba03df.webp",
+    "total_copies": 5,
+    "available_copies": 3,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:24:34.173Z",
+    "updated_at": "2026-05-03T09:25:02.450Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 89,
+  "fields": {
+    "title": "Freakonomics",
+    "author": "Steven D. Levitt & Stephen J. Dubner",
+    "publisher": "William Morrow",
+    "publish_year": 2005,
+    "isbn": "1180060731335",
+    "description": "Cuốn sách áp dụng tư duy kinh tế học để phân tích các hiện tượng xã hội đời thường, mang lại góc nhìn mới lạ và thú vị về cách con người đưa ra quyết định.",
+    "cover_image": "book_covers/s-l960.webp",
+    "total_copies": 5,
+    "available_copies": 5,
+    "category": 4,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T15:26:03.655Z",
+    "updated_at": "2026-05-04T01:54:51.372Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 90,
+  "fields": {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "publisher": "Avery",
+    "publish_year": 2018,
+    "isbn": "9782735211292",
+    "description": "Cuốn sách tập trung vào việc xây dựng thói quen tích cực thông qua những thay đổi nhỏ nhưng nhất quán. Tác giả đưa ra các phương pháp khoa học giúp cải thiện hiệu suất cá nhân và duy trì kỷ luật lâu dài.",
+    "cover_image": "book_covers/thay-doi-ti-hon_1.jpg",
+    "total_copies": 100,
+    "available_copies": 100,
+    "category": 2,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": false,
+    "created_at": "2026-03-18T15:27:18.995Z",
+    "updated_at": "2026-03-19T02:32:07.445Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 91,
+  "fields": {
+    "title": "Tắt  Đèn 10",
+    "author": "Ngô Tất Tố",
+    "publisher": "Nhà xuất bản Văn học",
+    "publish_year": 1939,
+    "isbn": "97855524432",
+    "description": "phản ảnh cuộc sống khổ cực của người dân lao động",
+    "cover_image": "book_covers/sachtatden.jpg",
+    "total_copies": 10,
+    "available_copies": 10,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-18T17:55:58.016Z",
+    "updated_at": "2026-05-03T13:23:27.827Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 92,
+  "fields": {
+    "title": "Lão Hạc",
+    "author": "Nam Cao",
+    "publisher": "NXB Văn Học",
+    "publish_year": 1944,
+    "isbn": "222166742674",
+    "description": "phản ảnh sâu sắc cuộc đời ucxng những người nông dân khuốn khổ",
+    "cover_image": "book_covers/images_Z07PnAV.jpg",
+    "total_copies": 100,
+    "available_copies": 100,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": false,
+    "created_at": "2026-03-19T02:15:55.674Z",
+    "updated_at": "2026-03-19T02:18:26.825Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 93,
+  "fields": {
+    "title": "Lão Hạc",
+    "author": "11",
+    "publisher": "111",
+    "publish_year": 1940,
+    "isbn": "111",
+    "description": "11",
+    "cover_image": "",
+    "total_copies": 1,
+    "available_copies": 1,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": false,
+    "created_at": "2026-03-19T02:18:49.496Z",
+    "updated_at": "2026-03-19T02:18:52.484Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 94,
+  "fields": {
+    "title": "Lão Hạc",
+    "author": "Nam Cao",
+    "publisher": "NXB Văn Học",
+    "publish_year": 1943,
+    "isbn": "1223525235",
+    "description": "phản ánh sâu sắc cuộc sống khổ cực của người nông dân việt nam",
+    "cover_image": "book_covers/images_4qA3MDu.jpg",
+    "total_copies": 100,
+    "available_copies": 99,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-03-19T02:31:46.936Z",
+    "updated_at": "2026-05-04T01:57:05.622Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 95,
+  "fields": {
+    "title": "Lão Hạc",
+    "author": "Nam Cao",
+    "publisher": "NXB Tổng hợp TP.HCM",
+    "publish_year": 1943,
+    "isbn": "333333122222",
+    "description": "những con người khổ cực trong cuộc sống",
+    "cover_image": "book_covers/images_yLWXwyd.jpg",
+    "total_copies": 10,
+    "available_copies": 10,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": false,
+    "created_at": "2026-03-19T02:54:23.890Z",
+    "updated_at": "2026-03-19T03:32:49.417Z"
+  }
+},
+{
+  "model": "library.book",
+  "pk": 96,
+  "fields": {
+    "title": "Nghĩ Giàu & Làm Giàu",
+    "author": "Napoleon Hill",
+    "publisher": "Nhà xuất bản Văn học",
+    "publish_year": 1989,
+    "isbn": "1122345526464",
+    "description": "Sách làm giàu",
+    "cover_image": "book_covers/sachlamgiau.jpg",
+    "total_copies": 10,
+    "available_copies": 9,
+    "category": 1,
+    "created_by": [
+      "admin"
+    ],
+    "is_active": true,
+    "created_at": "2026-05-03T13:25:55.715Z",
+    "updated_at": "2026-05-04T01:56:34.856Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 588,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 88,
+    "request_date": "2026-08-17T03:35:44.530Z",
+    "expected_return_date": "2026-08-31",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-17T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 589,
+  "fields": {
+    "user": [
+      "student04"
+    ],
+    "book": 71,
+    "request_date": "2026-08-17T03:35:44.530Z",
+    "expected_return_date": "2026-08-31",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-17T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 590,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 88,
+    "request_date": "2026-08-17T03:35:44.530Z",
+    "expected_return_date": "2026-08-31",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-17T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 591,
+  "fields": {
+    "user": [
+      "student04"
+    ],
+    "book": 75,
+    "request_date": "2026-08-18T03:35:44.530Z",
+    "expected_return_date": "2026-09-01",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-18T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 592,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 81,
+    "request_date": "2026-08-18T03:35:44.530Z",
+    "expected_return_date": "2026-09-01",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-18T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 593,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 77,
+    "request_date": "2026-08-18T03:35:44.530Z",
+    "expected_return_date": "2026-09-01",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-18T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 594,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 78,
+    "request_date": "2026-08-19T03:35:44.530Z",
+    "expected_return_date": "2026-09-02",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-19T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 595,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 73,
+    "request_date": "2026-08-19T03:35:44.530Z",
+    "expected_return_date": "2026-09-02",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-19T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 596,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 68,
+    "request_date": "2026-08-20T03:35:44.530Z",
+    "expected_return_date": "2026-09-03",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-20T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 597,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 91,
+    "request_date": "2026-08-20T03:35:44.530Z",
+    "expected_return_date": "2026-09-03",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-20T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 598,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 72,
+    "request_date": "2026-08-21T03:35:44.530Z",
+    "expected_return_date": "2026-09-04",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-21T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 599,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 61,
+    "request_date": "2026-08-21T03:35:44.530Z",
+    "expected_return_date": "2026-09-04",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-21T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 600,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 94,
+    "request_date": "2026-08-21T03:35:44.530Z",
+    "expected_return_date": "2026-09-04",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-21T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 601,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 67,
+    "request_date": "2026-08-21T03:35:44.530Z",
+    "expected_return_date": "2026-09-04",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-21T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 602,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 91,
+    "request_date": "2026-08-22T03:35:44.530Z",
+    "expected_return_date": "2026-09-05",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-22T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 603,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 63,
+    "request_date": "2026-08-22T03:35:44.530Z",
+    "expected_return_date": "2026-09-05",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-22T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 604,
+  "fields": {
+    "user": [
+      "student02"
+    ],
+    "book": 72,
+    "request_date": "2026-08-23T03:35:44.530Z",
+    "expected_return_date": "2026-09-06",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-23T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 605,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 74,
+    "request_date": "2026-08-23T03:35:44.530Z",
+    "expected_return_date": "2026-09-06",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-23T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 606,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 66,
+    "request_date": "2026-08-23T03:35:44.530Z",
+    "expected_return_date": "2026-09-06",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-23T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 607,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 71,
+    "request_date": "2026-08-23T03:35:44.530Z",
+    "expected_return_date": "2026-09-06",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-23T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 608,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 68,
+    "request_date": "2026-08-24T03:35:44.530Z",
+    "expected_return_date": "2026-09-07",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-24T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 609,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 64,
+    "request_date": "2026-08-24T03:35:44.530Z",
+    "expected_return_date": "2026-09-07",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-24T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 610,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 74,
+    "request_date": "2026-08-24T03:35:44.530Z",
+    "expected_return_date": "2026-09-07",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-24T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 611,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 71,
+    "request_date": "2026-08-24T03:35:44.530Z",
+    "expected_return_date": "2026-09-07",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-24T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 612,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 82,
+    "request_date": "2026-08-25T03:35:44.530Z",
+    "expected_return_date": "2026-09-08",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-25T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 613,
+  "fields": {
+    "user": [
+      "student02"
+    ],
+    "book": 70,
+    "request_date": "2026-08-25T03:35:44.530Z",
+    "expected_return_date": "2026-09-08",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-25T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 614,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 78,
+    "request_date": "2026-08-26T03:35:44.530Z",
+    "expected_return_date": "2026-09-09",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-26T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 615,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 71,
+    "request_date": "2026-08-26T03:35:44.530Z",
+    "expected_return_date": "2026-09-09",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-26T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 616,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 81,
+    "request_date": "2026-08-27T03:35:44.530Z",
+    "expected_return_date": "2026-09-10",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-27T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 617,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 86,
+    "request_date": "2026-08-28T03:35:44.530Z",
+    "expected_return_date": "2026-09-11",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-28T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 618,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 72,
+    "request_date": "2026-08-28T03:35:44.530Z",
+    "expected_return_date": "2026-09-11",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-28T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 619,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 65,
+    "request_date": "2026-08-28T03:35:44.530Z",
+    "expected_return_date": "2026-09-11",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-28T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 620,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 73,
+    "request_date": "2026-08-29T03:35:44.530Z",
+    "expected_return_date": "2026-09-12",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-29T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 621,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 73,
+    "request_date": "2026-08-29T03:35:44.530Z",
+    "expected_return_date": "2026-09-12",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-29T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 622,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 79,
+    "request_date": "2026-08-29T03:35:44.530Z",
+    "expected_return_date": "2026-09-12",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-29T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 623,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 94,
+    "request_date": "2026-08-30T03:35:44.530Z",
+    "expected_return_date": "2026-09-13",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-30T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 624,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 72,
+    "request_date": "2026-08-30T03:35:44.530Z",
+    "expected_return_date": "2026-09-13",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-30T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 625,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 89,
+    "request_date": "2026-08-30T03:35:44.530Z",
+    "expected_return_date": "2026-09-13",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-30T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 626,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 71,
+    "request_date": "2026-08-30T03:35:44.530Z",
+    "expected_return_date": "2026-09-13",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-30T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 627,
+  "fields": {
+    "user": [
+      "student04"
+    ],
+    "book": 86,
+    "request_date": "2026-08-31T03:35:44.530Z",
+    "expected_return_date": "2026-09-14",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-31T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 628,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 67,
+    "request_date": "2026-08-31T03:35:44.530Z",
+    "expected_return_date": "2026-09-14",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-08-31T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 629,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 74,
+    "request_date": "2026-09-01T03:35:44.530Z",
+    "expected_return_date": "2026-09-15",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-01T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 630,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 70,
+    "request_date": "2026-09-01T03:35:44.530Z",
+    "expected_return_date": "2026-09-15",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-01T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 631,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 64,
+    "request_date": "2026-09-01T03:35:44.530Z",
+    "expected_return_date": "2026-09-15",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-01T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 632,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 87,
+    "request_date": "2026-09-01T03:35:44.530Z",
+    "expected_return_date": "2026-09-15",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-01T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 633,
+  "fields": {
+    "user": [
+      "student04"
+    ],
+    "book": 64,
+    "request_date": "2026-09-02T03:35:44.530Z",
+    "expected_return_date": "2026-09-16",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-02T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 634,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 88,
+    "request_date": "2026-09-02T03:35:44.530Z",
+    "expected_return_date": "2026-09-16",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-02T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 635,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 80,
+    "request_date": "2026-09-03T03:35:44.530Z",
+    "expected_return_date": "2026-09-17",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-03T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 636,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 84,
+    "request_date": "2026-09-03T03:35:44.530Z",
+    "expected_return_date": "2026-09-17",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-03T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 637,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 68,
+    "request_date": "2026-09-03T03:35:44.530Z",
+    "expected_return_date": "2026-09-17",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-03T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 638,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 72,
+    "request_date": "2026-09-04T03:35:44.530Z",
+    "expected_return_date": "2026-09-18",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-04T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 639,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 68,
+    "request_date": "2026-09-05T03:35:44.530Z",
+    "expected_return_date": "2026-09-19",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-05T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 640,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 73,
+    "request_date": "2026-09-06T03:35:44.530Z",
+    "expected_return_date": "2026-09-20",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-06T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 641,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 62,
+    "request_date": "2026-09-06T03:35:44.530Z",
+    "expected_return_date": "2026-09-20",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-06T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 642,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 73,
+    "request_date": "2026-09-06T03:35:44.530Z",
+    "expected_return_date": "2026-09-20",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-06T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 643,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 89,
+    "request_date": "2026-09-07T03:35:44.530Z",
+    "expected_return_date": "2026-09-21",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-07T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 644,
+  "fields": {
+    "user": [
+      "student04"
+    ],
+    "book": 94,
+    "request_date": "2026-09-07T03:35:44.530Z",
+    "expected_return_date": "2026-09-21",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-07T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 645,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 71,
+    "request_date": "2026-09-08T03:35:44.530Z",
+    "expected_return_date": "2026-09-22",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-08T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 646,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 73,
+    "request_date": "2026-09-08T03:35:44.530Z",
+    "expected_return_date": "2026-09-22",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-08T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 647,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 62,
+    "request_date": "2026-09-09T03:35:44.530Z",
+    "expected_return_date": "2026-09-23",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-09T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 648,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "book": 62,
+    "request_date": "2026-09-09T03:35:44.530Z",
+    "expected_return_date": "2026-09-23",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-09T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 649,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 80,
+    "request_date": "2026-09-10T03:35:44.530Z",
+    "expected_return_date": "2026-09-24",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-10T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 650,
+  "fields": {
+    "user": [
+      "student02"
+    ],
+    "book": 81,
+    "request_date": "2026-09-10T03:35:44.530Z",
+    "expected_return_date": "2026-09-24",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-10T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 651,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 81,
+    "request_date": "2026-09-11T03:35:44.530Z",
+    "expected_return_date": "2026-09-25",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-11T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 652,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "book": 81,
+    "request_date": "2026-09-11T03:35:44.530Z",
+    "expected_return_date": "2026-09-25",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-11T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 653,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 78,
+    "request_date": "2026-09-12T03:35:44.530Z",
+    "expected_return_date": "2026-09-26",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-12T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 654,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 80,
+    "request_date": "2026-09-12T03:35:44.530Z",
+    "expected_return_date": "2026-09-26",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-12T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 655,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 81,
+    "request_date": "2026-09-12T03:35:44.530Z",
+    "expected_return_date": "2026-09-26",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-12T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 656,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 96,
+    "request_date": "2026-09-13T03:35:44.530Z",
+    "expected_return_date": "2026-09-27",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-13T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 657,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 69,
+    "request_date": "2026-09-13T03:35:44.530Z",
+    "expected_return_date": "2026-09-27",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-13T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 658,
+  "fields": {
+    "user": [
+      "student02"
+    ],
+    "book": 89,
+    "request_date": "2026-09-14T03:35:44.530Z",
+    "expected_return_date": "2026-09-28",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-14T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 659,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 73,
+    "request_date": "2026-09-14T03:35:44.530Z",
+    "expected_return_date": "2026-09-28",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-14T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 660,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "book": 94,
+    "request_date": "2026-09-14T03:35:44.530Z",
+    "expected_return_date": "2026-09-28",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-14T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 661,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 63,
+    "request_date": "2026-09-14T03:35:44.530Z",
+    "expected_return_date": "2026-09-28",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-14T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 662,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "book": 83,
+    "request_date": "2026-09-15T03:35:44.530Z",
+    "expected_return_date": "2026-09-29",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-15T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 663,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 86,
+    "request_date": "2026-09-15T03:35:44.530Z",
+    "expected_return_date": "2026-09-29",
+    "status": "APPROVED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-15T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 664,
+  "fields": {
+    "user": [
+      "student03"
+    ],
+    "book": 88,
+    "request_date": "2026-09-15T03:35:44.530Z",
+    "expected_return_date": "2026-09-29",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-15T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowrequest",
+  "pk": 665,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 68,
+    "request_date": "2026-09-15T03:35:44.530Z",
+    "expected_return_date": "2026-09-29",
+    "status": "RETURNED",
+    "note": "",
+    "reject_reason": "",
+    "handled_by": [
+      "admin"
+    ],
+    "handled_at": "2026-09-15T04:35:44.530Z"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 511,
+  "fields": {
+    "borrow_request": 588,
+    "borrowed_at": "2026-08-17T03:35:44.530Z",
+    "due_at": "2026-08-31T03:35:44.530Z",
+    "returned_at": "2026-08-25T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 512,
+  "fields": {
+    "borrow_request": 589,
+    "borrowed_at": "2026-08-17T03:35:44.530Z",
+    "due_at": "2026-08-31T03:35:44.530Z",
+    "returned_at": "2026-08-26T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 513,
+  "fields": {
+    "borrow_request": 590,
+    "borrowed_at": "2026-08-17T03:35:44.530Z",
+    "due_at": "2026-08-31T03:35:44.530Z",
+    "returned_at": "2026-08-20T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 514,
+  "fields": {
+    "borrow_request": 591,
+    "borrowed_at": "2026-08-18T03:35:44.530Z",
+    "due_at": "2026-09-01T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 515,
+  "fields": {
+    "borrow_request": 592,
+    "borrowed_at": "2026-08-18T03:35:44.530Z",
+    "due_at": "2026-09-01T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 516,
+  "fields": {
+    "borrow_request": 593,
+    "borrowed_at": "2026-08-18T03:35:44.530Z",
+    "due_at": "2026-09-01T03:35:44.530Z",
+    "returned_at": "2026-08-25T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 517,
+  "fields": {
+    "borrow_request": 594,
+    "borrowed_at": "2026-08-19T03:35:44.530Z",
+    "due_at": "2026-09-02T03:35:44.530Z",
+    "returned_at": "2026-08-23T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 518,
+  "fields": {
+    "borrow_request": 595,
+    "borrowed_at": "2026-08-19T03:35:44.530Z",
+    "due_at": "2026-09-02T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 519,
+  "fields": {
+    "borrow_request": 596,
+    "borrowed_at": "2026-08-20T03:35:44.530Z",
+    "due_at": "2026-09-03T03:35:44.530Z",
+    "returned_at": "2026-08-23T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 520,
+  "fields": {
+    "borrow_request": 597,
+    "borrowed_at": "2026-08-20T03:35:44.530Z",
+    "due_at": "2026-09-03T03:35:44.530Z",
+    "returned_at": "2026-08-29T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 521,
+  "fields": {
+    "borrow_request": 598,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 522,
+  "fields": {
+    "borrow_request": 599,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-08-24T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 523,
+  "fields": {
+    "borrow_request": 600,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 524,
+  "fields": {
+    "borrow_request": 601,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-09-01T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 525,
+  "fields": {
+    "borrow_request": 602,
+    "borrowed_at": "2026-08-22T03:35:44.530Z",
+    "due_at": "2026-09-05T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 526,
+  "fields": {
+    "borrow_request": 603,
+    "borrowed_at": "2026-08-22T03:35:44.530Z",
+    "due_at": "2026-09-05T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 527,
+  "fields": {
+    "borrow_request": 604,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-08-28T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 528,
+  "fields": {
+    "borrow_request": 605,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 529,
+  "fields": {
+    "borrow_request": 606,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 530,
+  "fields": {
+    "borrow_request": 607,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 531,
+  "fields": {
+    "borrow_request": 608,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-28T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 532,
+  "fields": {
+    "borrow_request": 609,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 533,
+  "fields": {
+    "borrow_request": 610,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-29T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 534,
+  "fields": {
+    "borrow_request": 611,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 535,
+  "fields": {
+    "borrow_request": 612,
+    "borrowed_at": "2026-08-25T03:35:44.530Z",
+    "due_at": "2026-09-08T03:35:44.530Z",
+    "returned_at": "2026-08-30T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 536,
+  "fields": {
+    "borrow_request": 613,
+    "borrowed_at": "2026-08-25T03:35:44.530Z",
+    "due_at": "2026-09-08T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 537,
+  "fields": {
+    "borrow_request": 614,
+    "borrowed_at": "2026-08-26T03:35:44.530Z",
+    "due_at": "2026-09-09T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 538,
+  "fields": {
+    "borrow_request": 615,
+    "borrowed_at": "2026-08-26T03:35:44.530Z",
+    "due_at": "2026-09-09T03:35:44.530Z",
+    "returned_at": "2026-08-29T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 539,
+  "fields": {
+    "borrow_request": 616,
+    "borrowed_at": "2026-08-27T03:35:44.530Z",
+    "due_at": "2026-09-10T03:35:44.530Z",
+    "returned_at": "2026-09-09T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 540,
+  "fields": {
+    "borrow_request": 617,
+    "borrowed_at": "2026-08-28T03:35:44.530Z",
+    "due_at": "2026-09-11T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 541,
+  "fields": {
+    "borrow_request": 618,
+    "borrowed_at": "2026-08-28T03:35:44.530Z",
+    "due_at": "2026-09-11T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 542,
+  "fields": {
+    "borrow_request": 619,
+    "borrowed_at": "2026-08-28T03:35:44.530Z",
+    "due_at": "2026-09-11T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 543,
+  "fields": {
+    "borrow_request": 620,
+    "borrowed_at": "2026-08-29T03:35:44.530Z",
+    "due_at": "2026-09-12T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 544,
+  "fields": {
+    "borrow_request": 621,
+    "borrowed_at": "2026-08-29T03:35:44.530Z",
+    "due_at": "2026-09-12T03:35:44.530Z",
+    "returned_at": "2026-09-01T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 545,
+  "fields": {
+    "borrow_request": 622,
+    "borrowed_at": "2026-08-29T03:35:44.530Z",
+    "due_at": "2026-09-12T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 546,
+  "fields": {
+    "borrow_request": 623,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-05T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 547,
+  "fields": {
+    "borrow_request": 624,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-12T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 548,
+  "fields": {
+    "borrow_request": 625,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-08T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 549,
+  "fields": {
+    "borrow_request": 626,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-07T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 550,
+  "fields": {
+    "borrow_request": 627,
+    "borrowed_at": "2026-08-31T03:35:44.530Z",
+    "due_at": "2026-09-14T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 551,
+  "fields": {
+    "borrow_request": 628,
+    "borrowed_at": "2026-08-31T03:35:44.530Z",
+    "due_at": "2026-09-14T03:35:44.530Z",
+    "returned_at": "2026-09-08T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 552,
+  "fields": {
+    "borrow_request": 629,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 553,
+  "fields": {
+    "borrow_request": 630,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 554,
+  "fields": {
+    "borrow_request": 631,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 555,
+  "fields": {
+    "borrow_request": 632,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 556,
+  "fields": {
+    "borrow_request": 633,
+    "borrowed_at": "2026-09-02T03:35:44.530Z",
+    "due_at": "2026-09-16T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 557,
+  "fields": {
+    "borrow_request": 634,
+    "borrowed_at": "2026-09-02T03:35:44.530Z",
+    "due_at": "2026-09-16T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 558,
+  "fields": {
+    "borrow_request": 635,
+    "borrowed_at": "2026-09-03T03:35:44.530Z",
+    "due_at": "2026-09-17T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 559,
+  "fields": {
+    "borrow_request": 636,
+    "borrowed_at": "2026-09-03T03:35:44.530Z",
+    "due_at": "2026-09-17T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 560,
+  "fields": {
+    "borrow_request": 637,
+    "borrowed_at": "2026-09-03T03:35:44.530Z",
+    "due_at": "2026-09-17T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 561,
+  "fields": {
+    "borrow_request": 638,
+    "borrowed_at": "2026-09-04T03:35:44.530Z",
+    "due_at": "2026-09-18T03:35:44.530Z",
+    "returned_at": "2026-09-08T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 562,
+  "fields": {
+    "borrow_request": 639,
+    "borrowed_at": "2026-09-05T03:35:44.530Z",
+    "due_at": "2026-09-19T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 563,
+  "fields": {
+    "borrow_request": 640,
+    "borrowed_at": "2026-09-06T03:35:44.530Z",
+    "due_at": "2026-09-20T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 564,
+  "fields": {
+    "borrow_request": 641,
+    "borrowed_at": "2026-09-06T03:35:44.530Z",
+    "due_at": "2026-09-20T03:35:44.530Z",
+    "returned_at": "2026-09-17T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 565,
+  "fields": {
+    "borrow_request": 642,
+    "borrowed_at": "2026-09-06T03:35:44.530Z",
+    "due_at": "2026-09-20T03:35:44.530Z",
+    "returned_at": "2026-09-12T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 566,
+  "fields": {
+    "borrow_request": 643,
+    "borrowed_at": "2026-09-07T03:35:44.530Z",
+    "due_at": "2026-09-21T03:35:44.530Z",
+    "returned_at": "2026-09-17T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 567,
+  "fields": {
+    "borrow_request": 644,
+    "borrowed_at": "2026-09-07T03:35:44.530Z",
+    "due_at": "2026-09-21T03:35:44.530Z",
+    "returned_at": "2026-09-20T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 568,
+  "fields": {
+    "borrow_request": 645,
+    "borrowed_at": "2026-09-08T03:35:44.530Z",
+    "due_at": "2026-09-22T03:35:44.530Z",
+    "returned_at": "2026-09-16T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 569,
+  "fields": {
+    "borrow_request": 646,
+    "borrowed_at": "2026-09-08T03:35:44.530Z",
+    "due_at": "2026-09-22T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 570,
+  "fields": {
+    "borrow_request": 647,
+    "borrowed_at": "2026-09-09T03:35:44.530Z",
+    "due_at": "2026-09-23T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 571,
+  "fields": {
+    "borrow_request": 648,
+    "borrowed_at": "2026-09-09T03:35:44.530Z",
+    "due_at": "2026-09-23T03:35:44.530Z",
+    "returned_at": "2026-09-14T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 572,
+  "fields": {
+    "borrow_request": 649,
+    "borrowed_at": "2026-09-10T03:35:44.530Z",
+    "due_at": "2026-09-24T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 573,
+  "fields": {
+    "borrow_request": 650,
+    "borrowed_at": "2026-09-10T03:35:44.530Z",
+    "due_at": "2026-09-24T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 574,
+  "fields": {
+    "borrow_request": 651,
+    "borrowed_at": "2026-09-11T03:35:44.530Z",
+    "due_at": "2026-09-25T03:35:44.530Z",
+    "returned_at": "2026-09-21T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 575,
+  "fields": {
+    "borrow_request": 652,
+    "borrowed_at": "2026-09-11T03:35:44.530Z",
+    "due_at": "2026-09-25T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 576,
+  "fields": {
+    "borrow_request": 653,
+    "borrowed_at": "2026-09-12T03:35:44.530Z",
+    "due_at": "2026-09-26T03:35:44.530Z",
+    "returned_at": "2026-09-18T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 577,
+  "fields": {
+    "borrow_request": 654,
+    "borrowed_at": "2026-09-12T03:35:44.530Z",
+    "due_at": "2026-09-26T03:35:44.530Z",
+    "returned_at": "2026-09-21T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 578,
+  "fields": {
+    "borrow_request": 655,
+    "borrowed_at": "2026-09-12T03:35:44.530Z",
+    "due_at": "2026-09-26T03:35:44.530Z",
+    "returned_at": "2026-09-19T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 579,
+  "fields": {
+    "borrow_request": 656,
+    "borrowed_at": "2026-09-13T03:35:44.530Z",
+    "due_at": "2026-09-27T03:35:44.530Z",
+    "returned_at": "2026-09-21T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 580,
+  "fields": {
+    "borrow_request": 657,
+    "borrowed_at": "2026-09-13T03:35:44.530Z",
+    "due_at": "2026-09-27T03:35:44.530Z",
+    "returned_at": "2026-09-20T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 581,
+  "fields": {
+    "borrow_request": 658,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 582,
+  "fields": {
+    "borrow_request": 659,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 583,
+  "fields": {
+    "borrow_request": 660,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 584,
+  "fields": {
+    "borrow_request": 661,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": "2026-09-26T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 585,
+  "fields": {
+    "borrow_request": 662,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": "2026-09-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 586,
+  "fields": {
+    "borrow_request": 663,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 587,
+  "fields": {
+    "borrow_request": 664,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": "2026-09-24T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 588,
+  "fields": {
+    "borrow_request": 665,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": "2026-09-24T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 72,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "shop quá tuyệt với",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-17T15:42:16.253Z",
+    "created_at": "2026-03-11T15:49:55.821Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 78,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "Sách Quá oki",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-17T15:42:21.209Z",
+    "created_at": "2026-03-11T15:50:11.670Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 63,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "tuyệt cú mèo",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-17T15:42:19.538Z",
+    "created_at": "2026-03-11T16:31:45.414Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 64,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "quá hay",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-17T15:42:12.704Z",
+    "created_at": "2026-03-11T16:32:24.551Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 86,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "sách hay",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-18T17:37:15.543Z",
+    "created_at": "2026-03-18T17:36:55.015Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 82,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "sách hay quá",
+    "status": "REJECTED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-19T02:56:46.081Z",
+    "created_at": "2026-03-19T02:20:10.876Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 85,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "sách hay",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-19T02:56:43.371Z",
+    "created_at": "2026-03-19T02:20:20.541Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 69,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "oooooooooooooooooooooooo",
+    "status": "REJECTED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-19T02:30:48.204Z",
+    "created_at": "2026-03-19T02:20:29.435Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 75,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "scam hả",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-19T02:30:45.454Z",
+    "created_at": "2026-03-19T02:20:47.587Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 70,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "quá hay",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-03-19T02:56:41.038Z",
+    "created_at": "2026-03-19T02:56:13.883Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 80,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "Đây là một cuốn sách rất đáng đọc, nội dung cuốn hút và dễ hiểu",
+    "status": "PENDING",
+    "moderated_by": null,
+    "moderated_at": null,
+    "created_at": "2026-05-03T08:50:13.722Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 81,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "Nội dung truyền cảm hứng mạnh mẽ, đặc biệt cho người trẻ.",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-05-04T01:55:35.950Z",
+    "created_at": "2026-05-03T08:50:33.115Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 89,
+    "borrow_transaction": null,
+    "rating": 4,
+    "content": "Một cuốn sách đọc xong vẫn còn đọng lại suy nghĩ.",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-05-03T13:21:49.500Z",
+    "created_at": "2026-05-03T08:50:47.929Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "book": 87,
+    "borrow_transaction": null,
+    "rating": 4,
+    "content": "Nội dung truyền cảm hứng mạnh mẽ, đặc biệt cho người trẻ.",
+    "status": "REJECTED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-05-03T13:21:45.444Z",
+    "created_at": "2026-05-03T08:52:07.990Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 94,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "Sách hay",
+    "status": "REJECTED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-05-04T06:00:23.271Z",
+    "created_at": "2026-05-04T01:52:23.799Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 73,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "Ấn Tượng",
+    "status": "APPROVED",
+    "moderated_by": [
+      "admin"
+    ],
+    "moderated_at": "2026-05-04T01:55:31.198Z",
+    "created_at": "2026-05-04T01:52:50.493Z"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "book": 85,
+    "borrow_transaction": null,
+    "rating": 5,
+    "content": "cảm hứng để code",
+    "status": "PENDING",
+    "moderated_by": null,
+    "moderated_at": null,
+    "created_at": "2026-05-04T01:58:48.835Z"
+  }
+},
+{
+  "model": "members.clubmember",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "student01"
+    ],
+    "club": null,
+    "status": "APPROVED",
+    "motivation": "Em Muốn Tham Gia CLB mình ạ",
+    "total_points": 5,
+    "reviewed_by": [
+      "admin"
+    ],
+    "reviewed_at": "2026-05-02T16:29:00.873Z",
+    "reject_reason": "",
+    "joined_at": "2026-05-02T16:28:28.522Z"
+  }
+},
+{
+  "model": "members.clubmember",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "QuangManh"
+    ],
+    "club": null,
+    "status": "APPROVED",
+    "motivation": "Em xin tham gia ạ",
+    "total_points": 42,
+    "reviewed_by": [
+      "admin"
+    ],
+    "reviewed_at": "2026-05-02T16:45:03.024Z",
+    "reject_reason": "",
+    "joined_at": "2026-05-02T16:32:04.675Z"
+  }
+},
+{
+  "model": "members.clubmember",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "NgoQuangManh"
+    ],
+    "club": null,
+    "status": "APPROVED",
+    "motivation": "em xin tham gia",
+    "total_points": 9,
+    "reviewed_by": [
+      "admin"
+    ],
+    "reviewed_at": "2026-05-02T16:51:07.958Z",
+    "reject_reason": "",
+    "joined_at": "2026-05-02T16:50:15.783Z"
+  }
+},
+{
+  "model": "members.clubmember",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "student05"
+    ],
+    "club": null,
+    "status": "PENDING",
+    "motivation": "Em muốn đọc sách",
+    "total_points": 0,
+    "reviewed_by": null,
+    "reviewed_at": null,
+    "reject_reason": "",
+    "joined_at": "2026-05-02T16:56:59.014Z"
+  }
+},
+{
+  "model": "members.clubmember",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "ManhNhom"
+    ],
+    "club": null,
+    "status": "APPROVED",
+    "motivation": "Em muốn tham gia ạ",
+    "total_points": 0,
+    "reviewed_by": [
+      "admin"
+    ],
+    "reviewed_at": "2026-05-04T01:53:24.345Z",
+    "reject_reason": "",
+    "joined_at": "2026-05-03T09:08:14.689Z"
+  }
+},
+{
+  "model": "members.clubmember",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "DangNam"
+    ],
+    "club": null,
+    "status": "APPROVED",
+    "motivation": "Em xin Tham Gia CLB ạ",
+    "total_points": 0,
+    "reviewed_by": [
+      "admin"
+    ],
+    "reviewed_at": "2026-05-06T07:58:17.355Z",
+    "reject_reason": "",
+    "joined_at": "2026-05-04T01:51:33.411Z"
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 1,
+  "fields": {
+    "member": 1,
+    "points": 5,
+    "reason": "MANUAL",
+    "note": "tốt",
+    "created_at": "2026-05-03T09:01:58.697Z",
+    "created_by": [
+      "admin"
+    ]
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 2,
+  "fields": {
+    "member": 2,
+    "points": 10,
+    "reason": "MANUAL",
+    "note": "Admin điều chỉnh",
+    "created_at": "2026-05-03T09:02:08.392Z",
+    "created_by": [
+      "admin"
+    ]
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 3,
+  "fields": {
+    "member": 3,
+    "points": 9,
+    "reason": "MANUAL",
+    "note": "Admin điều chỉnh",
+    "created_at": "2026-05-03T09:02:13.717Z",
+    "created_by": [
+      "admin"
+    ]
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 4,
+  "fields": {
+    "member": 2,
+    "points": 10,
+    "reason": "CHECKIN",
+    "note": "Điểm danh: Sinh Hoạt CLB 3/5",
+    "created_at": "2026-05-03T09:05:40.344Z",
+    "created_by": null
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 5,
+  "fields": {
+    "member": 2,
+    "points": 2,
+    "reason": "CHECKIN",
+    "note": "Điểm danh: Sinh Hoạt 4/5",
+    "created_at": "2026-05-03T09:05:44.036Z",
+    "created_by": null
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 6,
+  "fields": {
+    "member": 2,
+    "points": 10,
+    "reason": "CHECKIN",
+    "note": "Điểm danh: Sinh Hoạt CLB 3/5",
+    "created_at": "2026-05-03T13:45:59.196Z",
+    "created_by": null
+  }
+},
+{
+  "model": "members.pointlog",
+  "pk": 7,
+  "fields": {
+    "member": 2,
+    "points": 10,
+    "reason": "CHECKIN",
+    "note": "Điểm danh: sinh hot",
+    "created_at": "2026-05-04T01:06:45.042Z",
+    "created_by": null
+  }
+},
+{
+  "model": "events.clubevent",
+  "pk": 1,
+  "fields": {
+    "title": "Sinh Hoạt Câu Lạc Bộ",
+    "description": "Giao Lưu , học hỏi ",
+    "event_date": "2026-05-02T16:37:00Z",
+    "location": "Hội trường Đa Năng",
+    "points_reward": 10,
+    "qr_token": "a6e0fc1b-1f51-4e32-b928-43f08e85255e",
+    "checkin_window_minutes": 60,
+    "created_by": [
+      "admin"
+    ],
+    "created_at": "2026-05-02T16:37:03.769Z",
+    "is_active": true
+  }
+},
+{
+  "model": "events.clubevent",
+  "pk": 2,
+  "fields": {
+    "title": "Sinh Hoạt CLB 3/5",
+    "description": "triển khai kế hoạch tháng 5",
+    "event_date": "2026-05-03T16:42:00Z",
+    "location": "Hội trường Đa Năng",
+    "points_reward": 10,
+    "qr_token": "9f36d7c7-dd9d-4161-aab9-8ffe609dc704",
+    "checkin_window_minutes": 60,
+    "created_by": [
+      "admin"
+    ],
+    "created_at": "2026-05-02T16:42:14.172Z",
+    "is_active": true
+  }
+},
+{
+  "model": "events.clubevent",
+  "pk": 3,
+  "fields": {
+    "title": "Sinh Hoạt 4/5",
+    "description": "triển khai đọc sáhc tháng 5",
+    "event_date": "2026-05-05T16:51:00Z",
+    "location": "Hội trường Đa Năng",
+    "points_reward": 2,
+    "qr_token": "4f8feee3-f09d-4bc1-a2e7-ee9d4ac9aedc",
+    "checkin_window_minutes": 60,
+    "created_by": [
+      "admin"
+    ],
+    "created_at": "2026-05-02T16:51:42.717Z",
+    "is_active": true
+  }
+},
+{
+  "model": "events.clubevent",
+  "pk": 4,
+  "fields": {
+    "title": "Sinh Hoạt CLB 3/5",
+    "description": "Học Hỏi",
+    "event_date": "2026-05-04T13:29:00Z",
+    "location": "Hội trường Đa Năng",
+    "points_reward": 10,
+    "qr_token": "b19a134d-3d4c-4f77-90a9-4f3a8a6e0b6c",
+    "checkin_window_minutes": 60,
+    "created_by": [
+      "admin"
+    ],
+    "created_at": "2026-05-03T13:29:27.046Z",
+    "is_active": true
+  }
+},
+{
+  "model": "events.clubevent",
+  "pk": 5,
+  "fields": {
+    "title": "sinh hot",
+    "description": "yuik ",
+    "event_date": "2026-05-05T01:05:00Z",
+    "location": "Hội trường Đa Năng",
+    "points_reward": 10,
+    "qr_token": "fbb17528-6362-4446-b364-c0f91ae06a54",
+    "checkin_window_minutes": 60,
+    "created_by": [
+      "admin"
+    ],
+    "created_at": "2026-05-04T01:05:08.591Z",
+    "is_active": true
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 1,
+  "fields": {
+    "event": 2,
+    "member": 2,
+    "checked_in_at": "2026-05-03T09:05:40.338Z"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 2,
+  "fields": {
+    "event": 3,
+    "member": 2,
+    "checked_in_at": "2026-05-03T09:05:44.029Z"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 3,
+  "fields": {
+    "event": 4,
+    "member": 2,
+    "checked_in_at": "2026-05-03T13:45:59.191Z"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 4,
+  "fields": {
+    "event": 5,
+    "member": 2,
+    "checked_in_at": "2026-05-04T01:06:45.035Z"
+  }
+}
+]
