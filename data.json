@@ -1,9 +1,2166 @@
 [
 {
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "accounts",
+    "model": "studentprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "library",
+    "model": "book"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "library",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "borrowing",
+    "model": "borrowtransaction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "borrowing",
+    "model": "borrowrequest"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "reviews",
+    "model": "review"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "members",
+    "model": "pointlog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "members",
+    "model": "clubmember"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "events",
+    "model": "eventcheckin"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "events",
+    "model": "clubevent"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "members",
+    "model": "chatroom"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "members",
+    "model": "club"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "members",
+    "model": "message"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0ngn05q0dk2m7i6abyvc2bahj054j7l9",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlmLvzElPWewdv3BAWRLcVIh7k4spYBuZt7MvJnHbS1-62nxc2QXJtnpNyMMz1QHiA-s98ZDq-syEx8VftDOby2m1_Xo_h0U7GWsz1qi0xnMLkiBCDkLbQgSgtWTVsKQmCw6JZ2yOioMebc5gTEIjtjnC8RCN0M:1wKGtL:_rB_3nG0M3OrZbe1OLGARh874mwsrYmrGOzAZKWy9nk",
+    "expire_date": "2026-05-19T14:36:55.957Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6wxk62fojivwok0ckq5d0ijdr1iki5hk",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCG6UDi0r1nIMwAUjWQlHZlvLs26UK3_733XyrEba1hG3kJc1JnBer0u3GUR247SPfYbl1Lb-sys94VfdChrz3l5-Vw_w5qHPVbM7IHY7xlLOgIKGb0BNZltkxkQcSkEoXBQ4LiObsJrQgZnMgZq94fzjc3QA:1wJjZo:3nkHiFB-FK3uekQ72xr0TQMnaW7jNoD5N8W9NR0rHwI",
+    "expire_date": "2026-05-18T03:02:32.118Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "av3yhv13c4dskuuaa8bw0hk9j2wzw28p",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlmLvzElPWewdv3BAWRLcVIh7k4spYBuZt7MvJnHbS1-62nxc2QXJtnpNyMMz1QHiA-s98ZDq-syEx8VftDOby2m1_Xo_h0U7GWsz1qi0xnMLkiBCDkLbQgSgtWTVsKQmCw6JZ2yOioMebc5gTEIjtjnC8RCN0M:1wxPUZ:2TIC2w2QcThcF4zRzIavTj9vGe1r23zCZU5iZRe0YDg",
+    "expire_date": "2026-09-04T13:41:07.616Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "e0yx6e2k2kk0n09690s5mr151hf00jha",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlmLvzElPWewdv3BAWRLcVIh7k4spYBuZt7MvJnHbS1-62nxc2QXJtnpNyMMz1QHiA-s98ZDq-syEx8VftDOby2m1_Xo_h0U7GWsz1qi0xnMLkiBCDkLbQgSgtWTVsKQmCw6JZ2yOioMebc5gTEIjtjnC8RCN0M:1x6Jxi:Q8mWpw-JctlVbxT2PF_lHxeVoP5WdpBtLyeeuzOyNRE",
+    "expire_date": "2026-09-29T03:36:02.658Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ef0k5tj55fhcwbpza8i8wqudxvfo0lad",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCG6UDi0r1nIMwAUjWQlHZlvLs26UK3_733XyrEba1hG3kJc1JnBer0u3GUR247SPfYbl1Lb-sys94VfdChrz3l5-Vw_w5qHPVbM7IHY7xlLOgIKGb0BNZltkxkQcSkEoXBQ4LiObsJrQgZnMgZq94fzjc3QA:1w331a:thkbV_opats3FdZtBPKI9neoeoxKr6PCqiU99sNXVxM",
+    "expire_date": "2026-04-02T02:22:14.739Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gjr433h9v16so5xyct4vryatozzalhoh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCG6UDi0r1nIMwAUjWQlHZlvLs26UK3_733XyrEba1hG3kJc1JnBer0u3GUR247SPfYbl1Lb-sys94VfdChrz3l5-Vw_w5qHPVbM7IHY7xlLOgIKGb0BNZltkxkQcSkEoXBQ4LiObsJrQgZnMgZq94fzjc3QA:1x6eI3:UknUP-D_NRJgg-EGGE9cWDywjSdvsE-1tO6DlXrinBQ",
+    "expire_date": "2026-09-30T01:18:23.198Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m7b6fgggy7wi4fra6prj3porwkujvyg3",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlmLvzElPWewdv3BAWRLcVIh7k4spYBuZt7MvJnHbS1-62nxc2QXJtnpNyMMz1QHiA-s98ZDq-syEx8VftDOby2m1_Xo_h0U7GWsz1qi0xnMLkiBCDkLbQgSgtWTVsKQmCw6JZ2yOioMebc5gTEIjtjnC8RCN0M:1w2trs:cHy_S42w_u-U0nU-aJQzLVME-fad_KIeBCUHlaNadTs",
+    "expire_date": "2026-04-01T16:35:36.131Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "n2wpb6bl9j7of9usq1hs9w8jjoobezpr",
+  "fields": {
+    "session_data": ".eJxVjEsOAiEQBe_C2hBoEGiX7ucMpIFGRs2QzGdlvLtOMgvdvqp6LxFpW1vcFp7jWMRFAIjT75goP3jaSbnTdOsy92mdxyR3RR50kUMv_Lwe7t9Bo6V96zNwUAErZW2yp-QTsAYuCjWgY6PAVOsQQ7DFIqDWLlUmUq5qr6wT7w_26zdL:1wKX9s:60XUB4eJSWbzmioj6oqLuWmzV66e2bVdjj0MUkCbMz4",
+    "expire_date": "2026-05-20T07:59:04.744Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w8zwfrmr7r1h1n2jrtjaj175fy4ysoze",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlmLvzElPWewdv3BAWRLcVIh7k4spYBuZt7MvJnHbS1-62nxc2QXJtnpNyMMz1QHiA-s98ZDq-syEx8VftDOby2m1_Xo_h0U7GWsz1qi0xnMLkiBCDkLbQgSgtWTVsKQmCw6JZ2yOioMebc5gTEIjtjnC8RCN0M:1vztuc:LBI3kUqZHqrxYFHKKB98r-wadGZ5WC_kaQxlwoWecFw",
+    "expire_date": "2026-03-24T10:02:02.784Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "x44z86nft5ybus7997t7gur7dpbpgxru",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCG6UDi0r1nIMwAUjWQlHZlvLs26UK3_733XyrEba1hG3kJc1JnBer0u3GUR247SPfYbl1Lb-sys94VfdChrz3l5-Vw_w5qHPVbM7IHY7xlLOgIKGb0BNZltkxkQcSkEoXBQ4LiObsJrQgZnMgZq94fzjc3QA:1wAesP:j9bgir_FBKZsl7idQj-Fi0jOSpMsRLoouPSWg8g0qL4",
+    "expire_date": "2026-04-23T02:12:13.043Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 1,
+  "fields": {
+    "name": "Văn học",
+    "description": "Sách văn học trong và ngoài nước",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.294Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 2,
+  "fields": {
+    "name": "Kỹ năng sống",
+    "description": "Phát triển bản thân và kỹ năng mềm",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.294Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 3,
+  "fields": {
+    "name": "Công nghệ",
+    "description": "Sách về lập trình và công nghệ",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.300Z"
+  }
+},
+{
+  "model": "library.category",
+  "pk": 4,
+  "fields": {
+    "name": "Kinh tế",
+    "description": "Kinh doanh và quản trị",
+    "is_active": true,
+    "created_at": "2026-03-09T14:12:33.302Z"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 511,
+  "fields": {
+    "borrow_request": 588,
+    "borrowed_at": "2026-08-17T03:35:44.530Z",
+    "due_at": "2026-08-31T03:35:44.530Z",
+    "returned_at": "2026-08-25T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 512,
+  "fields": {
+    "borrow_request": 589,
+    "borrowed_at": "2026-08-17T03:35:44.530Z",
+    "due_at": "2026-08-31T03:35:44.530Z",
+    "returned_at": "2026-08-26T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 513,
+  "fields": {
+    "borrow_request": 590,
+    "borrowed_at": "2026-08-17T03:35:44.530Z",
+    "due_at": "2026-08-31T03:35:44.530Z",
+    "returned_at": "2026-08-20T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 514,
+  "fields": {
+    "borrow_request": 591,
+    "borrowed_at": "2026-08-18T03:35:44.530Z",
+    "due_at": "2026-09-01T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 515,
+  "fields": {
+    "borrow_request": 592,
+    "borrowed_at": "2026-08-18T03:35:44.530Z",
+    "due_at": "2026-09-01T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 516,
+  "fields": {
+    "borrow_request": 593,
+    "borrowed_at": "2026-08-18T03:35:44.530Z",
+    "due_at": "2026-09-01T03:35:44.530Z",
+    "returned_at": "2026-08-25T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 517,
+  "fields": {
+    "borrow_request": 594,
+    "borrowed_at": "2026-08-19T03:35:44.530Z",
+    "due_at": "2026-09-02T03:35:44.530Z",
+    "returned_at": "2026-08-23T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 518,
+  "fields": {
+    "borrow_request": 595,
+    "borrowed_at": "2026-08-19T03:35:44.530Z",
+    "due_at": "2026-09-02T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 519,
+  "fields": {
+    "borrow_request": 596,
+    "borrowed_at": "2026-08-20T03:35:44.530Z",
+    "due_at": "2026-09-03T03:35:44.530Z",
+    "returned_at": "2026-08-23T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 520,
+  "fields": {
+    "borrow_request": 597,
+    "borrowed_at": "2026-08-20T03:35:44.530Z",
+    "due_at": "2026-09-03T03:35:44.530Z",
+    "returned_at": "2026-08-29T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 521,
+  "fields": {
+    "borrow_request": 598,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 522,
+  "fields": {
+    "borrow_request": 599,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-08-24T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 523,
+  "fields": {
+    "borrow_request": 600,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 524,
+  "fields": {
+    "borrow_request": 601,
+    "borrowed_at": "2026-08-21T03:35:44.530Z",
+    "due_at": "2026-09-04T03:35:44.530Z",
+    "returned_at": "2026-09-01T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 525,
+  "fields": {
+    "borrow_request": 602,
+    "borrowed_at": "2026-08-22T03:35:44.530Z",
+    "due_at": "2026-09-05T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 526,
+  "fields": {
+    "borrow_request": 603,
+    "borrowed_at": "2026-08-22T03:35:44.530Z",
+    "due_at": "2026-09-05T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 527,
+  "fields": {
+    "borrow_request": 604,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-08-28T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 528,
+  "fields": {
+    "borrow_request": 605,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 529,
+  "fields": {
+    "borrow_request": 606,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 530,
+  "fields": {
+    "borrow_request": 607,
+    "borrowed_at": "2026-08-23T03:35:44.530Z",
+    "due_at": "2026-09-06T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 531,
+  "fields": {
+    "borrow_request": 608,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-28T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 532,
+  "fields": {
+    "borrow_request": 609,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 533,
+  "fields": {
+    "borrow_request": 610,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-29T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 534,
+  "fields": {
+    "borrow_request": 611,
+    "borrowed_at": "2026-08-24T03:35:44.530Z",
+    "due_at": "2026-09-07T03:35:44.530Z",
+    "returned_at": "2026-08-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 535,
+  "fields": {
+    "borrow_request": 612,
+    "borrowed_at": "2026-08-25T03:35:44.530Z",
+    "due_at": "2026-09-08T03:35:44.530Z",
+    "returned_at": "2026-08-30T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 536,
+  "fields": {
+    "borrow_request": 613,
+    "borrowed_at": "2026-08-25T03:35:44.530Z",
+    "due_at": "2026-09-08T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 537,
+  "fields": {
+    "borrow_request": 614,
+    "borrowed_at": "2026-08-26T03:35:44.530Z",
+    "due_at": "2026-09-09T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 538,
+  "fields": {
+    "borrow_request": 615,
+    "borrowed_at": "2026-08-26T03:35:44.530Z",
+    "due_at": "2026-09-09T03:35:44.530Z",
+    "returned_at": "2026-08-29T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 539,
+  "fields": {
+    "borrow_request": 616,
+    "borrowed_at": "2026-08-27T03:35:44.530Z",
+    "due_at": "2026-09-10T03:35:44.530Z",
+    "returned_at": "2026-09-09T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 540,
+  "fields": {
+    "borrow_request": 617,
+    "borrowed_at": "2026-08-28T03:35:44.530Z",
+    "due_at": "2026-09-11T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 541,
+  "fields": {
+    "borrow_request": 618,
+    "borrowed_at": "2026-08-28T03:35:44.530Z",
+    "due_at": "2026-09-11T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 542,
+  "fields": {
+    "borrow_request": 619,
+    "borrowed_at": "2026-08-28T03:35:44.530Z",
+    "due_at": "2026-09-11T03:35:44.530Z",
+    "returned_at": "2026-08-31T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 543,
+  "fields": {
+    "borrow_request": 620,
+    "borrowed_at": "2026-08-29T03:35:44.530Z",
+    "due_at": "2026-09-12T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 544,
+  "fields": {
+    "borrow_request": 621,
+    "borrowed_at": "2026-08-29T03:35:44.530Z",
+    "due_at": "2026-09-12T03:35:44.530Z",
+    "returned_at": "2026-09-01T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 545,
+  "fields": {
+    "borrow_request": 622,
+    "borrowed_at": "2026-08-29T03:35:44.530Z",
+    "due_at": "2026-09-12T03:35:44.530Z",
+    "returned_at": "2026-09-04T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 546,
+  "fields": {
+    "borrow_request": 623,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-05T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 547,
+  "fields": {
+    "borrow_request": 624,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-12T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 548,
+  "fields": {
+    "borrow_request": 625,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-08T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 549,
+  "fields": {
+    "borrow_request": 626,
+    "borrowed_at": "2026-08-30T03:35:44.530Z",
+    "due_at": "2026-09-13T03:35:44.530Z",
+    "returned_at": "2026-09-07T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 550,
+  "fields": {
+    "borrow_request": 627,
+    "borrowed_at": "2026-08-31T03:35:44.530Z",
+    "due_at": "2026-09-14T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 551,
+  "fields": {
+    "borrow_request": 628,
+    "borrowed_at": "2026-08-31T03:35:44.530Z",
+    "due_at": "2026-09-14T03:35:44.530Z",
+    "returned_at": "2026-09-08T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 552,
+  "fields": {
+    "borrow_request": 629,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 553,
+  "fields": {
+    "borrow_request": 630,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 554,
+  "fields": {
+    "borrow_request": 631,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": "2026-09-10T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 555,
+  "fields": {
+    "borrow_request": 632,
+    "borrowed_at": "2026-09-01T03:35:44.530Z",
+    "due_at": "2026-09-15T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 556,
+  "fields": {
+    "borrow_request": 633,
+    "borrowed_at": "2026-09-02T03:35:44.530Z",
+    "due_at": "2026-09-16T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 557,
+  "fields": {
+    "borrow_request": 634,
+    "borrowed_at": "2026-09-02T03:35:44.530Z",
+    "due_at": "2026-09-16T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 558,
+  "fields": {
+    "borrow_request": 635,
+    "borrowed_at": "2026-09-03T03:35:44.530Z",
+    "due_at": "2026-09-17T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 559,
+  "fields": {
+    "borrow_request": 636,
+    "borrowed_at": "2026-09-03T03:35:44.530Z",
+    "due_at": "2026-09-17T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 560,
+  "fields": {
+    "borrow_request": 637,
+    "borrowed_at": "2026-09-03T03:35:44.530Z",
+    "due_at": "2026-09-17T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 561,
+  "fields": {
+    "borrow_request": 638,
+    "borrowed_at": "2026-09-04T03:35:44.530Z",
+    "due_at": "2026-09-18T03:35:44.530Z",
+    "returned_at": "2026-09-08T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 562,
+  "fields": {
+    "borrow_request": 639,
+    "borrowed_at": "2026-09-05T03:35:44.530Z",
+    "due_at": "2026-09-19T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 563,
+  "fields": {
+    "borrow_request": 640,
+    "borrowed_at": "2026-09-06T03:35:44.530Z",
+    "due_at": "2026-09-20T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 564,
+  "fields": {
+    "borrow_request": 641,
+    "borrowed_at": "2026-09-06T03:35:44.530Z",
+    "due_at": "2026-09-20T03:35:44.530Z",
+    "returned_at": "2026-09-17T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 565,
+  "fields": {
+    "borrow_request": 642,
+    "borrowed_at": "2026-09-06T03:35:44.530Z",
+    "due_at": "2026-09-20T03:35:44.530Z",
+    "returned_at": "2026-09-12T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 566,
+  "fields": {
+    "borrow_request": 643,
+    "borrowed_at": "2026-09-07T03:35:44.530Z",
+    "due_at": "2026-09-21T03:35:44.530Z",
+    "returned_at": "2026-09-17T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 567,
+  "fields": {
+    "borrow_request": 644,
+    "borrowed_at": "2026-09-07T03:35:44.530Z",
+    "due_at": "2026-09-21T03:35:44.530Z",
+    "returned_at": "2026-09-20T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 568,
+  "fields": {
+    "borrow_request": 645,
+    "borrowed_at": "2026-09-08T03:35:44.530Z",
+    "due_at": "2026-09-22T03:35:44.530Z",
+    "returned_at": "2026-09-16T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 569,
+  "fields": {
+    "borrow_request": 646,
+    "borrowed_at": "2026-09-08T03:35:44.530Z",
+    "due_at": "2026-09-22T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 570,
+  "fields": {
+    "borrow_request": 647,
+    "borrowed_at": "2026-09-09T03:35:44.530Z",
+    "due_at": "2026-09-23T03:35:44.530Z",
+    "returned_at": "2026-09-13T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 571,
+  "fields": {
+    "borrow_request": 648,
+    "borrowed_at": "2026-09-09T03:35:44.530Z",
+    "due_at": "2026-09-23T03:35:44.530Z",
+    "returned_at": "2026-09-14T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 572,
+  "fields": {
+    "borrow_request": 649,
+    "borrowed_at": "2026-09-10T03:35:44.530Z",
+    "due_at": "2026-09-24T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 573,
+  "fields": {
+    "borrow_request": 650,
+    "borrowed_at": "2026-09-10T03:35:44.530Z",
+    "due_at": "2026-09-24T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 574,
+  "fields": {
+    "borrow_request": 651,
+    "borrowed_at": "2026-09-11T03:35:44.530Z",
+    "due_at": "2026-09-25T03:35:44.530Z",
+    "returned_at": "2026-09-21T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 575,
+  "fields": {
+    "borrow_request": 652,
+    "borrowed_at": "2026-09-11T03:35:44.530Z",
+    "due_at": "2026-09-25T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 576,
+  "fields": {
+    "borrow_request": 653,
+    "borrowed_at": "2026-09-12T03:35:44.530Z",
+    "due_at": "2026-09-26T03:35:44.530Z",
+    "returned_at": "2026-09-18T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 577,
+  "fields": {
+    "borrow_request": 654,
+    "borrowed_at": "2026-09-12T03:35:44.530Z",
+    "due_at": "2026-09-26T03:35:44.530Z",
+    "returned_at": "2026-09-21T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 578,
+  "fields": {
+    "borrow_request": 655,
+    "borrowed_at": "2026-09-12T03:35:44.530Z",
+    "due_at": "2026-09-26T03:35:44.530Z",
+    "returned_at": "2026-09-19T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 579,
+  "fields": {
+    "borrow_request": 656,
+    "borrowed_at": "2026-09-13T03:35:44.530Z",
+    "due_at": "2026-09-27T03:35:44.530Z",
+    "returned_at": "2026-09-21T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 580,
+  "fields": {
+    "borrow_request": 657,
+    "borrowed_at": "2026-09-13T03:35:44.530Z",
+    "due_at": "2026-09-27T03:35:44.530Z",
+    "returned_at": "2026-09-20T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 581,
+  "fields": {
+    "borrow_request": 658,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 582,
+  "fields": {
+    "borrow_request": 659,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 583,
+  "fields": {
+    "borrow_request": 660,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 584,
+  "fields": {
+    "borrow_request": 661,
+    "borrowed_at": "2026-09-14T03:35:44.530Z",
+    "due_at": "2026-09-28T03:35:44.530Z",
+    "returned_at": "2026-09-26T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 585,
+  "fields": {
+    "borrow_request": 662,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": "2026-09-27T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 586,
+  "fields": {
+    "borrow_request": 663,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": null,
+    "status": "BORROWING",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 587,
+  "fields": {
+    "borrow_request": 664,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": "2026-09-24T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "borrowing.borrowtransaction",
+  "pk": 588,
+  "fields": {
+    "borrow_request": 665,
+    "borrowed_at": "2026-09-15T03:35:44.530Z",
+    "due_at": "2026-09-29T03:35:44.530Z",
+    "returned_at": "2026-09-24T03:35:44.530Z",
+    "status": "RETURNED",
+    "fine_amount": "0.00"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 1,
+  "fields": {
+    "event": 2,
+    "member": 2,
+    "checked_in_at": "2026-05-03T09:05:40.338Z"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 2,
+  "fields": {
+    "event": 3,
+    "member": 2,
+    "checked_in_at": "2026-05-03T09:05:44.029Z"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 3,
+  "fields": {
+    "event": 4,
+    "member": 2,
+    "checked_in_at": "2026-05-03T13:45:59.191Z"
+  }
+},
+{
+  "model": "events.eventcheckin",
+  "pk": 4,
+  "fields": {
+    "event": 5,
+    "member": 2,
+    "checked_in_at": "2026-05-04T01:06:45.035Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add Hồ sơ sinh viên",
+    "content_type": [
+      "accounts",
+      "studentprofile"
+    ],
+    "codename": "add_studentprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change Hồ sơ sinh viên",
+    "content_type": [
+      "accounts",
+      "studentprofile"
+    ],
+    "codename": "change_studentprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete Hồ sơ sinh viên",
+    "content_type": [
+      "accounts",
+      "studentprofile"
+    ],
+    "codename": "delete_studentprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view Hồ sơ sinh viên",
+    "content_type": [
+      "accounts",
+      "studentprofile"
+    ],
+    "codename": "view_studentprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Sách",
+    "content_type": [
+      "library",
+      "book"
+    ],
+    "codename": "add_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Sách",
+    "content_type": [
+      "library",
+      "book"
+    ],
+    "codename": "change_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Sách",
+    "content_type": [
+      "library",
+      "book"
+    ],
+    "codename": "delete_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Sách",
+    "content_type": [
+      "library",
+      "book"
+    ],
+    "codename": "view_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Danh mục",
+    "content_type": [
+      "library",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Danh mục",
+    "content_type": [
+      "library",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Danh mục",
+    "content_type": [
+      "library",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Danh mục",
+    "content_type": [
+      "library",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add borrow transaction",
+    "content_type": [
+      "borrowing",
+      "borrowtransaction"
+    ],
+    "codename": "add_borrowtransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change borrow transaction",
+    "content_type": [
+      "borrowing",
+      "borrowtransaction"
+    ],
+    "codename": "change_borrowtransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete borrow transaction",
+    "content_type": [
+      "borrowing",
+      "borrowtransaction"
+    ],
+    "codename": "delete_borrowtransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view borrow transaction",
+    "content_type": [
+      "borrowing",
+      "borrowtransaction"
+    ],
+    "codename": "view_borrowtransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add borrow request",
+    "content_type": [
+      "borrowing",
+      "borrowrequest"
+    ],
+    "codename": "add_borrowrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change borrow request",
+    "content_type": [
+      "borrowing",
+      "borrowrequest"
+    ],
+    "codename": "change_borrowrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete borrow request",
+    "content_type": [
+      "borrowing",
+      "borrowrequest"
+    ],
+    "codename": "delete_borrowrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view borrow request",
+    "content_type": [
+      "borrowing",
+      "borrowrequest"
+    ],
+    "codename": "view_borrowrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add review",
+    "content_type": [
+      "reviews",
+      "review"
+    ],
+    "codename": "add_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change review",
+    "content_type": [
+      "reviews",
+      "review"
+    ],
+    "codename": "change_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete review",
+    "content_type": [
+      "reviews",
+      "review"
+    ],
+    "codename": "delete_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view review",
+    "content_type": [
+      "reviews",
+      "review"
+    ],
+    "codename": "view_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add point log",
+    "content_type": [
+      "members",
+      "pointlog"
+    ],
+    "codename": "add_pointlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change point log",
+    "content_type": [
+      "members",
+      "pointlog"
+    ],
+    "codename": "change_pointlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete point log",
+    "content_type": [
+      "members",
+      "pointlog"
+    ],
+    "codename": "delete_pointlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view point log",
+    "content_type": [
+      "members",
+      "pointlog"
+    ],
+    "codename": "view_pointlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add club member",
+    "content_type": [
+      "members",
+      "clubmember"
+    ],
+    "codename": "add_clubmember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change club member",
+    "content_type": [
+      "members",
+      "clubmember"
+    ],
+    "codename": "change_clubmember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete club member",
+    "content_type": [
+      "members",
+      "clubmember"
+    ],
+    "codename": "delete_clubmember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view club member",
+    "content_type": [
+      "members",
+      "clubmember"
+    ],
+    "codename": "view_clubmember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add event checkin",
+    "content_type": [
+      "events",
+      "eventcheckin"
+    ],
+    "codename": "add_eventcheckin"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change event checkin",
+    "content_type": [
+      "events",
+      "eventcheckin"
+    ],
+    "codename": "change_eventcheckin"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete event checkin",
+    "content_type": [
+      "events",
+      "eventcheckin"
+    ],
+    "codename": "delete_eventcheckin"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view event checkin",
+    "content_type": [
+      "events",
+      "eventcheckin"
+    ],
+    "codename": "view_eventcheckin"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add club event",
+    "content_type": [
+      "events",
+      "clubevent"
+    ],
+    "codename": "add_clubevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change club event",
+    "content_type": [
+      "events",
+      "clubevent"
+    ],
+    "codename": "change_clubevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete club event",
+    "content_type": [
+      "events",
+      "clubevent"
+    ],
+    "codename": "delete_clubevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view club event",
+    "content_type": [
+      "events",
+      "clubevent"
+    ],
+    "codename": "view_clubevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add chat room",
+    "content_type": [
+      "members",
+      "chatroom"
+    ],
+    "codename": "add_chatroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change chat room",
+    "content_type": [
+      "members",
+      "chatroom"
+    ],
+    "codename": "change_chatroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete chat room",
+    "content_type": [
+      "members",
+      "chatroom"
+    ],
+    "codename": "delete_chatroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view chat room",
+    "content_type": [
+      "members",
+      "chatroom"
+    ],
+    "codename": "view_chatroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add club",
+    "content_type": [
+      "members",
+      "club"
+    ],
+    "codename": "add_club"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change club",
+    "content_type": [
+      "members",
+      "club"
+    ],
+    "codename": "change_club"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete club",
+    "content_type": [
+      "members",
+      "club"
+    ],
+    "codename": "delete_club"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view club",
+    "content_type": [
+      "members",
+      "club"
+    ],
+    "codename": "view_club"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add message",
+    "content_type": [
+      "members",
+      "message"
+    ],
+    "codename": "add_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change message",
+    "content_type": [
+      "members",
+      "message"
+    ],
+    "codename": "change_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete message",
+    "content_type": [
+      "members",
+      "message"
+    ],
+    "codename": "delete_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can view message",
+    "content_type": [
+      "members",
+      "message"
+    ],
+    "codename": "view_message"
+  }
+},
+{
   "model": "auth.user",
+  "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$720000$ckroxzV23ncqySqYokmtrD$aS2fqP3eRpOgi0x8i8a0/3ctlrS5JEWdUIx4f9CL7l8=",
-    "last_login": "2026-05-06T07:57:41.802Z",
+    "last_login": "2026-09-16T01:18:23.192Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "System",
@@ -18,6 +2175,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 3,
   "fields": {
     "password": "pbkdf2_sha256$720000$wcJ3k2DG3meQGZ8YXw0RVK$jae3kKsr7XZ5SJ4OpXPIJ5l9FHbLELzhwldw2ngkfvw=",
     "last_login": "2026-09-15T03:36:02.643Z",
@@ -35,6 +2193,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 19,
   "fields": {
     "password": "pbkdf2_sha256$720000$vcmwhSfku1dopTJyc4UVpa$68k+nVdWMO79UyP/m18FfeUxWnIqNX9CmU1zejEVDRI=",
     "last_login": "2026-05-04T07:27:04.334Z",
@@ -52,6 +2211,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 20,
   "fields": {
     "password": "pbkdf2_sha256$720000$4SfE9KWwXpRwbVuXSih7Fq$a4i34qEiTHcwcbHedP927ZPjFlj1J2IgZikr/ekbKDE=",
     "last_login": "2026-05-02T16:50:08.652Z",
@@ -69,6 +2229,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 21,
   "fields": {
     "password": "pbkdf2_sha256$720000$U5fm2EpWQLvup5bsWVjdzV$IkWmMyi/aS7iy6X5CCPtQXcuB3T0ShtTQKP0VoQdNXk=",
     "last_login": "2026-05-03T08:53:55.661Z",
@@ -86,6 +2247,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 22,
   "fields": {
     "password": "pbkdf2_sha256$720000$h91ENNM7KZoQCXn2e0x57C$IYx2NTSoW8Qua6OfOtpRyZboeWfAYUloLkobqQjfS9A=",
     "last_login": "2026-05-06T07:59:04.729Z",
@@ -103,6 +2265,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 23,
   "fields": {
     "password": "pbkdf2_sha256$720000$ApRF00YdfEw1Rj8UVggWEo$a1JCKEOwdSuUaip+MePHHDHpZT/J2/ZMCjIMZcMX0kE=",
     "last_login": "2026-05-04T01:50:27.090Z",
@@ -120,6 +2283,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 24,
   "fields": {
     "password": "pbkdf2_sha256$720000$jjIX3i3RbjtNovyeSC5HwG$rdjgcDk+bXiAAPMA44reryR0e6TXjZGavgjmNClk4ZM=",
     "last_login": null,
@@ -137,6 +2301,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 25,
   "fields": {
     "password": "pbkdf2_sha256$720000$O2eQYkC9uuBtJFvbiLAm2R$vN+1ZKIwy1h/uzqnPAa//flZyfEnDrXqY9v0iArYYZc=",
     "last_login": null,
@@ -154,6 +2319,7 @@
 },
 {
   "model": "auth.user",
+  "pk": 26,
   "fields": {
     "password": "pbkdf2_sha256$720000$vQRDXG7oLARS9j2nsPFfyU$1a9sKDcl12990dh6we2hy7rvyLvbtOup4B0Tt/BzAXA=",
     "last_login": null,
@@ -275,46 +2441,6 @@
     "faculty": "Công nghệ thông tin",
     "class_name": "CNTT01",
     "created_at": "2026-05-13T13:39:05.484Z"
-  }
-},
-{
-  "model": "library.category",
-  "pk": 1,
-  "fields": {
-    "name": "Văn học",
-    "description": "Sách văn học trong và ngoài nước",
-    "is_active": true,
-    "created_at": "2026-03-09T14:12:33.294Z"
-  }
-},
-{
-  "model": "library.category",
-  "pk": 2,
-  "fields": {
-    "name": "Kỹ năng sống",
-    "description": "Phát triển bản thân và kỹ năng mềm",
-    "is_active": true,
-    "created_at": "2026-03-09T14:12:33.294Z"
-  }
-},
-{
-  "model": "library.category",
-  "pk": 3,
-  "fields": {
-    "name": "Công nghệ",
-    "description": "Sách về lập trình và công nghệ",
-    "is_active": true,
-    "created_at": "2026-03-09T14:12:33.300Z"
-  }
-},
-{
-  "model": "library.category",
-  "pk": 4,
-  "fields": {
-    "name": "Kinh tế",
-    "description": "Kinh doanh và quản trị",
-    "is_active": true,
-    "created_at": "2026-03-09T14:12:33.302Z"
   }
 },
 {
@@ -2592,942 +4718,6 @@
   }
 },
 {
-  "model": "borrowing.borrowtransaction",
-  "pk": 511,
-  "fields": {
-    "borrow_request": 588,
-    "borrowed_at": "2026-08-17T03:35:44.530Z",
-    "due_at": "2026-08-31T03:35:44.530Z",
-    "returned_at": "2026-08-25T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 512,
-  "fields": {
-    "borrow_request": 589,
-    "borrowed_at": "2026-08-17T03:35:44.530Z",
-    "due_at": "2026-08-31T03:35:44.530Z",
-    "returned_at": "2026-08-26T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 513,
-  "fields": {
-    "borrow_request": 590,
-    "borrowed_at": "2026-08-17T03:35:44.530Z",
-    "due_at": "2026-08-31T03:35:44.530Z",
-    "returned_at": "2026-08-20T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 514,
-  "fields": {
-    "borrow_request": 591,
-    "borrowed_at": "2026-08-18T03:35:44.530Z",
-    "due_at": "2026-09-01T03:35:44.530Z",
-    "returned_at": "2026-08-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 515,
-  "fields": {
-    "borrow_request": 592,
-    "borrowed_at": "2026-08-18T03:35:44.530Z",
-    "due_at": "2026-09-01T03:35:44.530Z",
-    "returned_at": "2026-08-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 516,
-  "fields": {
-    "borrow_request": 593,
-    "borrowed_at": "2026-08-18T03:35:44.530Z",
-    "due_at": "2026-09-01T03:35:44.530Z",
-    "returned_at": "2026-08-25T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 517,
-  "fields": {
-    "borrow_request": 594,
-    "borrowed_at": "2026-08-19T03:35:44.530Z",
-    "due_at": "2026-09-02T03:35:44.530Z",
-    "returned_at": "2026-08-23T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 518,
-  "fields": {
-    "borrow_request": 595,
-    "borrowed_at": "2026-08-19T03:35:44.530Z",
-    "due_at": "2026-09-02T03:35:44.530Z",
-    "returned_at": "2026-08-31T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 519,
-  "fields": {
-    "borrow_request": 596,
-    "borrowed_at": "2026-08-20T03:35:44.530Z",
-    "due_at": "2026-09-03T03:35:44.530Z",
-    "returned_at": "2026-08-23T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 520,
-  "fields": {
-    "borrow_request": 597,
-    "borrowed_at": "2026-08-20T03:35:44.530Z",
-    "due_at": "2026-09-03T03:35:44.530Z",
-    "returned_at": "2026-08-29T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 521,
-  "fields": {
-    "borrow_request": 598,
-    "borrowed_at": "2026-08-21T03:35:44.530Z",
-    "due_at": "2026-09-04T03:35:44.530Z",
-    "returned_at": "2026-08-31T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 522,
-  "fields": {
-    "borrow_request": 599,
-    "borrowed_at": "2026-08-21T03:35:44.530Z",
-    "due_at": "2026-09-04T03:35:44.530Z",
-    "returned_at": "2026-08-24T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 523,
-  "fields": {
-    "borrow_request": 600,
-    "borrowed_at": "2026-08-21T03:35:44.530Z",
-    "due_at": "2026-09-04T03:35:44.530Z",
-    "returned_at": "2026-08-31T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 524,
-  "fields": {
-    "borrow_request": 601,
-    "borrowed_at": "2026-08-21T03:35:44.530Z",
-    "due_at": "2026-09-04T03:35:44.530Z",
-    "returned_at": "2026-09-01T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 525,
-  "fields": {
-    "borrow_request": 602,
-    "borrowed_at": "2026-08-22T03:35:44.530Z",
-    "due_at": "2026-09-05T03:35:44.530Z",
-    "returned_at": "2026-08-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 526,
-  "fields": {
-    "borrow_request": 603,
-    "borrowed_at": "2026-08-22T03:35:44.530Z",
-    "due_at": "2026-09-05T03:35:44.530Z",
-    "returned_at": "2026-08-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 527,
-  "fields": {
-    "borrow_request": 604,
-    "borrowed_at": "2026-08-23T03:35:44.530Z",
-    "due_at": "2026-09-06T03:35:44.530Z",
-    "returned_at": "2026-08-28T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 528,
-  "fields": {
-    "borrow_request": 605,
-    "borrowed_at": "2026-08-23T03:35:44.530Z",
-    "due_at": "2026-09-06T03:35:44.530Z",
-    "returned_at": "2026-09-04T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 529,
-  "fields": {
-    "borrow_request": 606,
-    "borrowed_at": "2026-08-23T03:35:44.530Z",
-    "due_at": "2026-09-06T03:35:44.530Z",
-    "returned_at": "2026-09-04T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 530,
-  "fields": {
-    "borrow_request": 607,
-    "borrowed_at": "2026-08-23T03:35:44.530Z",
-    "due_at": "2026-09-06T03:35:44.530Z",
-    "returned_at": "2026-08-31T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 531,
-  "fields": {
-    "borrow_request": 608,
-    "borrowed_at": "2026-08-24T03:35:44.530Z",
-    "due_at": "2026-09-07T03:35:44.530Z",
-    "returned_at": "2026-08-28T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 532,
-  "fields": {
-    "borrow_request": 609,
-    "borrowed_at": "2026-08-24T03:35:44.530Z",
-    "due_at": "2026-09-07T03:35:44.530Z",
-    "returned_at": "2026-08-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 533,
-  "fields": {
-    "borrow_request": 610,
-    "borrowed_at": "2026-08-24T03:35:44.530Z",
-    "due_at": "2026-09-07T03:35:44.530Z",
-    "returned_at": "2026-08-29T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 534,
-  "fields": {
-    "borrow_request": 611,
-    "borrowed_at": "2026-08-24T03:35:44.530Z",
-    "due_at": "2026-09-07T03:35:44.530Z",
-    "returned_at": "2026-08-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 535,
-  "fields": {
-    "borrow_request": 612,
-    "borrowed_at": "2026-08-25T03:35:44.530Z",
-    "due_at": "2026-09-08T03:35:44.530Z",
-    "returned_at": "2026-08-30T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 536,
-  "fields": {
-    "borrow_request": 613,
-    "borrowed_at": "2026-08-25T03:35:44.530Z",
-    "due_at": "2026-09-08T03:35:44.530Z",
-    "returned_at": "2026-08-31T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 537,
-  "fields": {
-    "borrow_request": 614,
-    "borrowed_at": "2026-08-26T03:35:44.530Z",
-    "due_at": "2026-09-09T03:35:44.530Z",
-    "returned_at": "2026-09-04T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 538,
-  "fields": {
-    "borrow_request": 615,
-    "borrowed_at": "2026-08-26T03:35:44.530Z",
-    "due_at": "2026-09-09T03:35:44.530Z",
-    "returned_at": "2026-08-29T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 539,
-  "fields": {
-    "borrow_request": 616,
-    "borrowed_at": "2026-08-27T03:35:44.530Z",
-    "due_at": "2026-09-10T03:35:44.530Z",
-    "returned_at": "2026-09-09T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 540,
-  "fields": {
-    "borrow_request": 617,
-    "borrowed_at": "2026-08-28T03:35:44.530Z",
-    "due_at": "2026-09-11T03:35:44.530Z",
-    "returned_at": "2026-09-10T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 541,
-  "fields": {
-    "borrow_request": 618,
-    "borrowed_at": "2026-08-28T03:35:44.530Z",
-    "due_at": "2026-09-11T03:35:44.530Z",
-    "returned_at": "2026-09-10T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 542,
-  "fields": {
-    "borrow_request": 619,
-    "borrowed_at": "2026-08-28T03:35:44.530Z",
-    "due_at": "2026-09-11T03:35:44.530Z",
-    "returned_at": "2026-08-31T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 543,
-  "fields": {
-    "borrow_request": 620,
-    "borrowed_at": "2026-08-29T03:35:44.530Z",
-    "due_at": "2026-09-12T03:35:44.530Z",
-    "returned_at": "2026-09-10T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 544,
-  "fields": {
-    "borrow_request": 621,
-    "borrowed_at": "2026-08-29T03:35:44.530Z",
-    "due_at": "2026-09-12T03:35:44.530Z",
-    "returned_at": "2026-09-01T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 545,
-  "fields": {
-    "borrow_request": 622,
-    "borrowed_at": "2026-08-29T03:35:44.530Z",
-    "due_at": "2026-09-12T03:35:44.530Z",
-    "returned_at": "2026-09-04T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 546,
-  "fields": {
-    "borrow_request": 623,
-    "borrowed_at": "2026-08-30T03:35:44.530Z",
-    "due_at": "2026-09-13T03:35:44.530Z",
-    "returned_at": "2026-09-05T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 547,
-  "fields": {
-    "borrow_request": 624,
-    "borrowed_at": "2026-08-30T03:35:44.530Z",
-    "due_at": "2026-09-13T03:35:44.530Z",
-    "returned_at": "2026-09-12T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 548,
-  "fields": {
-    "borrow_request": 625,
-    "borrowed_at": "2026-08-30T03:35:44.530Z",
-    "due_at": "2026-09-13T03:35:44.530Z",
-    "returned_at": "2026-09-08T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 549,
-  "fields": {
-    "borrow_request": 626,
-    "borrowed_at": "2026-08-30T03:35:44.530Z",
-    "due_at": "2026-09-13T03:35:44.530Z",
-    "returned_at": "2026-09-07T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 550,
-  "fields": {
-    "borrow_request": 627,
-    "borrowed_at": "2026-08-31T03:35:44.530Z",
-    "due_at": "2026-09-14T03:35:44.530Z",
-    "returned_at": "2026-09-13T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 551,
-  "fields": {
-    "borrow_request": 628,
-    "borrowed_at": "2026-08-31T03:35:44.530Z",
-    "due_at": "2026-09-14T03:35:44.530Z",
-    "returned_at": "2026-09-08T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 552,
-  "fields": {
-    "borrow_request": 629,
-    "borrowed_at": "2026-09-01T03:35:44.530Z",
-    "due_at": "2026-09-15T03:35:44.530Z",
-    "returned_at": "2026-09-13T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 553,
-  "fields": {
-    "borrow_request": 630,
-    "borrowed_at": "2026-09-01T03:35:44.530Z",
-    "due_at": "2026-09-15T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 554,
-  "fields": {
-    "borrow_request": 631,
-    "borrowed_at": "2026-09-01T03:35:44.530Z",
-    "due_at": "2026-09-15T03:35:44.530Z",
-    "returned_at": "2026-09-10T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 555,
-  "fields": {
-    "borrow_request": 632,
-    "borrowed_at": "2026-09-01T03:35:44.530Z",
-    "due_at": "2026-09-15T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 556,
-  "fields": {
-    "borrow_request": 633,
-    "borrowed_at": "2026-09-02T03:35:44.530Z",
-    "due_at": "2026-09-16T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 557,
-  "fields": {
-    "borrow_request": 634,
-    "borrowed_at": "2026-09-02T03:35:44.530Z",
-    "due_at": "2026-09-16T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 558,
-  "fields": {
-    "borrow_request": 635,
-    "borrowed_at": "2026-09-03T03:35:44.530Z",
-    "due_at": "2026-09-17T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 559,
-  "fields": {
-    "borrow_request": 636,
-    "borrowed_at": "2026-09-03T03:35:44.530Z",
-    "due_at": "2026-09-17T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 560,
-  "fields": {
-    "borrow_request": 637,
-    "borrowed_at": "2026-09-03T03:35:44.530Z",
-    "due_at": "2026-09-17T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 561,
-  "fields": {
-    "borrow_request": 638,
-    "borrowed_at": "2026-09-04T03:35:44.530Z",
-    "due_at": "2026-09-18T03:35:44.530Z",
-    "returned_at": "2026-09-08T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 562,
-  "fields": {
-    "borrow_request": 639,
-    "borrowed_at": "2026-09-05T03:35:44.530Z",
-    "due_at": "2026-09-19T03:35:44.530Z",
-    "returned_at": "2026-09-13T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 563,
-  "fields": {
-    "borrow_request": 640,
-    "borrowed_at": "2026-09-06T03:35:44.530Z",
-    "due_at": "2026-09-20T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 564,
-  "fields": {
-    "borrow_request": 641,
-    "borrowed_at": "2026-09-06T03:35:44.530Z",
-    "due_at": "2026-09-20T03:35:44.530Z",
-    "returned_at": "2026-09-17T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 565,
-  "fields": {
-    "borrow_request": 642,
-    "borrowed_at": "2026-09-06T03:35:44.530Z",
-    "due_at": "2026-09-20T03:35:44.530Z",
-    "returned_at": "2026-09-12T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 566,
-  "fields": {
-    "borrow_request": 643,
-    "borrowed_at": "2026-09-07T03:35:44.530Z",
-    "due_at": "2026-09-21T03:35:44.530Z",
-    "returned_at": "2026-09-17T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 567,
-  "fields": {
-    "borrow_request": 644,
-    "borrowed_at": "2026-09-07T03:35:44.530Z",
-    "due_at": "2026-09-21T03:35:44.530Z",
-    "returned_at": "2026-09-20T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 568,
-  "fields": {
-    "borrow_request": 645,
-    "borrowed_at": "2026-09-08T03:35:44.530Z",
-    "due_at": "2026-09-22T03:35:44.530Z",
-    "returned_at": "2026-09-16T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 569,
-  "fields": {
-    "borrow_request": 646,
-    "borrowed_at": "2026-09-08T03:35:44.530Z",
-    "due_at": "2026-09-22T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 570,
-  "fields": {
-    "borrow_request": 647,
-    "borrowed_at": "2026-09-09T03:35:44.530Z",
-    "due_at": "2026-09-23T03:35:44.530Z",
-    "returned_at": "2026-09-13T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 571,
-  "fields": {
-    "borrow_request": 648,
-    "borrowed_at": "2026-09-09T03:35:44.530Z",
-    "due_at": "2026-09-23T03:35:44.530Z",
-    "returned_at": "2026-09-14T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 572,
-  "fields": {
-    "borrow_request": 649,
-    "borrowed_at": "2026-09-10T03:35:44.530Z",
-    "due_at": "2026-09-24T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 573,
-  "fields": {
-    "borrow_request": 650,
-    "borrowed_at": "2026-09-10T03:35:44.530Z",
-    "due_at": "2026-09-24T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 574,
-  "fields": {
-    "borrow_request": 651,
-    "borrowed_at": "2026-09-11T03:35:44.530Z",
-    "due_at": "2026-09-25T03:35:44.530Z",
-    "returned_at": "2026-09-21T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 575,
-  "fields": {
-    "borrow_request": 652,
-    "borrowed_at": "2026-09-11T03:35:44.530Z",
-    "due_at": "2026-09-25T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 576,
-  "fields": {
-    "borrow_request": 653,
-    "borrowed_at": "2026-09-12T03:35:44.530Z",
-    "due_at": "2026-09-26T03:35:44.530Z",
-    "returned_at": "2026-09-18T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 577,
-  "fields": {
-    "borrow_request": 654,
-    "borrowed_at": "2026-09-12T03:35:44.530Z",
-    "due_at": "2026-09-26T03:35:44.530Z",
-    "returned_at": "2026-09-21T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 578,
-  "fields": {
-    "borrow_request": 655,
-    "borrowed_at": "2026-09-12T03:35:44.530Z",
-    "due_at": "2026-09-26T03:35:44.530Z",
-    "returned_at": "2026-09-19T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 579,
-  "fields": {
-    "borrow_request": 656,
-    "borrowed_at": "2026-09-13T03:35:44.530Z",
-    "due_at": "2026-09-27T03:35:44.530Z",
-    "returned_at": "2026-09-21T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 580,
-  "fields": {
-    "borrow_request": 657,
-    "borrowed_at": "2026-09-13T03:35:44.530Z",
-    "due_at": "2026-09-27T03:35:44.530Z",
-    "returned_at": "2026-09-20T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 581,
-  "fields": {
-    "borrow_request": 658,
-    "borrowed_at": "2026-09-14T03:35:44.530Z",
-    "due_at": "2026-09-28T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 582,
-  "fields": {
-    "borrow_request": 659,
-    "borrowed_at": "2026-09-14T03:35:44.530Z",
-    "due_at": "2026-09-28T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 583,
-  "fields": {
-    "borrow_request": 660,
-    "borrowed_at": "2026-09-14T03:35:44.530Z",
-    "due_at": "2026-09-28T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 584,
-  "fields": {
-    "borrow_request": 661,
-    "borrowed_at": "2026-09-14T03:35:44.530Z",
-    "due_at": "2026-09-28T03:35:44.530Z",
-    "returned_at": "2026-09-26T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 585,
-  "fields": {
-    "borrow_request": 662,
-    "borrowed_at": "2026-09-15T03:35:44.530Z",
-    "due_at": "2026-09-29T03:35:44.530Z",
-    "returned_at": "2026-09-27T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 586,
-  "fields": {
-    "borrow_request": 663,
-    "borrowed_at": "2026-09-15T03:35:44.530Z",
-    "due_at": "2026-09-29T03:35:44.530Z",
-    "returned_at": null,
-    "status": "BORROWING",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 587,
-  "fields": {
-    "borrow_request": 664,
-    "borrowed_at": "2026-09-15T03:35:44.530Z",
-    "due_at": "2026-09-29T03:35:44.530Z",
-    "returned_at": "2026-09-24T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
-  "model": "borrowing.borrowtransaction",
-  "pk": 588,
-  "fields": {
-    "borrow_request": 665,
-    "borrowed_at": "2026-09-15T03:35:44.530Z",
-    "due_at": "2026-09-29T03:35:44.530Z",
-    "returned_at": "2026-09-24T03:35:44.530Z",
-    "status": "RETURNED",
-    "fine_amount": "0.00"
-  }
-},
-{
   "model": "reviews.review",
   "pk": 3,
   "fields": {
@@ -4139,39 +5329,273 @@
   }
 },
 {
-  "model": "events.eventcheckin",
+  "model": "admin.logentry",
   "pk": 1,
   "fields": {
-    "event": 2,
-    "member": 2,
-    "checked_in_at": "2026-05-03T09:05:40.338Z"
+    "action_time": "2026-03-17T15:45:13.627Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "hello",
+    "action_flag": 3,
+    "change_message": ""
   }
 },
 {
-  "model": "events.eventcheckin",
+  "model": "admin.logentry",
   "pk": 2,
   "fields": {
-    "event": 3,
-    "member": 2,
-    "checked_in_at": "2026-05-03T09:05:44.029Z"
+    "action_time": "2026-03-17T15:45:13.634Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "7",
+    "object_repr": "hi",
+    "action_flag": 3,
+    "change_message": ""
   }
 },
 {
-  "model": "events.eventcheckin",
+  "model": "admin.logentry",
   "pk": 3,
   "fields": {
-    "event": 4,
-    "member": 2,
-    "checked_in_at": "2026-05-03T13:45:59.191Z"
+    "action_time": "2026-03-17T15:45:13.636Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "NgoQuangManh",
+    "action_flag": 3,
+    "change_message": ""
   }
 },
 {
-  "model": "events.eventcheckin",
+  "model": "admin.logentry",
   "pk": 4,
   "fields": {
-    "event": 5,
-    "member": 2,
-    "checked_in_at": "2026-05-04T01:06:45.035Z"
+    "action_time": "2026-03-17T15:45:13.638Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-17T15:45:13.640Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "12",
+    "object_repr": "TheSon",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-18T16:53:28.340Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "8",
+    "object_repr": "student02",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-18T16:53:28.344Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "9",
+    "object_repr": "student03",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-03-18T16:53:28.345Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "10",
+    "object_repr": "student04",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-03-18T16:53:28.345Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "11",
+    "object_repr": "student05",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-03-18T17:27:14.123Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "13",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-03-18T17:50:06.307Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "14",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-03-19T01:56:26.306Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "15",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-03-19T02:18:19.078Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "16",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-03-19T02:39:36.379Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "17",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-03-19T02:48:31.374Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "18",
+    "object_repr": "QuangManh",
+    "action_flag": 3,
+    "change_message": ""
   }
 }
 ]
