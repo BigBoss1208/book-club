@@ -1,6 +1,5 @@
 venv/
-media/*
-!media/book_covers/
+media/
 staticfiles/
 .env
 .idea/
