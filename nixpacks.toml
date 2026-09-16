@@ -1,2 +1,2 @@
 [phases.setup]
-aptPkgs = ["libtiff6", "libxcb1", "libx11-6", "libxext6", "libxrender1", "libsm6", "libice6", "zlib1g", "libjpeg62-turbo", "libfreetype6", "liblcms2-2", "libopenjp2-7", "libwebp7"]
+aptPkgs = ["libtiff6", "libxcb1", "libx11-6", "libxext6", "libxrender1", "libsm6", "libice6", "zlib1g", "libjpeg-turbo8", "libfreetype6", "liblcms2-2", "libopenjp2-7", "libwebp7"]
