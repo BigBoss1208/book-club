@@ -6,7 +6,7 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ['title', 'author', 'publisher', 'publish_year', 'isbn',
-                  'description', 'cover_image', 'total_copies', 'available_copies',
+                  'description', 'cover_image', 'ebook_file', 'total_copies', 'available_copies',
                   'category', 'is_active']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4}),
@@ -21,6 +21,15 @@ class BookForm(forms.ModelForm):
             if not image.content_type in ['image/jpeg', 'image/png', 'image/webp']:
                 raise ValidationError('Chỉ chấp nhận file JPG, PNG, WEBP')
         return image
+
+    def clean_ebook_file(self):
+        ebook = self.cleaned_data.get('ebook_file')
+        if ebook and hasattr(ebook, 'content_type'):
+            if ebook.size > 20 * 1024 * 1024:  # 20MB
+                raise ValidationError('File PDF không được vượt quá 20MB')
+            if ebook.content_type != 'application/pdf':
+                raise ValidationError('Chỉ chấp nhận file PDF')
+        return ebook
 
     def clean(self):
         cleaned_data = super().clean()

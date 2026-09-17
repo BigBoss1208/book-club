@@ -142,6 +142,41 @@
         color: #fff;
     }
 
+    .btn-ebook {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: .92rem;
+        text-decoration: none;
+        border: none;
+        transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-ebook-read {
+        background: linear-gradient(135deg, #059669, #10b981);
+        color: #fff;
+        box-shadow: 0 8px 22px rgba(5, 150, 105, .28);
+    }
+
+    .btn-ebook-read:hover {
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    .btn-ebook-download {
+        border: 2px solid #059669;
+        color: #059669;
+        background: transparent;
+    }
+
+    .btn-ebook-download:hover {
+        background: #059669;
+        color: #fff;
+    }
+
     /* Reviews */
     .reviews-section {
         margin-top: 48px;
@@ -298,6 +333,29 @@
         <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn-login-borrow">
             <i class="bi bi-box-arrow-in-right"></i> Đăng nhập để mượn sách
         </a>
+        {% endif %}
+
+        <!-- Ebook -->
+        {% if book.ebook_file %}
+        {% if user.is_authenticated %}
+        <div class="mt-3">
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'library:read_book' book.pk %}" class="btn-ebook btn-ebook-read">
+                    <i class="bi bi-eye-fill"></i> Đọc online
+                </a>
+                <a href="{% url 'library:download_ebook' book.pk %}" class="btn-ebook btn-ebook-download">
+                    <i class="bi bi-download"></i> Tải xuống
+                </a>
+            </div>
+            <small class="text-muted d-block mt-2"><i class="bi bi-eye"></i> {{ book.read_count }} lượt đọc</small>
+        </div>
+        {% else %}
+        <div class="mt-3">
+            <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="btn-login-borrow">
+                <i class="bi bi-box-arrow-in-right"></i> Đăng nhập để đọc ebook
+            </a>
+        </div>
+        {% endif %}
         {% endif %}
     </div>
 </div>

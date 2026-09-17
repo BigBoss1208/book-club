@@ -31,6 +31,13 @@ class Book(models.Model):
         null=True,
         blank=True
     )
+    ebook_file = models.FileField(
+        upload_to='ebooks/',
+        validators=[FileExtensionValidator(['pdf'])],
+        null=True,
+        blank=True
+    )
+    read_count = models.PositiveIntegerField(default=0)
     total_copies = models.IntegerField(default=1, validators=[MinValueValidator(0)])
     available_copies = models.IntegerField(default=1, validators=[MinValueValidator(0)])
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='books')

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from django.db.models import Q, Count
+from django.db.models import Q, Count, F
 from django.core.paginator import Paginator
 from django.utils import timezone
 from datetime import timedelta
@@ -238,3 +238,24 @@ def category_delete_view(request, pk):
         messages.success(request, f'Đã ẩn danh mục "{category.name}"')
         return redirect('library:category_list')
     return render(request, 'library/category_confirm_delete.html', {'category': category})
+
+
+# ==== Đọc ebook online ====
+
+@login_required
+def read_book_view(request, pk):
+    book = get_object_or_404(Book, pk=pk, is_active=True, ebook_file__isnull=False)
+    Book.objects.filter(pk=pk).update(read_count=F('read_count') + 1)
+    return render(request, 'library/read_book.html', {'book': book})
+
+
+@login_required
+def serve_ebook_view(request, pk):
+    book = get_object_or_404(Book, pk=pk, is_active=True, ebook_file__isnull=False)
+    return FileResponse(book.ebook_file.open('rb'), content_type='application/pdf')
+
+
+@login_required
+def download_ebook_view(request, pk):
+    book = get_object_or_404(Book, pk=pk, is_active=True, ebook_file__isnull=False)
+    return FileResponse(book.ebook_file.open('rb'), as_attachment=True, filename=book.ebook_file.name.split('/')[-1])

@@ -15,4 +15,7 @@ urlpatterns = [
     path('categories/create/', views.category_create_view, name='category_create'),
     path('categories/<int:pk>/update/', views.category_update_view, name='category_update'),
     path('categories/<int:pk>/delete/', views.category_delete_view, name='category_delete'),
+    path('books/<int:pk>/read/', views.read_book_view, name='read_book'),
+    path('books/<int:pk>/ebook/', views.serve_ebook_view, name='serve_ebook'),
+    path('books/<int:pk>/ebook/download/', views.download_ebook_view, name='download_ebook'),
 ]
